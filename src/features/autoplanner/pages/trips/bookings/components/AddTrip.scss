@@ -1,0 +1,89 @@
+@use '../../../../../../app/styles/variables' as *;
+
+.css-m9glnp-MuiPaper-root-MuiDialog-paper {
+  border-radius: 8px !important;
+}
+
+.d-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.add-booking-title {
+  color: $accent;
+  font: $font-heading !important;
+  font-size: 18px !important;
+  margin: 20px 0 0 0 !important;
+  font-weight: 600 !important;
+}
+.add-trip-dialog-auto {
+  .css-1mpvhy3-MuiDialogContent-root {
+    padding: 10px 0 10px 10px !important;
+  }
+
+  .add-trip-grid-item {
+    .add-trip-header {
+      position: sticky;
+      top: 0;
+      display: flex;
+      justify-content: space-between;
+      background-color: $white;
+      z-index: 10;
+      padding-bottom: 10px !important;
+    }
+
+    .close-icon-index {
+      z-index: 11;
+    }
+
+    .add-trip-form {
+      padding-top: 20px;
+    }
+  }
+}
+.transfer-trip {
+  display: flex;
+  align-items: center;
+  .transfer-trip-label {
+    margin: 0;
+    color: $accent;
+    font: $font-heading !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+  }
+  .css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root.Mui-checked,
+  .css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root.MuiCheckbox-indeterminate {
+    color: $primary !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .css-a5rdam-MuiGrid-root > .MuiGrid-item {
+    padding-left: 5px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .add-trip-dialog-auto .add-trip-grid-item .add-trip-form {
+    padding-left: 17px;
+  }
+}
+
+@media (max-width: 768px) {
+  .import-dialog .import-file-dialog {
+    min-width: 0px !important;
+  }
+}
+@media (max-width: 768px) {
+  .import-dialog .import-file-dialog .disclaimer .disclaimer-head .disclaimer-title {
+    font-size: 9px !important;
+  }
+  @media (max-width: 600px) {
+    .css-ncm2re-MuiDialogContent-root {
+      overflow: scroll;
+    }
+  }
+}

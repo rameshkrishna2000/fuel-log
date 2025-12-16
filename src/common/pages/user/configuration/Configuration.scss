@@ -1,0 +1,75 @@
+@use '../../../../app/styles/variables' as *;
+
+// background color for total management:
+.MuiBox-root .css-mikc7i {
+  background: $title-color;
+}
+
+// Converting the default style of MUI:
+.css-1h9z7r5-MuiButtonBase-root-MuiTab-root.Mui-selected,
+.css-1q2h7u5.Mui-selected {
+  color: $primary !important;
+}
+
+.css-1aquho2-MuiTabs-indicator,
+.css-ttwr4n {
+  height: 3px !important;
+  border-radius: 5px !important;
+  background-color: $primary !important;
+}
+
+// Management styles:
+.configuration-container {
+  position: relative;
+  height: 100vh;
+  padding-top: 20px;
+  .tab-context {
+    border-radius: 10px;
+    background-color: $white;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .css-gnobva {
+    height: calc(100vh - 90px) !important;
+    overflow: auto;
+  }
+  .css-heg063-MuiTabs-flexContainer {
+    background-color: $white;
+  }
+
+  .tab-list {
+    overflow: hidden;
+    max-width: fit-content;
+    border-radius: 10px;
+    padding: 0 15px 0 15px;
+    border: 2px solid $background;
+    margin-bottom: 16px;
+  }
+
+  .tab {
+    text-transform: capitalize;
+  }
+}
+
+.configuration-tab-panel {
+  // overflow-y: auto !important;
+  padding-top: 0;
+  // scrollbar-width: none;
+  overflow: hidden;
+}
+.css-13xfq8m-MuiTabPanel-root {
+ 
+  // height: 77vh !important;
+  // overflow: auto !important;
+  padding: 20px;
+  padding-top: 10px !important;
+  // padding-bottom: 0px !important;
+}
+.css-19kzrtu {
+  padding-top: 10px !important;
+}
+
+.css-1qjaru8-MuiTypography-root {
+  font-weight: 400 !important;
+}

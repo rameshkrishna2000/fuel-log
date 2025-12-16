@@ -1,0 +1,28 @@
+.userNotification-contain {
+  .loader-notification {
+    display: flex;
+    justify-content: 'center';
+    align-items: 'center';
+    height: '100vh';
+  }
+  .notification-grid {
+    overflow: auto;
+    max-height: 70vh;
+    padding: 20px;
+    margin-top: -32px;
+    .grid-box {
+      margin-bottom: 16px;
+      overflow-x: scroll;
+      scrollbar-width: none;
+      .grid-pushnotification {
+        margin-left: 40px;
+        padding-left: 24px;
+        padding-right: 24px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        margin-bottom: 8px;
+        border: 1px solid #cacaca;
+      }
+    }
+  }
+}

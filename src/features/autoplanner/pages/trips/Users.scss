@@ -1,0 +1,30 @@
+@use '../../../../app/styles/variables' as *;
+
+.users-container {
+  position: relative;
+  height: 100vh;
+  padding-top: 20px;
+
+  .tab-context {
+    border-radius: 10px;
+    background-color: $white;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .tab-list {
+    overflow: hidden;
+    max-width: fit-content;
+    border-radius: 10px;
+    padding: 0 15px 0 15px;
+    border: 2px solid $background;
+    margin-bottom: 16px;
+  }
+
+  .tab {
+    text-transform: capitalize;
+  }
+}
+.css-k3ikra-MuiTypography-root {
+  padding: 20px !important;
+}

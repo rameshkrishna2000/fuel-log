@@ -1,0 +1,110 @@
+@use '../../../app/styles/variables' as *;
+
+.d-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.cards {
+  background-color: $white;
+  position: absolute;
+  z-index: 1300;
+  bottom: 4px;
+  left: 4px;
+  width: 350px;
+  padding: 25px;
+  box-shadow: 0px 20px 50px 0px $card-shadow !important;
+  border: 0 !important;
+  border-radius: 8px;
+  cursor: default;
+  .cardheader {
+    .activeIcon {
+      font-size: 30px;
+      margin-right: 10px;
+    }
+    .cardhead {
+      color: $heading;
+      font-size: 16px;
+      font-weight: 600;
+      font-family: $font-inter;
+    }
+    .cardActive {
+      font: $font-content;
+    }
+    .expanded-icon {
+      background-color: $background-gray;
+      padding: 6px;
+      border-radius: 8px;
+      height: 30px;
+      width: 30px;
+      align-self: flex-start;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0px 20px 60px 0px $card-window;
+    }
+  }
+  .table {
+    margin: 10px 0;
+    max-height: 300px;
+  }
+  .dataKeys {
+    color: $light-gray;
+    padding: 8px 0 !important;
+    border: 0 !important;
+    width: 40%;
+    font: $font-content;
+  }
+  .dataValues {
+    font: $font-content2;
+  }
+  .dataCells {
+    padding: 8px 0 !important;
+    border: 0 !important;
+    width: 60%;
+    color: $secondary;
+    &.Speed {
+      color: $red;
+    }
+  }
+  .signalIcon {
+    font-size: 25px;
+  }
+  .cardLocation {
+    color: $heading;
+    font: $font-content2;
+  }
+  .cardLocationContent {
+    color: $gray;
+    font: $font-content;
+  }
+  .loader-head {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    .head-content {
+      width: 150px;
+      margin-left: 15px;
+    }
+  }
+  .loader-body {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    .loader-body-content {
+      font-size: 1rem;
+      width: 140px;
+    }
+  }
+  .address-loader {
+    font-size: 1rem;
+    width: 300px;
+  }
+  .loader-footer {
+    border: 1px solid #eee;
+    border-radius: 4px;
+    padding: 8px 10px;
+    width: 80px;
+    margin-top: 10px;
+  }
+}

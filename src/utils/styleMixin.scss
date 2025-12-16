@@ -1,0 +1,31 @@
+@use '../app/styles/variables' as *;
+
+@mixin fontStyle($colors, $family, $size, $weight, $lineHeight) {
+  color: $colors;
+  font-family: $family;
+  font-size: $size + px;
+  font-weight: $weight;
+  line-height: $lineHeight + px;
+}
+
+@mixin googleSearchBox {
+  margin: 5px 0 8px;
+  width: 100%;
+  // margin-top: 5px;
+  height: 36px;
+  padding: 0 10px;
+  border: 1px solid $default-color;
+  border-radius: 6px !important;
+
+  &:hover {
+    border-color: $hover-color;
+  }
+
+  &:focus {
+    border-color: $focus-color;
+  }
+
+  &:focus-visible {
+    border-color: $focus-color !important;
+  }
+}

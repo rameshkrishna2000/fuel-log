@@ -1,0 +1,164 @@
+.dayselection-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1300;
+  .dayselection-card {
+    border-radius: 16px !important;
+    position: relative;
+    width: 90%;
+    max-width: 700px;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 16px;
+    border: 1px solid #e0e0e0;
+
+    .dayselection-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px;
+      border-bottom: 2px solid #ddd;
+      background-color: #1976d2;
+      color: #fff;
+      border-radius: 8px 8px 0 0;
+
+      .dayselection-name {
+        font-weight: bold !important;
+        font-size: 1.2rem !important;
+        color: #fff;
+      }
+
+      .dayselection-close-icon {
+        cursor: pointer;
+        color: #fff;
+        font-size: 1.8rem;
+      }
+    }
+
+    .dayselection-card-contents {
+      position: sticky;
+      top: 0;
+      background-color: #f1f1f1;
+      z-index: 10;
+      padding: 10px;
+      text-align: center;
+      font-weight: bold;
+
+      .dayselection-card-column {
+        color: #333;
+        font-size: 1rem !important;
+        font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif !important;
+      }
+    }
+
+    .dayselection-workingdays {
+      flex: 1;
+      overflow-y: auto;
+      max-height: calc(70vh - 120px);
+      padding: 16px 0px;
+      .no-break {
+        font-size: 0.85rem !important;
+        color: #aaa;
+        font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif !important;
+      }
+
+      .work-hours-day {
+        color: #333;
+        font-size: 0.95rem !important;
+        font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif !important;
+      }
+
+      .day-selectfirst {
+        font-weight: bold !important;
+        color: #1565c0;
+        font-size: 1rem !important;
+        font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif !important;
+      }
+
+      .dayselection-breaktimes {
+        background-color: #ffcccc;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-weight: bold;
+        color: #d32f2f;
+        display: inline-block;
+        text-align: center;
+        font-size: 0.85rem;
+      }
+    }
+
+    .css-a85w7c-MuiTypography-root {
+      color: #3239ea;
+    }
+    .css-uaq4ho {
+      background-color: #3239ea;
+      color: #ffffff;
+      border: 1px solid #3239ea;
+    }
+
+    .driverName {
+      font-size: 1.25rem;
+      font-weight: bold;
+    }
+
+    .daySelection {
+      text-align: center;
+
+      .dayToggleGroup {
+        display: flex;
+        justify-content: center;
+
+        .dayButton {
+          color: #3f51b5;
+          border: 1px solid #e0e0e0;
+          text-transform: uppercase;
+          font-weight: bold;
+
+          &.Mui-selected {
+            background-color: #3f51b5;
+            color: #ffffff;
+          }
+        }
+      }
+
+      .timeSlots {
+        margin: 8px 0;
+
+        .timeSlot {
+          background: #f4f4f4;
+          border-radius: 4px;
+          padding: 4px 8px;
+          display: inline-block;
+          margin: 4px;
+          font-size: 0.875rem;
+        }
+      }
+
+      .defaultAvailability {
+        margin-top: 16px;
+        text-align: left;
+
+        input[type='checkbox'] {
+          margin-right: 8px;
+        }
+      }
+    }
+
+    .closeIcon {
+      position: relative;
+      font-size: 1.5rem;
+      left: 20px;
+      bottom: 24px;
+    }
+  }
+}

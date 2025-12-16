@@ -1,0 +1,132 @@
+@use '../../../../../../app/styles/variables' as *;
+
+.vehicle-utility-details-table {
+  border: 2px solid $chart-border;
+  border-radius: 12px;
+  padding: 20px;
+  max-height: 500px;
+  overflow-y: auto;
+  .vehicle-utility-d-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .vehicle-utility-head {
+      color: $heading;
+      font-size: 14px;
+      font-weight: 600;
+      font-family: $font-inter;
+      margin: 0;
+    }
+    .vehicle-utility-expanded-icon {
+      background-color: $background-gray;
+      padding: 6px;
+      border-radius: 8px;
+      height: 30px;
+      width: 30px;
+      align-self: flex-start;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0px 20px 60px 0px $card-window;
+    }
+  }
+  .view-details {
+    color: $primary;
+    background-color: #dddeff;
+    border-radius: 15px;
+    padding: 5px 10px;
+    font-weight: bold;
+    text-align: center;
+    font-weight: 600 !important;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 10px !important;
+    transition: all 0.3s ease;
+    &:hover {
+      background-color: #c7c8fa;
+      transform: scale(1.1);
+    }
+  }
+}
+
+.vehicle-utility-dialog {
+  .css-1t1j96h-MuiPaper-root-MuiDialog-paper {
+    border-radius: 12px !important;
+    max-width: 90% !important;
+  }
+  .vehicle-utility-view {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    .vehicle-utility-view-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      position: sticky;
+      top: 0;
+      width: 100%;
+      background-color: $white;
+      padding: 20px;
+    }
+    .vehicle-utility-close {
+      background-color: #afafb1;
+      color: $white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      height: 35px;
+      width: 35px;
+      cursor: pointer;
+      margin-left: 10px;
+      &:hover {
+        background-color: $hover-color;
+      }
+      .vehicle-utility-close-icon {
+        font-size: 20px;
+      }
+    }
+  }
+  .vehicle-utility-passenger-details {
+    padding: 0 20px;
+    .vehicle-utility-passenger-details-values {
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+      width: 100% !important;
+      margin-left: 0 !important;
+      .vehicle-utility-values {
+        font-weight: 700;
+        color: #555;
+        font-size: 14px;
+        &.head {
+          color: $primary !important;
+        }
+      }
+      .vehicle-utility-details {
+        color: $primary;
+        background-color: #dddeff;
+        border-radius: 15px;
+        padding: 5px 10px;
+        font-weight: bold;
+        text-align: center;
+        font-weight: 600 !important;
+        cursor: pointer;
+        display: inline-block;
+        font-size: 10px !important;
+        transition: all 0.3s ease;
+        &:hover {
+          background-color: #c7c8fa;
+          transform: scale(1.1);
+        }
+        &.vehicle-no {
+          font-size: 12px !important;
+          padding: 5px 15px;
+        }
+      }
+    }
+  }
+}

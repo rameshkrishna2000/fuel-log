@@ -1,0 +1,80 @@
+@use '../../../../app/styles/variables' as *;
+.file-upload {
+  width: 100%;
+  position: relative;
+  .expand-icon-no-outline:focus {
+    outline: none;
+  }
+
+  .expand-icon-no-outline:focus-visible {
+    outline: 2px solid black;
+    border-radius: 4px;
+  }
+
+  .file-accordion {
+    border-radius: 8px;
+    box-shadow: 1px rgb(217, 217, 217);
+    transition: transform 0.2s;
+    &::after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transition: opacity 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+      box-shadow: 0 8px 10px 0 rgba(174, 173, 173, 0.2),
+        0 6px 10px 0 rgba(200, 199, 199, 0.15);
+      content: '';
+      opacity: 0;
+      z-index: -1;
+    }
+    &:hover,
+    &:focus {
+      transform: scale3d(1.006, 1.006, 1);
+
+      &::after {
+        opacity: 1;
+      }
+    }
+    .accodion-summaryhead {
+      margin-right: 18px;
+      color: $label-color;
+      font: $font-heading;
+    }
+    .accordion-uploadicon {
+      position: absolute;
+      pointer-events: auto;
+      right: 35px;
+    }
+  }
+  .accordion-details {
+    height: 45px;
+    border: 2px solid rgb(183, 178, 178);
+    border-radius: 4px;
+    padding: 2px;
+    .details-filename {
+      width: 100px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      color: $label-color;
+    }
+  }
+  .file-count {
+    height: 20px;
+    width: 20px;
+    border-radius: 10px;
+    background-color: $primary;
+    position: absolute;
+    right: -5px;
+    top: -5px;
+    text-align: center;
+    color: white;
+  }
+  .warning {
+    color: #d32f2f !important;
+    font-size: 0.75rem;
+    font-weight: 400;
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    margin-top: 9px;
+  }
+}

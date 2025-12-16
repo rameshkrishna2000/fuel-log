@@ -1,0 +1,391 @@
+@use '../../../../../app/styles/variables' as *;
+
+.auto-planner-tour-container {
+  position: relative;
+  display: flex;
+  .css-13xfq8m-MuiTabPanel-root {
+    padding: 0 !important;
+  }
+  .css-n54ydy-MuiGrid-root {
+    width: 100% !important;
+  }
+
+  .auto-planner-trip-container {
+    width: 100%;
+    .filter-bar-component {
+      display: flex;
+      // flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-end;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      .filter-icon {
+        margin-right: 20px;
+      }
+    }
+
+    .autoplanner-tap-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .d-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .tracking-heading {
+      font: $font-heading;
+      color: $light-black;
+    }
+    .trip-filter {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      .remove-filter {
+        background-color: #afafb1;
+        color: $white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        height: 35px;
+        width: 35px;
+        cursor: pointer;
+        margin-left: 10px;
+        &:hover {
+          background-color: $hover-color;
+        }
+        .remove-filter-icon {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+  .filter-drawer {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    border: none;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    background-color: #fff;
+    z-index: 1;
+    transition: all 0.5s ease;
+    &.filter-show {
+      border: 1px solid #ccc;
+      padding: 20px;
+      transform: translateX(0);
+      overflow: visible;
+      width: 300px;
+    }
+    &.filter-hide {
+      transform: translateX(100%);
+      overflow: hidden;
+      width: 0;
+    }
+
+    .filterIcon {
+      display: flex;
+      align-items: center;
+      background-color: #3239ea63;
+      border-radius: 12px;
+      padding: 6px;
+
+      .filterIconArrow {
+        height: 40px;
+        width: 40px;
+      }
+      .filterTitle {
+        font: $font-heading;
+        font-size: 20px;
+        color: $light-black;
+        margin: 0 !important;
+      }
+    }
+
+    .filter-header {
+      display: flex;
+      align-items: center;
+      margin-top: 20px;
+      .filter-icon-arrow {
+        height: 40px;
+        width: 40px;
+      }
+      .filter-title {
+        font: $font-heading;
+        font-size: 20px;
+        color: $light-black;
+        margin: 0 0 0 20px !important;
+      }
+    }
+    .filter-bar {
+      margin-top: 3vh;
+      .filter-fields {
+        width: 250px;
+        .custom-select .label {
+          margin-bottom: 2px;
+        }
+        .custom-select .custom-text-field {
+          margin-top: 0 !important;
+        }
+        .custom-select .custom-text-field .MuiOutlinedInput-root {
+          height: 36px !important;
+        }
+      }
+    }
+  }
+}
+.import-dialog {
+  .css-1t1j96h-MuiPaper-root-MuiDialog-paper {
+    border-radius: 12px;
+  }
+
+  .import-file-dialog {
+    padding: 20px;
+    max-width: 375px;
+    // min-width: 400px;
+    .import-file-head {
+      align-items: center;
+
+      .import-file-title {
+        font-size: 18px;
+        font-weight: 500;
+        font: $font-heading;
+        margin: 0;
+      }
+      .import-file-close {
+        background-color: #afafb1;
+        color: $white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        height: 35px;
+        width: 35px;
+        cursor: pointer;
+        margin-left: 10px;
+        &:hover {
+          background-color: $hover-color;
+        }
+        .import-file-close-icon {
+          font-size: 20px;
+        }
+      }
+    }
+    .uploaded-file {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      margin-top: 20px;
+      position: relative;
+
+      .remove-uploaded-file {
+        position: absolute;
+        top: 2px;
+        right: 2px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        &:hover {
+          color: $red;
+        }
+      }
+      .uploaded-excel-icon {
+        width: 60px;
+        height: 60px;
+        margin-right: 10px;
+      }
+      .uploaded-excel-name {
+        margin: 0;
+        font: $font-heading;
+        max-width: 80%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+    .import-form {
+      margin-top: 20px;
+      .upload-btn {
+        padding: 30px 20px;
+        width: 100%;
+        border: 1px solid #ccc;
+        border-radius: 12px;
+        text-align: center;
+        color: $primary;
+        font: $font-heading;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        &:hover {
+          border: 1px solid $primary;
+        }
+        &:active {
+          transform: scale(0.98);
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        &:focus {
+          outline: 3px solid $primary;
+          outline-offset: 2px;
+        }
+      }
+      .file-error-message {
+        color: $red;
+      }
+    }
+    .import-file-submit {
+      display: flex;
+      flex-direction: row;
+      padding-top: 5%;
+      align-items: 'center';
+      .excel-data-icon {
+        font-size: 25px;
+        color: red;
+      }
+    }
+    .disclaimer {
+      margin-top: 10px;
+      padding: 10px;
+      border: 1px solid rgb(255, 230, 0);
+      background-color: rgb(255, 255, 184);
+      border-radius: 12px;
+      .disclaimer-head {
+        display: flex;
+        align-items: center;
+        .disclaimer-title {
+          margin: 0 0 0 6px !important;
+          font-family: $font-inter;
+          font-weight: 500;
+          font-size: 15px;
+        }
+        .download-demo-file {
+          border: 2px solid rgb(255, 217, 0);
+          border-radius: 8px;
+          height: 30px;
+          width: 30px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-left: 10px;
+          cursor: pointer;
+          transition: all 0.2s ease;
+          &:hover {
+            transform: scale(1.05);
+          }
+          &:active {
+            transform: scale(0.98);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+          }
+          .file-download-icon {
+            color: $black;
+          }
+        }
+      }
+    }
+  }
+}
+.actions {
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  .action-icon {
+    color: $primary;
+  }
+}
+
+.filter-box {
+  padding: 30px;
+  min-width: 500px;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  position: relative;
+  .route-filter {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  .cancel {
+    border-radius: 8px;
+    margin-right: 10px;
+  }
+  .css-19midj6 {
+    height: 500px !important;
+    overflow-y: scroll;
+    scrollbar-width: none;
+  }
+}
+.css-1ruxp1v {
+  padding-left: 0 !important;
+}
+
+.invalid-data-icon {
+  font-size: 25px;
+  color: red;
+  margin-top: 6px;
+}
+
+// .css-1hkny5w {
+//   height: calc(100vh - 100px);
+//   overflow-x: scroll !important;
+// }
+
+@media (max-width: 768px) {
+  .management-container .tab-context {
+    padding: 15px 84px 1px 31px;
+  }
+}
+.css-vwhtm-MuiButtonBase-root-MuiIconButton-root {
+  margin-top: 0 !important;
+}
+
+@media (max-width: 1200px) {
+  .auto-planner-tour-container .auto-planner-trip-container .filter-bar-component {
+    position: static;
+    .filter-icon {
+      top: 3px;
+      right: 2px;
+    }
+  }
+  .button-group-trip {
+    margin-right: 0% !important;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Target mobile devices */
+  .auto-planner-tour-container .auto-planner-trip-container .d-flex {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .css-pm6592 {
+    min-width: 200px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  css-mkqcbm {
+    padding: 20px 0;
+  }
+}
+
+.css-y8tvd1-MuiPaper-root-MuiAlert-root {
+  padding: 1px 9px !important;
+}

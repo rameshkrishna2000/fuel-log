@@ -1,0 +1,331 @@
+.custom-day-total-section {
+  .custom-time-picker .css-1uvydh2 {
+    height: 25px !important;
+    padding: 0.5px 8px !important;
+  }
+  .css-1bn53lx {
+    height: 30px !important;
+  }
+}
+.custom-day-total-section {
+  .custom-time-picker .css-1uvydh2 {
+    height: 25px !important;
+    padding: 0.5px 8px !important;
+  }
+  .css-slyssw {
+    padding: 0px !important;
+  }
+  .css-1bn53lx {
+    height: 27px !important;
+  }
+}
+
+.custom-day-break {
+  border: 0.5px solid #efefef;
+  border-radius: 5px;
+  padding: 10px;
+  min-width: 170px !important;
+  max-width: 170px !important;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  margin: 0 6px;
+
+  .custom-break-add {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .delete-btn {
+    color: red;
+    font-size: 22px;
+  }
+  .custom-time-picker .css-1uvydh2 {
+    height: 23px !important;
+    padding: 0px 5px !important;
+  }
+  .custom-time-picker .css-1bn53lx {
+    height: 29px !important;
+  }
+}
+
+.custom-day-selection-wrapper {
+  width: 137px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  border: 0.5px solid #efefef;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 12px;
+  background-color: #f9f9f9;
+  background-color: white;
+
+  .custom-time-picker .css-nxo287-MuiInputBase-input-MuiOutlinedInput-input {
+    height: 23px !important;
+    padding: 0px 5px !important;
+  }
+  .custom-time-picker .css-1uvydh2 {
+    height: 23px !important;
+    padding: 0px 5px !important;
+  }
+  .css-1yq5fb3-MuiButtonBase-root-MuiIconButton-root {
+    padding: 0px !important;
+  }
+}
+
+.custom-day-selection-card {
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  width: 100%;
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  &.selected {
+    background-color: #3239ea;
+    color: #fff;
+  }
+
+  .day-label {
+    text-align: center;
+    font-size: 0.9rem !important;
+    font-weight: 600 !important;
+    color: #3239ea;
+    transition: color 0.3s ease;
+    margin-right: 10px;
+  }
+
+  &.selected .day-label {
+    color: #ffffff;
+  }
+}
+
+.custom-time-picker-container {
+  display: flex;
+  justify-content: center;
+  padding: 0px 1px;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.custom-time-picker-box {
+  width: 100%;
+  margin-bottom: 8px;
+  .custom-time-picker .time-error {
+    margin-top: 0px !important;
+    position: absolute;
+  }
+}
+
+.custom-time-picker-box.from-datepicker {
+  margin-bottom: 8px;
+}
+
+.custom-time-picker-box.to-datepicker {
+  margin-bottom: 0;
+}
+
+.break-view {
+  min-width: 133px !important;
+  background-color: #4caf50 !important;
+}
+
+.break-view:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.break-view:active {
+  transform: translateY(1px);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.manage-break {
+  font-weight: 600 !important;
+  font-size: 18px !important;
+  padding: 10px !important;
+}
+
+.break-btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .break-btn {
+    padding: 10px 20px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+}
+
+.cutom-days {
+  display: flex;
+  overflow-y: auto;
+  padding: 1.5rem;
+}
+
+.error-break {
+  display: flex;
+  justify-content: end;
+  color: red;
+  padding-right: 10px;
+  position: absolute;
+  right: 0;
+  bottom: 80px;
+  font-weight: 600;
+  font-size: 13px !important;
+}
+
+.bottom-break-btn {
+  padding: 1rem;
+  border-top: 1px solid #ddd;
+  background-color: #fff;
+}
+
+.css-mhc70k-MuiGrid-root > .MuiGrid-item {
+  padding-left: 12px !important;
+}
+.custom-day-break {
+  border: 0.5px solid #efefef;
+  border-radius: 5px;
+  padding: 10px;
+  min-width: 170px !important;
+  max-width: 170px !important;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  margin: 0 6px;
+  .delete-btn {
+    color: red;
+    font-size: 22px;
+  }
+  .custom-time-picker .css-1uvydh2 {
+    height: 25px !important;
+    padding: 0.5px 8px !important;
+  }
+}
+
+.custom-day-selection-wrapper {
+  width: 137px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  border: 0.5px solid #efefef;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 12px;
+  background-color: #f9f9f9;
+  background-color: white;
+
+  .custom-time-picker .css-nxo287-MuiInputBase-input-MuiOutlinedInput-input {
+    height: 25px !important;
+    padding: 0.5px 8px !important;
+  }
+  .custom-time-picker .css-1uvydh2 {
+    height: 25px !important;
+    padding: 0.5px 8px !important;
+  }
+  .css-1yq5fb3-MuiButtonBase-root-MuiIconButton-root {
+    padding: 0px !important;
+  }
+}
+
+.custom-day-selection-card {
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  width: 100%;
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  &.selected {
+    background-color: #3239ea;
+    color: #fff;
+  }
+
+  .day-label {
+    text-align: center;
+    font-size: 0.9rem !important;
+    font-weight: 600 !important;
+    color: #3239ea;
+    transition: color 0.3s ease;
+    margin-right: 10px;
+  }
+
+  &.selected .day-label {
+    color: #ffffff;
+  }
+}
+
+.custom-time-picker-container {
+  display: flex;
+  justify-content: center;
+  padding: 0px 1px;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.custom-time-picker-box {
+  width: 100%;
+  margin-bottom: 8px;
+  .custom-time-picker .time-error {
+    margin-top: 0px !important;
+    position: absolute;
+  }
+}
+
+.custom-time-picker-box.from-datepicker {
+  margin-bottom: 8px;
+}
+
+.custom-time-picker-box.to-datepicker {
+  margin-bottom: 0;
+}
+
+.break-view {
+  min-width: 133px !important;
+  background-color: #4caf50 !important;
+}
+
+.break-view:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.break-view:active {
+  transform: translateY(1px);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.manage-break {
+  font-weight: 600 !important;
+  font-size: 18px !important;
+  padding: 10px !important;
+}
+
+.css-mhc70k-MuiGrid-root > .MuiGrid-item {
+  padding-left: 12px !important;
+}

@@ -1,0 +1,287 @@
+@use './app/styles/variables' as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $white;
+  overflow: hidden;
+}
+
+// scroll bar
+::-webkit-scrollbar {
+  width: 0.3em;
+  height: 8px;
+}
+
+.css-gnobva {
+  overflow: auto !important;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #d8d8d8;
+  border-radius: 50px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #bbbbbb;
+}
+
+//Network toast
+.network-custom-toast {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+
+  &.success {
+    background: rgba(76, 175, 80, 0.8);
+  }
+
+  &.error {
+    background: rgba(255, 113, 77, 0.8);
+  }
+
+  .toast-icon {
+    margin-right: 10px;
+    font-size: 20px;
+  }
+
+  .toast-close-icon {
+    color: $white;
+    font-size: 22px;
+    margin-left: 10px;
+    cursor: pointer;
+  }
+}
+
+.go2072408551 {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+// for dashboard loader
+.cs-loader {
+  background-color: rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.icon-position {
+  position: absolute;
+  top: 0;
+  right: 0;
+  .grey-bg {
+    width: 35px !important;
+    height: 35px !important;
+  }
+}
+
+.MuiCheckbox-root.Mui-checked {
+  color: $primary !important;
+}
+.Mui-disabled.Mui-checked {
+  color: $primary !important;
+}
+
+.cs-loader-inner {
+  transform: translateY(-50%);
+  top: 50%;
+  position: absolute;
+  width: 100%;
+  color: #fff;
+  padding: 0 100px;
+  text-align: center;
+}
+
+.cs-loader-inner label {
+  font-size: 20px;
+  opacity: 0;
+  display: inline-block;
+}
+
+@keyframes lol {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+
+  33% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+
+  66% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+}
+
+@-webkit-keyframes lol {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-50px);
+  }
+
+  33% {
+    opacity: 1;
+    -webkit-transform: translateX(0px);
+  }
+
+  66% {
+    opacity: 1;
+    -webkit-transform: translateX(0px);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform: translateX(50px);
+  }
+}
+
+.cs-loader-inner label:nth-child(4) {
+  -webkit-animation: lol 3s 200ms infinite ease-in-out;
+  animation: lol 3s 200ms infinite ease-in-out;
+}
+
+.cs-loader-inner label:nth-child(3) {
+  -webkit-animation: lol 3s 300ms infinite ease-in-out;
+  animation: lol 3s 300ms infinite ease-in-out;
+}
+
+.cs-loader-inner label:nth-child(2) {
+  -webkit-animation: lol 3s 400ms infinite ease-in-out;
+  animation: lol 3s 400ms infinite ease-in-out;
+}
+
+.cs-loader-inner label:nth-child(1) {
+  -webkit-animation: lol 3s 500ms infinite ease-in-out;
+  animation: lol 3s 500ms infinite ease-in-out;
+}
+
+.gm-style-iw-ch {
+  display: none !important;
+}
+
+.css-doq0dk {
+  height: 85% !important;
+  overflow: hidden;
+}
+
+.gm-ui-hover-effect {
+  position: absolute !important;
+  right: -10px !important;
+  top: -10px !important;
+}
+
+.gm-style div {
+  border: none !important;
+}
+
+.css-1hkny5w {
+  height: calc(100vh - 70px) !important;
+}
+
+.css-rxnh70.Mui-selected {
+  color: $primary !important;
+}
+
+// side drawer
+.css-1160xiw-MuiPaper-root-MuiDrawer-paper,
+.css-1ab2xsx {
+  padding: 15px !important;
+  width: 350px;
+  overflow: none;
+}
+::-ms-reveal {
+  display: none;
+}
+
+.css-knecup {
+  overflow: scroll;
+}
+
+//menu-invisible-overlay
+// .css-10nakn3-MuiModal-root-MuiPopover-root-MuiMenu-root {
+//   position: revert !important;
+// }
+
+.blue-circle-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 55vh;
+
+  &.big-screen {
+    height: 75vh !important;
+  }
+
+  .blue-circle-spinner {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: radial-gradient(farthest-side, $primary 94%, #0000) top/9px 9px no-repeat,
+      conic-gradient(#0000 30%, $primary);
+    -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 9px), #000 0);
+    animation: spinner-c7wet2 1s infinite linear;
+  }
+
+  @keyframes spinner-c7wet2 {
+    100% {
+      transform: rotate(1turn);
+    }
+  }
+}
+
+// .MuiInputBase-root.Mui-focused,
+.MuiCheckbox-root.Mui-focusVisible,
+.MuiSwitch-root.Mui-focusVisible,
+.MuiRadio-root.Mui-focusVisible,
+.MuiButtonBase-root:focus-visible {
+  outline: 1.5px solid #000000;
+  outline-offset: 1px;
+  border-radius: 6px;
+}
+
+.css-tl69u5 {
+  overflow: clip;
+}
+
+/* Target Firefox specifically */
+@-moz-document url-prefix() {
+  /* Hide only the flag, keep arrow visible */
+  .react-tel-input .flag-dropdown .selected-flag .flag {
+    display: none !important;
+  }
+
+  .react-tel-input .flag-dropdown .selected-flag .arrow {
+    display: inline-block !important; /* ensure arrow stays visible */
+  }
+}

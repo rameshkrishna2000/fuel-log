@@ -1,0 +1,27 @@
+@use '../../../../../../app/styles/variables' as *;
+
+.assign-loader-component {
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 100%;
+  z-index: 3000 !important;
+  color: #333;
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+  .wait-text {
+    text-shadow: 0 0 10px $white;
+  }
+  .assign-loader-progress {
+    position: relative;
+    display: inline-flex;
+  }
+}

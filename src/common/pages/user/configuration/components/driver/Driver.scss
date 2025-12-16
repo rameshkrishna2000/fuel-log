@@ -1,0 +1,109 @@
+@use '../../../../../../app/styles/variables' as *;
+
+.driver {
+  .add-driver {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+  .driver-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    .heading {
+      color: #26134b;
+      font: $font-heading !important;
+    }
+  }
+  .white-bg {
+    width: 29px;
+    height: 29px;
+    padding: 4px;
+    color: $accent;
+    border-radius: 8px;
+  }
+}
+.MuiDataGrid-cell--withRenderer {
+  color: rgba(0, 0, 0, 0.87) !important;
+  font-size: 0.75rem !important;
+  font-weight: 400 !important;
+}
+.css-3dzjca-MuiPaper-root-MuiPopover-paper-MuiMenu-paper,
+.css-pwxzbm {
+  box-shadow: 0 0 10px 0 $card-shadow !important;
+  border-radius: 6px !important;
+}
+.menu-dialog,
+.css-1km1ehz {
+  font: $font-content !important;
+}
+
+// menu items.
+.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root,
+.css-r8u8y9 {
+  padding: 8px !important;
+}
+.css-6hp17o-MuiList-root-MuiMenu-list,
+.css-1km1ehz {
+  padding: 8px !important;
+}
+.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root:hover,
+.css-1km1ehz:hover {
+  background-color: $button-background;
+  color: $primary;
+  border-radius: 6px;
+}
+
+// Avaliblity
+.view-available {
+  display: flex;
+  align-items: center;
+  background-color: #dddeff;
+  border-radius: 25px;
+  padding: 5px 10px;
+  font-weight: bold;
+  text-align: center;
+  font-weight: 600 !important;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: darkblue;
+  }
+  &:hover .view-available-text {
+    color: $white;
+  }
+  &:hover .view-available-icon {
+    color: $white;
+  }
+
+  .view-available-icon {
+    font-size: 16px;
+    margin-right: 4px;
+    color: $primary;
+  }
+  .view-available-text {
+    font-size: 10px !important;
+    color: $primary;
+  }
+}
+
+@media (max-width: 760px) {
+  .add-driver {
+    position: static !important;
+    display: flex;
+    justify-content: end;
+    width: 100%;
+  }
+}
+.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root {
+  font-size: 14px !important;
+}
+
+@media (min-width: 600px) {
+  .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root {
+    min-height: auto;
+    height: 38px;
+  }
+}

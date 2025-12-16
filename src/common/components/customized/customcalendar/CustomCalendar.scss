@@ -1,0 +1,51 @@
+.MuiPickersLayout-root {
+  .MuiPickersToolbar-root,
+  .MuiDialogActions-root {
+    display: none;
+  }
+
+  .MuiDateCalendar-root {
+    max-height: 320px;
+
+    .MuiPickersCalendarHeader-root {
+      position: relative;
+
+      .MuiPickersArrowSwitcher-root {
+        width: 0;
+      }
+
+      .MuiPickersCalendarHeader-labelContainer {
+        margin: auto;
+      }
+
+      .MuiIconButton-edgeEnd {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+      }
+
+      .MuiIconButton-edgeStart {
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+      }
+    }
+  }
+}
+
+.css-1anqmj6-MuiPopper-root-MuiPickersPopper-root {
+  z-index: 1450 !important;
+}
+
+.custom-date-time-picker {
+  .daterange-calendar {
+    margin-top: 5px !important;
+    margin-bottom: 10px !important;
+    width: 100% !important;
+  }
+  .optional-date {
+    color: #ff0000;
+  }
+}

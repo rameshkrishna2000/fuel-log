@@ -1,0 +1,68 @@
+@use '../../../../../../app/styles/variables' as *;
+
+.kpi-container-box {
+  position: relative;
+  border: 1px solid $chart-border;
+  border-radius: 12px !important;
+  box-shadow: 0 0 5px 0 $chart-shadow;
+  background-color: #670eda !important;
+  padding: 5px;
+
+  h3 {
+    font-weight: 700;
+    font-size: 14px;
+    color: white;
+    font-family: $font-inria;
+    text-align: center;
+  }
+  .kpi-second-color {
+    position: absolute;
+    bottom: 0;
+    height: 75%;
+    width: 100%;
+    border-radius: 12px;
+    background-color: #752bde;
+  }
+  .kpi-second-color-row {
+    right: 0;
+    height: 100%;
+    width: 75%;
+  }
+  .kpi-speed {
+    color: $white;
+    font-size: 20px;
+    font-family: $font-inria;
+  }
+  .kpi-title {
+    color: $white;
+    font-size: 16px;
+    font-family: $font-inria;
+    font-weight: 500;
+  }
+  .kpi-container-content {
+    display: flex;
+    align-items: center;
+
+    h1 {
+      font-weight: 700;
+      font-size: 24px;
+      font-family: $font-inria;
+      text-align: center;
+    }
+    p {
+      font-weight: 700;
+      font-size: 16px;
+      margin-left: 4px;
+      font-family: $font-inria;
+      text-align: center;
+    }
+  }
+  .css-46bh2p-MuiCardContent-root {
+    padding: 8px;
+  }
+}
+.css-1du7mld {
+  font-family: $font-inria !important;
+  font-weight: 700 !important;
+  color: #747474 !important;
+}

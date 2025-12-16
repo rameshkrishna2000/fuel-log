@@ -1,0 +1,73 @@
+@use '../../../app/styles/variables' as *;
+.private-box {
+  padding: 40px 40px;
+  background-color: #fff;
+  color: #000;
+  border-radius: 12px;
+  box-shadow: 0 0 5px #999;
+  text-align: center;
+  width: auto;
+  .custom-button {
+    min-width: 100px;
+    background-color: $primary;
+    border-radius: 8px;
+    font-family: $font-inter;
+    font-size: 13px !important;
+    font-weight: $font-content;
+    line-height: 18px;
+    letter-spacing: 0em;
+    padding: 10px;
+
+    &:hover {
+      background-color: $primary;
+    }
+  }
+  .custom-button-continue {
+    min-width: 100px;
+    color: #6b7280;
+    background-color: rgb(255, 255, 255);
+    border-radius: 8px;
+    font-family: $font-inter;
+    font-size: 13px !important;
+    font-weight: $font-content;
+    line-height: 18px;
+    letter-spacing: 0em;
+    padding: 10px;
+    border: 1px solid #d7d7d7;
+
+    &:hover {
+      background-color: rgb(255, 255, 255);
+    }
+  }
+}
+
+.image-box {
+  width: 200px;
+  height: auto;
+  margin-bottom: 16px;
+}
+
+.no-btm {
+  width: 200px;
+  height: auto;
+  margin-bottom: 0px;
+}
+
+.logout-align {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.redirect-typo1 {
+  color: red;
+  font-size: 15px !important;
+  margin-bottom: 10px !important;
+}
+
+.redirect-typo2 {
+  color: #999 !important;
+  font-size: 17px !important;
+  margin-bottom: 10px !important;
+}

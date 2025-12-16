@@ -1,0 +1,359 @@
+.fuel-dashboard-container {
+  padding: 10px;
+  position: relative;
+  .fuel-header {
+    display: flex;
+    justify-content: space-between;
+  }
+  .fuel-dash-scroll {
+    margin-top: 20px;
+    overflow: scroll;
+    scrollbar-width: none;
+    height: 80vh;
+  }
+  .fuel-header-xs {
+    display: flex;
+    flex-direction: column;
+  }
+  .fuel-nav {
+    display: flex;
+    gap: 7px;
+  }
+  .fuel-nav-xs {
+    display: flex;
+    gap: 7px;
+    justify-content: center;
+  }
+  .fuel-head-text {
+    font-size: 18px !important;
+    font-weight: bold !important;
+  }
+  .fuel-head-text-xs {
+    font-size: 18px !important;
+    font-weight: bold !important;
+    text-align: center;
+  }
+  .fuel-nav-text {
+    color: #6b7280;
+    font-size: 14px !important;
+  }
+  .fuel-nav-icon {
+    margin-top: 2px;
+    color: #6b7280;
+  }
+  .fuel-card-head {
+    display: flex;
+    justify-content: space-between;
+    width: 250px;
+  }
+  .fuel-card-text {
+    font-size: 14px !important;
+  }
+  .fuel-card-icon {
+    color: #6b7280;
+  }
+  .fuel-card-cost {
+    margin-top: 20px;
+    font-weight: bold !important;
+  }
+  .fuel-card-litre {
+    color: #6b7280;
+  }
+  .fuel-grid-container {
+    margin-top: 5px;
+  }
+  .fuel-grid-filter {
+    padding: 10px;
+  }
+  .fuel-nav-filter {
+    display: flex;
+    gap: 7px;
+  }
+  .fuel-nav-filter-icon {
+    width: 25px;
+    height: 25px;
+  }
+  .fuel-nav-filter-text {
+    font-size: 14px !important;
+    margin-top: 3px;
+  }
+  .fuel-grid-nav {
+    display: flex;
+    justify-content: space-between;
+  }
+  .fuel-excel {
+    display: flex;
+    justify-content: flex-end;
+    gap: 5px;
+    margin-top: 20px;
+  }
+  .fuel-excel-xs {
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+    margin-top: 20px;
+  }
+  .fuel-entries {
+    font-size: 14px !important;
+    position: absolute;
+    top: 15px;
+  }
+  .fuel-entries-xs {
+    font-size: 14px !important;
+    margin-top: 7px;
+  }
+  .fuel-entries-cont {
+    margin-top: 5px;
+    position: relative;
+  }
+  .fuel-loc-icon {
+    cursor: pointer;
+    color: #487436;
+    width: 18px;
+    height: 18px;
+  }
+  .fuel-view-icon {
+    color: #4848d0;
+    width: 18px;
+    height: 18px;
+  }
+  .fuel-view-icon-edit {
+    color: #edb10e;
+    width: 18px;
+    height: 18px;
+  }
+  .fuel-view-icon-del {
+    color: #ed0e53;
+    width: 18px;
+    height: 18px;
+  }
+  .fuel-settings-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    color: #000;
+    font-size: 16px;
+    height: 30px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  }
+  .fuel-cancel {
+    height: 30px;
+  }
+  .fuel-filter {
+    height: 30px;
+  }
+  .fuel-settings-button:hover {
+    background-color: #f5f5f5;
+    border-color: #bdbdbd;
+  }
+
+  .fuel-settings-icon {
+    font-size: 20px;
+  }
+}
+.update-fuel-bold {
+  font-weight: bold !important;
+}
+.fuel-dialog-cont {
+  .fuel-dialog-head {
+    display: flex;
+    justify-content: space-between;
+  }
+  .fuel-dialog-text {
+    font-size: 16px !important;
+    font-weight: bold !important;
+  }
+  .fuel-dialog-text-p {
+    color: #928c8c;
+  }
+  .fuel-dialog-icon-cont {
+    background-color: #f0f0f0;
+    border-radius: 50%;
+    padding: 6px;
+    height: 35px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
+  }
+  .fuel-dialog-icon-cont:hover {
+    background-color: #e0e0e0;
+  }
+  .fuel-dialog-icon {
+    width: 20px;
+    height: 20px;
+  }
+  .fuel-dialog-vehicle {
+    display: flex;
+    gap: 10px;
+  }
+  .fuel-dialog-chip-text {
+    font-size: 14px !important;
+  }
+  .fuel-dialog-chip-one {
+    background-color: #928c8c !important;
+    color: white !important;
+    height: 22px;
+  }
+  .fuel-dialog-chip-two {
+    height: 22px;
+  }
+  .fuel-dialog-date {
+    display: flex;
+    gap: 5px;
+    margin-top: 10px;
+  }
+  .fuel-dialog-date-t {
+    font-size: 14px !important;
+    color: #928c8c !important;
+    margin-top: 2px;
+  }
+  .fuel-dialog-date-ic {
+    width: 24px;
+    height: 24px;
+    color: #928c8c;
+  }
+  .fuel-dialog-content {
+    display: flex;
+    gap: 10px;
+  }
+  .fuel-first-section {
+    border: 1px solid #d3d3d3;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 20px;
+  }
+  .fuel-section-icon {
+    display: flex;
+    gap: 10px;
+  }
+  .fuel-section-ic {
+    margin-top: 2px;
+  }
+  .fuel-mt {
+    margin-top: 10px !important;
+  }
+  .fuel-section-text {
+    font-size: 14px !important;
+    font-weight: bold !important;
+  }
+  .fuel-type-t-one {
+    color: #928c8c;
+    font-size: 14px !important;
+  }
+  .fuel-type-t-two {
+    font-size: 14px !important;
+  }
+  .fuel-section-type {
+    display: flex;
+    margin-top: 10px;
+  }
+  .fuel-type-child {
+    width: 50%;
+  }
+  .fuel-company {
+    display: flex;
+    gap: 5px;
+  }
+  .fuel-company-icon {
+    width: 20px;
+    height: 20px;
+  }
+  .fuel-notes {
+    padding: 5px;
+    margin-top: 10px;
+    height: 60px;
+    border-radius: 10px;
+    background-color: #c2dde04f;
+  }
+}
+.fuel-map-cont {
+  .fuel-map-head {
+    display: flex;
+    justify-content: space-between;
+  }
+  .fuel-map-text {
+    font-size: 16px !important;
+    font-weight: bold !important;
+  }
+  .fuel-map-icon-cont {
+    background-color: #f0f0f0;
+    border-radius: 50%;
+    padding: 6px;
+    height: 35px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
+  }
+  .fuel-map-icon-cont:hover {
+    background-color: #e0e0e0;
+  }
+  .fuel-map-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  // Coordinates Section
+  .fuel-map-coordinates {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    padding: 16px;
+    background: #f5f5f5;
+    border-radius: 8px;
+    margin-top: 16px;
+  }
+
+  .fuel-map-coordinate-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+  }
+
+  .fuel-map-coordinate-label {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 12px !important;
+  }
+
+  .fuel-map-coordinate-value {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .fuel-map-location-icon {
+    color: #1976d2;
+    font-size: 20px;
+  }
+
+  .fuel-map-coordinate-text {
+    font-weight: 500 !important;
+    font-size: 14px !important;
+  }
+
+  .fuel-map-divider {
+    width: 1px;
+    height: 40px;
+    background-color: #d0d0d0;
+  }
+
+  // Map Container
+  .fuel-map-container {
+    margin-top: 16px;
+    height: 350px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #e0e0e0;
+  }
+}

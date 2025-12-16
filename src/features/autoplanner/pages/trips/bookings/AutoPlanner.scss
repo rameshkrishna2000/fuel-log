@@ -1,0 +1,116 @@
+@use '../../../../../app/styles/variables' as *;
+.autoplanner-trip-mode-container {
+  position: relative;
+  overflow-x: hidden;
+  .css-gnobva {
+    height: calc(100vh - 90px) !important;
+    overflow: auto;
+  }
+  .css-heg063-MuiTabs-flexContainer {
+    background-color: $white;
+  }
+}
+
+.d-flex {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.trip-delete-dialog {
+  text-align: center;
+  padding: 5%;
+  min-width: 350px;
+  .trip-delete-container {
+    display: flex;
+    flex-direction: row;
+    padding-top: 5%;
+    justify-content: center;
+    .trip-delete-mr {
+      margin-right: 12px;
+    }
+  }
+}
+
+.trip-deactivate-dialog {
+  text-align: center;
+  padding: 5%;
+  width: 350px;
+  .trip-deactivate-container {
+    display: flex;
+    flex-direction: row;
+    padding-top: 5%;
+    justify-content: center;
+    .trip-deactivate-mr {
+      margin-right: 12px;
+    }
+  }
+}
+
+.trips-container {
+  width: 100%;
+
+  .trips-add {
+    justify-content: space-between;
+  }
+
+  .trips-heading {
+    font: $font-heading;
+    color: $light-black;
+  }
+}
+.menu-bg {
+  width: 29px;
+  height: 29px;
+  padding: 4px;
+  color: $accent;
+  border-radius: 8px;
+}
+.menu-icon {
+  margin-right: 10px;
+  font-size: 22px;
+  &.view {
+    color: $primary;
+  }
+  &.update {
+    color: $orange;
+  }
+  &.share {
+    color: $primary;
+  }
+  &.transfer {
+    color: #2da260;
+  }
+}
+.menu-iconbutton {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 8px;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  min-width: 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 2;
+}
+
+/* Reduce label text size inside the action menu */
+.MuiMenuItem-root {
+  font-size: 0.85rem;
+  // min-height: 30px;
+  padding: 6px 10px 6px 10px;
+  // font-weight: 500;
+}
+.MuiMenuItem-root svg {
+  font-size: 20px;
+}
+
+.css-h4y409-MuiList-root {
+  padding-right: 10px !important;
+  padding-left: 10px !important;
+}

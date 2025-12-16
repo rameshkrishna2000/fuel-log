@@ -1,0 +1,122 @@
+:root {
+  --primary-color: #3239ea;
+  --light-gray: #59758a;
+  --dark-blue: #59758a;
+  --focus-color: #485cf0;
+  --hover-color: #8d99f6;
+  --btn-border: #879fb7;
+  --light-violet: #485cf0;
+  --light-bg: #e5e8f8;
+}
+
+// ayka theme (like a orange color)
+.ayka {
+  --primary-color: #ff6347;
+  --light-gray: #ac766c;
+  --dark-blue: #ac766c;
+  --focus-color: #f36046;
+  --hover-color: #e47d6b;
+  --btn-border: #e47d6b;
+  --light-violet: #ff6347;
+  --light-bg: #f7e9e7;
+}
+
+// color variablesa
+$primary: var(--primary-color);
+$secondary: #333333;
+$accent: #292d32;
+$background: #eff2f4;
+$light-bg: var(--light-bg);
+$button-background: #edeffe;
+$background-gray: #0101011c;
+$error: #fd4954;
+$heading: #232323;
+
+// colors
+$orange: #faba43;
+$white: #fff;
+$black: #000;
+$red: #ff2532;
+$green: #0ebc93;
+$gray: #474747;
+
+//landing page colors
+$landing-primary: #f39527;
+$landing-secondary: #48745f;
+$landing-light-white: #d9d9d9;
+
+//medium colors
+$medium-gray: #1b252f;
+
+// light colors
+$light-black: #26134b;
+$light-white: #e8e8e8;
+$light-gray: var(--light-gray);
+$light-violet: var(--light-violet);
+
+// dark colors
+$dark-blue: var(--dark-blue);
+$dark-gray: #7e7a87;
+$dark-green: #3cc13b;
+
+//border and shadow colors
+$border: #c3d2e2;
+$shadow: #e8e8e8;
+$chart-shadow: #dce0f925;
+$chart-border: #dce0f990;
+$btn-border: var(--btn-border);
+$card-shadow: #dce0f980;
+$card-window: #0000000d;
+
+// heading font size
+$h1: 32px;
+$h1a: 30px;
+$h2: 24px;
+$h3: 20px;
+$h6: 12px;
+$h4: 18px;
+$h5: 14px;
+$h6: 13px;
+$h7: 12px;
+
+// font family
+$font-inter: ('Inter', sans-serif);
+$font-lato: ('Lato', sans-serif);
+$font-inria: ('Inria Sans', sans-serif);
+
+// Custom Text Field styles:
+$label-color: #26134b;
+$default-color: #c3d2e2;
+$hover-color: #8d99f6;
+$focus-color: #485cf0;
+$warning-color: #fd4954;
+$box-shadow-color: #8d99f66b;
+
+// font style
+$font-heading: (700 16px $font-inter);
+$font-content: (400 13px $font-inter);
+$font-content2: (600 13px $font-inter);
+$background: #ece6e5;
+
+//landing font size
+$font-landing-heading: (600 30px $font-inter);
+$font-landing-heading2: (600 25px $font-inter);
+$font-content-landing: (600 14px $font-inter);
+$font-content-landing2: (500 14px $font-inter);
+
+// Custom Text Field styles:
+$default-color: #c3d2e2;
+$hover-color: var(--hover-color);
+$focus-color: var(--focus-color);
+$warning-color: #fd4954;
+$box-shadow-color: #8d99f66b;
+
+// Reports styles:
+$title-color: #edf1f5b8;
+
+// Icon styles:
+$icon-border: #eceef6;
+
+// Group button styles:
+$group-button-shadow: #485cf01a;
+$group-down-arrow: #8a8a8a;

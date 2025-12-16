@@ -1,0 +1,21 @@
+.activate-container {
+  .activate-content {
+    text-align: center;
+    padding: 5%;
+    min-width: 350px;
+    .activate-btn {
+      flex-direction: row;
+      justify-content: center;
+      margin-top: 5%;
+      .activate-submit {
+        margin-right: 12px;
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .activate-content {
+    min-width: 0px !important;
+  }
+}

@@ -1,0 +1,136 @@
+@use '../../../../../app/styles/variables' as *;
+
+.tourdetails-headercontainer {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  .tourname-header {
+    font-weight: 600 !important;
+    font-size: 18px !important;
+    color: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  }
+
+  .tour-overallcounts {
+    display: flex;
+    gap: 10px;
+  }
+}
+
+.touraccordion-container {
+  border-radius: 5px !important;
+  margin: 10px !important;
+  .css-3yy8mg-MuiButtonBase-root-MuiAccordionSummary-root {
+    padding: 0px 4px !important;
+  }
+
+  .css-eqpfi5-MuiAccordionSummary-content.Mui-expanded {
+    margin: 0 !important;
+  }
+
+  .touraccordion-summary {
+    border-radius: 10px !important;
+    height: 0px;
+    min-height: 50px !important;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+
+    .touraccordion-summarydetails {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      align-items: center;
+      min-height: 0px !important;
+      padding-right: 10px;
+      .touraccordion-hotels {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        .touraccordion-header {
+          font-weight: bold !important;
+          font-size: 16px !important;
+          color: #fff;
+        }
+      }
+      .touraccordion-guests {
+        .touraccordion-counts {
+          display: flex;
+          gap: 20px;
+
+          .touraccordion-bookingscount,
+          .touraccordion-guestscount {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .touraccordion-bgcount {
+              color: #fff;
+              font-size: 13px !important;
+              font-weight: 600 !important;
+            }
+            .touraccordion-bgheader {
+              color: #fff;
+              font-size: 13px !important;
+              font-weight: 600 !important;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .touraccordion-details {
+    padding: 5px !important;
+    background-color: #f2f5f5;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    .css-15v22id-MuiAccordionDetails-root {
+      padding: 5px;
+    }
+
+    .tourguest-details {
+      padding: 0px;
+      border-radius: 5px;
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: space-between;
+      .tourguest-container {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        .guestdetails-contents {
+          display: flex;
+          flex-direction: row;
+          .tourdetails-guestname {
+            font-weight: bold !important;
+            font-size: 16px !important;
+            color: black;
+          }
+        }
+      }
+      .guestdetails-overview {
+        display: flex !important;
+        align-items: center;
+        gap: 5px;
+        .tourdetails-guestcounts {
+          color: grey;
+          font-size: 12px !important;
+        }
+      }
+
+      .mobiletrip-details {
+        display: flex;
+        gap: 10px;
+
+        .tour-mobilenumber {
+          display: flex;
+          gap: 5px;
+          align-items: center;
+          min-width: 170px !important;
+        }
+      }
+    }
+  }
+}

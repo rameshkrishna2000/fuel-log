@@ -1,0 +1,30 @@
+@use '../../../../../../app/styles/variables' as *;
+
+.role-layout {
+  margin-bottom: 10px;
+  .css-13iz54z {
+    width: 100% !important;
+  }
+  .css-edsu1d-MuiButtonGroup-root {
+    border-radius: 12px !important;
+    width: 100%;
+  }
+  .css-1rwt2y5-MuiButtonBase-root-MuiButton-root:hover,
+  .css-79xub:hover {
+    background-color: $primary !important;
+    color: $white !important;
+    opacity: 0.6;
+  }
+  .css-1rwt2y5-MuiButtonBase-root-MuiButton-root {
+    border: 1px solid $primary !important;
+  }
+  .layout-active {
+    background-color: $primary;
+    color: $white;
+  }
+  .layout-btn {
+    padding-left: 8px;
+    padding-right: 8px;
+    width: 50%;
+  }
+}

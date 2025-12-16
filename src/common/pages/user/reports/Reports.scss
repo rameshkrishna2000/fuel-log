@@ -1,0 +1,62 @@
+@use '../../../../app/styles/variables' as *;
+.report-container {
+  position: relative;
+}
+.title-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 10px 5px 10px;
+}
+
+.container-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.date-time-item {
+  margin-bottom: 18px;
+  width: 150px;
+
+  .text-field {
+    margin-top: 0px;
+  }
+}
+
+.title {
+  // padding-bottom: 20px;
+  .report-title {
+    margin-top: 2% !important;
+    // position: absolute;
+  }
+  .heading {
+    color: #26134b;
+    font: $font-heading !important;
+  }
+  .reports-date {
+    color: #26134b;
+    font-size: 12px;
+    font-family: $font-inter;
+    padding-top: 3px !important;
+  }
+  .report-span {
+    margin-bottom: 20px;
+  }
+  .vehicle-no {
+    padding-left: 10px !important;
+  }
+}
+
+@media (min-width: 900px) {
+  .css-lcvhd3-MuiGrid-root > .MuiGrid-item {
+    margin-top: 8px !important;
+  }
+}
+
+.css-fmdz4h-MuiTypography-root {
+  font-size: 0.75rem !important;
+  font-family: 400 !important;
+}

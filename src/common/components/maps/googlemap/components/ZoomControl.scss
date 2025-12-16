@@ -1,0 +1,45 @@
+@use '../../../../../app/styles/variables' as *;
+
+.zoom-control {
+  padding: 4px 2px 2px 2px;
+  background-color: $white;
+  border: 1px solid $default-color;
+  border-radius: 8px;
+  box-shadow: 0px 20px 60px 0px $card-window;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .divider {
+    height: 1px;
+    width: 75%;
+    background-color: #7e7a8735;
+  }
+
+  .zoom-btn {
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      color: $gray;
+    }
+  }
+}
+
+// for street view
+.gm-bundled-control-on-bottom {
+  right: 30px !important;
+  bottom: 36px !important;
+}
+.gm-svpc {
+  width: 30px !important;
+  height: 30px !important;
+  border-radius: 8px !important;
+  border: 1px solid $default-color;
+  div {
+    img {
+      height: 20px !important;
+      width: 20px !important;
+    }
+  }
+}

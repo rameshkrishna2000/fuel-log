@@ -1,0 +1,157 @@
+@use '../../../../../../../app/styles/variables' as *;
+
+.css-cyxlny-MuiPaper-root-MuiDialog-paper {
+  border-radius: 12px;
+}
+.adddriver-container {
+  padding: 0 !important;
+  overflow-y: hidden !important;
+
+  .add-driver-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    .driver-close {
+      background-color: #afafb1;
+      color: $white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      height: 35px;
+      width: 35px;
+      cursor: pointer;
+      margin-left: 10px;
+      &:hover {
+        background-color: $hover-color;
+      }
+      .driver-close-icon {
+        font-size: 20px;
+      }
+    }
+    .add-driver-component {
+      padding: 0 20px 20px 20px;
+      overflow-y: auto;
+      height: 80vh;
+    }
+  }
+}
+.add-driver-component {
+  padding: 0 20px 20px 20px;
+  overflow-y: auto;
+  height: 80vh;
+
+  .break-errors {
+    color: #d32f2f;
+    font-size: 0.75rem !important;
+  }
+
+  .add-driver-credentials {
+    margin: 10px 0;
+    .credentials-head {
+      font-size: 16px !important;
+      font-weight: 700 !important;
+      color: #26134b !important;
+    }
+  }
+}
+
+.driver-availability {
+  margin-top: 20px;
+  padding: 10px 10px 10px 0px;
+  width: 100%;
+  .css-byenzh-MuiButtonBase-root-MuiSwitch-switchBase.Mui-checked {
+    color: #3239ea;
+  }
+  .driver-availability-title {
+    color: #26134b;
+    font: $font-heading !important;
+    margin: 0 !important;
+  }
+  .driver-available {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+    gap: 50px;
+    margin-bottom: 5px;
+    .days-typo {
+      color: #26134b;
+      margin-bottom: 5px;
+    }
+    .error-days {
+      position: absolute;
+      margin-top: 39px;
+      color: #d32f2f;
+      font-size: 12px;
+      font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    }
+    .day-picker {
+      padding: 6px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      cursor: pointer;
+      min-width: 60px;
+      text-align: center;
+    }
+    .from-datepicker {
+      position: relative;
+      .time-error {
+        position: absolute;
+      }
+    }
+    .to-datepicker {
+      position: relative;
+      .time-error {
+        position: absolute;
+      }
+    }
+    .non-selected-day {
+      &:hover {
+        background-color: $light-bg;
+      }
+    }
+    .selected-day {
+      background-color: $primary;
+      color: #fff;
+    }
+  }
+  .available-time {
+    justify-content: space-between;
+  }
+  .error-days {
+    position: absolute;
+    margin-top: -5px;
+    color: #d32f2f;
+    font-size: 12px;
+  }
+}
+.delete-btn-break {
+  color: red !important;
+  font-size: 22px !important;
+  margin-top: 22px;
+}
+.css-fhxiwe {
+  flex-wrap: wrap;
+}
+
+.driver-break-head {
+  font-weight: 600 !important;
+  font-size: 16px !important;
+}
+
+.add-break-btn {
+  align-items: center;
+  display: flex;
+  margin-top: 20px !important;
+  padding: 6px 6px 6px !important;
+  font-weight: 700 !important;
+
+  font-size: 13px !important;
+}
+
+.break-index {
+  font-weight: 600 !important;
+}

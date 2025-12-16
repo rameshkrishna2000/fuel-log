@@ -1,0 +1,96 @@
+@use '../../../../src/app/styles/variables' as *;
+
+.custom-currency-input {
+  .css-9npbnl-MuiFormLabel-root-MuiInputLabel-root {
+    font-family: $font-inter !important;
+    font-size: 13px !important;
+  }
+
+  .currency-select {
+    width: -webkit-fill-available;
+    height: 35px !important;
+    font-size: 12px;
+    font-family: 'Inter', sans-serif;
+    border-radius: 6px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding-left: 14px;
+    color: $black !important;
+    border-color: $default-color !important;
+    border: 1px solid;
+  }
+
+  .currency-select:disabled {
+    opacity: 1;
+    color: #a2a2a2 !important;
+    border: 1px solid $default-color !important;
+    background-color: transparent;
+  }
+  .currency-select:focus {
+    opacity: 1;
+    color: $black !important;
+    border: 1px solid #cb4b4b !important;
+    background-color: transparent;
+  }
+
+  .custom-select-error {
+    width: -webkit-fill-available;
+    height: 35px !important;
+    border: 1px solid #d32f2f !important;
+    font-size: 13px;
+    font-family: 'Inter', sans-serif;
+    border-radius: 4px;
+    margin-top: 5px;
+    padding-left: 14px;
+    color: $black !important;
+  }
+
+  .currency-select-input {
+    font-size: 13px;
+    font-family: 'Inter', sans-serif;
+    border-color: $primary !important;
+  }
+
+  .currency-select-input input::placeholder {
+    font-size: 13px;
+    font-family: 'Inter', sans-serif;
+    color: #949494;
+    border: 1px solid #4725a7 !important;
+  }
+
+  .currency-label {
+    font-size: 13px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    color: #26134b !important;
+
+    .MuiInputLabel-asterisk {
+      color: red;
+      margin-left: 1px;
+    }
+  }
+
+  .currency-select {
+    & .MuiOutlinedInput-root {
+      border-color: $primary !important;
+
+      &.Mui-focused .MuiOutlinedInput-notchedOutline {
+        box-shadow: 0 0 2px $primary !important;
+        border: 1px solid $primary !important;
+      }
+
+      &:hover .MuiOutlinedInput-notchedOutline {
+        border-color: $primary !important;
+      }
+    }
+
+    .icon {
+      color: $primary !important;
+    }
+
+    // Error message style
+    .css-k4qjio-MuiFormHelperText-root.Mui-error {
+      margin-left: 0px;
+    }
+  }
+}

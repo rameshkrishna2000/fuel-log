@@ -1,0 +1,15 @@
+@use '../../../../app/styles/variables' as *;
+
+.popup {
+  .popup-title {
+    font: $font-content;
+    font-weight: 700;
+  }
+  .popup-address {
+    font-size: 13px;
+  }
+}
+
+.leaflet-routing-container {
+  display: none;
+}

@@ -1,0 +1,87 @@
+@use '../../../../app/styles/variables' as *;
+
+.custom-time-picker {
+  position: relative;
+  width: 100%;
+  // margin-top: 3px;
+  .css-nxo287-MuiInputBase-input-MuiOutlinedInput-input {
+    height: 25px !important;
+    padding: 6.5px 14px !important;
+    font-size: 14px !important;
+    padding-right: 0px !important;
+  }
+
+  .css-1bn53lx {
+    height: 36px !important;
+  }
+
+  .css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root.Mui-error
+    .MuiOutlinedInput-notchedOutline,
+  .css-igs3ac {
+    border: none !important;
+    border-color: none !important;
+  }
+
+  .time-error {
+    color: #d32f2f !important;
+    font-weight: 400 !important;
+    margin-top: 4px !important;
+    font-size: 0.75rem !important;
+  }
+
+  .timepicker-label {
+    font-weight: 500;
+    color: $label-color;
+    font-size: 13px !important;
+  }
+
+  .css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root.Mui-error
+    .MuiOutlinedInput-notchedOutline {
+    border-color: none !important;
+  }
+  .css-ahj2mt-MuiTypography-root {
+    // font-size: 0.75rem !important;
+    font-weight: 500;
+    color: $label-color;
+    // margin-top: 8px;
+  }
+  .css-z3c6am-MuiFormControl-root-MuiTextField-root,
+  .css-165mck1 {
+    width: 100% !important;
+  }
+  .css-1uvydh2 {
+    font-family: $font-inter;
+    height: 25px !important;
+    padding: 6.5px 0px 6.5px 10px !important;
+    font-size: 14px !important;
+  }
+  .default-input {
+    .css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root.Mui-error
+      .MuiOutlinedInput-notchedOutline,
+    .css-1bn53lx {
+      border: 1px solid #c3d2e2 !important;
+      border-color: #c3d2e2 !important;
+    }
+    .css-1d3z3hw-MuiOutlinedInput-notchedOutline,
+    .css-1bn53lx {
+      border: 1px solid #c3d2e2 !important;
+      border-color: #c3d2e2 !important;
+    }
+  }
+
+  .error-input {
+    .css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root.Mui-error
+      .MuiOutlinedInput-notchedOutline,
+    .css-1bn53lx.Mui-error .MuiOutlinedInput-notchedOutline,
+    .css-1bn53lx {
+      border: 1px solid #d32f2f !important;
+      border-color: #d32f2f !important;
+    }
+    .css-1d3z3hw-MuiOutlinedInput-notchedOutline,
+    .css-1bn53lx.Mui-error .MuiOutlinedInput-notchedOutline,
+    .css-1bn53lx {
+      border: 1px solid #d32f2f !important;
+      border-color: #d32f2f !important;
+    }
+  }
+}

@@ -1,0 +1,67 @@
+@use '../../../../../app/styles/variables' as *;
+
+.location-container {
+  .location-search {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    .pickup-location-heading {
+      display: flex;
+      align-items: center;
+      .header {
+        color: #26134b;
+        font: $font-heading !important;
+      }
+      .badge {
+        margin-left: 10px;
+        background-color: #26134b;
+        color: #fff;
+        border-radius: 10px;
+        padding: 5px 10px;
+      }
+    }
+  }
+  .pickup-locations-table {
+    border: 1px solid $chart-border;
+    box-shadow: 0 0 20px #e9e9e9;
+    border-radius: 12px;
+    padding: 10px 50px;
+  }
+  .location-icon-btn {
+    .location-icon {
+      color: #8f8f8f;
+      font-size: 25px;
+      transition: all 0.3s ease;
+    }
+    &:hover .location-icon {
+      color: $primary;
+    }
+  }
+}
+.pickup-location-view {
+  position: relative;
+  .close-pickup-location {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10;
+  }
+  .view-pickup-location {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .pickup-search {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+  }
+  .location-container .pickup-locations-table {
+    padding: 10px;
+  }
+}

@@ -1,0 +1,40 @@
+@use '../../../../app/styles/variables.scss' as *;
+
+.defaultview {
+  padding: 16px;
+
+  // .profileData {
+  //   font-weight: 500;
+  //   font-size: 20px; // 🔹 restored consistent font size
+  //   // color: $primary;
+  // }
+
+  .radioGroup {
+    margin-left: 18px;
+
+    @media (max-width: 600px) {
+      margin-left: 0;
+    }
+  }
+
+  .defaultpage-contain {
+    border: 1px solid #cacaca;
+    margin: 0px 0px 8px 40px;
+    padding: 8px 24px;
+    border-radius: 8px;
+
+    @media (max-width: 600px) {
+      margin: 0 0 12px 0;
+      padding: 12px 16px;
+    }
+  }
+
+  .saveChanges {
+    min-width: 180px;
+
+    @media (max-width: 600px) {
+      width: 100%;
+      min-width: unset;
+    }
+  }
+}

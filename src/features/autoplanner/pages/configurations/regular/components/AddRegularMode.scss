@@ -1,0 +1,35 @@
+@use '../../../../../../app/styles/variables' as *;
+
+.regulartour-formcontainer {
+  padding-top: 16px;
+  .regulartour-header {
+    font-size: 17px !important;
+    font-weight: 600 !important;
+  }
+
+  .addregularform {
+    overflow: auto;
+    scrollbar-width: none;
+    padding: 10px 10px 0px 0px;
+    .addregular-buttons {
+      flex-direction: row;
+      gap: 10px;
+      justify-content: flex-end;
+      padding: 10px 0px 10px 10px;
+    }
+    .locationdetails-container {
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+      margin-bottom: 10px;
+    }
+    .regulartour-timings {
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+      margin-bottom: 10px;
+    }
+  }
+}

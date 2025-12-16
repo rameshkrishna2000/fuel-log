@@ -1,0 +1,56 @@
+@use '../../../app/styles/variables.scss' as *;
+
+.access-denied {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  text-align: center;
+  padding: 1rem;
+
+  .error-code {
+    font-size: 160px;
+    font-weight: 700;
+    color: #e3e7ff;
+    position: relative;
+    line-height: 1;
+  }
+
+  .lock-icon-wrapper {
+    margin-top: -20px;
+    margin-bottom: 10px;
+  }
+
+  .lock-icon {
+    font-size: 40px !important;
+    color: #9ca3af;
+  }
+
+  .title {
+    font-weight: 700 !important;
+    color: #1f2937;
+    margin-bottom: 0.25rem !important;
+  }
+
+  .subtitle {
+    color: #6b7280;
+    max-width: 420px;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .back-button {
+    background-color: $primary !important;
+    text-transform: none !important;
+    padding: 0.75rem 2rem !important;
+    border-radius: 25px !important;
+    font-weight: 600 !important;
+    font-size: 16px !important;
+    box-shadow: 0px 4px 14px rgba(50, 57, 234, 0.3) !important;
+
+    &:hover {
+      background-color: #2a32d1 !important;
+    }
+  }
+}

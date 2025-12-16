@@ -1,0 +1,51 @@
+@use '../../../../../app/styles/variables' as *;
+
+.legends {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  background-color: $white;
+  padding: 15px;
+  width: 170px;
+  box-shadow: 0px 20px 50px 0px $card-shadow !important;
+  border-radius: 8px;
+
+  .Legend-head {
+    color: $heading;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: $font-inter;
+    margin: 0;
+  }
+
+  .expanded-icon {
+    background-color: $background-gray;
+    padding: 6px;
+    border-radius: 8px;
+    height: 30px;
+    width: 30px;
+    align-self: flex-start;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0px 20px 60px 0px $card-window;
+  }
+
+  .legend-details {
+    margin-top: 10px;
+    padding: 0 10px;
+
+    .legend-details-name {
+      color: $heading;
+      font-size: 12px;
+      font-weight: 600;
+      font-family: $font-inter;
+      margin-bottom: 0;
+    }
+
+    .marker-icon {
+      opacity: 0.7;
+      font-size: 20px;
+      transform: rotate(45deg);
+    }
+  }
+}

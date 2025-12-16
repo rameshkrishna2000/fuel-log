@@ -1,0 +1,183 @@
+@use '../../../../app/styles/variables' as *;
+
+.text-field {
+  width: 100%;
+  position: relative;
+
+  .label {
+    font-family: $font-inter;
+    font-size: $h6;
+    font-weight: 500;
+    color: $label-color;
+
+    .MuiInputLabel-asterisk {
+      color: red;
+    }
+  }
+
+  .custom-text-field {
+    width: 100%;
+    border: 0px solid $default-color !important;
+
+    .MuiOutlinedInput-root {
+      // height: 36px !important;
+      &:hover {
+        & fieldset {
+          border-color: $hover-color !important;
+        }
+      }
+
+      &:focus {
+        & fieldset {
+          border-color: $focus-color !important;
+        }
+        &.Mui-focused fieldset {
+          border-color: $focus-color !important;
+        }
+      }
+
+      &.Mui-focused {
+        & fieldset {
+          border-color: $focus-color !important;
+          border: 1px solid $focus-color !important;
+          box-shadow: 0 0 6px $box-shadow-color !important;
+        }
+      }
+    }
+
+    &.warning {
+      .MuiOutlinedInput-root {
+        & fieldset {
+          border-color: $warning-color !important;
+        }
+      }
+    }
+  }
+
+  .inputPropsLabel {
+    font-size: $h7;
+  }
+}
+.css-uel7pf {
+  font-weight: 400 !important;
+}
+// .css-hjvdj6 {
+//   margin: 4px 0 !important;
+// }
+.css-ahj2mt-MuiTypography-root,
+.css-9l3uo3 {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: #26134b;
+}
+
+.reset {
+  .resetText {
+    font-family: $font-inter;
+    font-size: $h7;
+    font-weight: 500;
+    color: $primary;
+    margin: 0;
+    cursor: pointer;
+  }
+}
+
+// phone input styles
+.custom-phone-input-container {
+  width: 100%;
+  // margin-top: 8px;
+  // margin-bottom: 14px !important;
+  ::placeholder {
+    color: #ccc;
+    font-size: 13px;
+  }
+
+  .react-tel-input .country-list {
+    max-height: 100px !important;
+    @media (max-width: 800px) {
+      width: auto;
+    }
+  }
+}
+
+#label {
+  font-family: $font-inter;
+  font-size: $h7;
+  font-weight: 500;
+  color: $label-color;
+  margin: 8px 0;
+}
+
+// default styles for the input
+.custom-phone-input-container #phone-label {
+  font-size: 13px;
+  font-weight: 500;
+  font-family: $font-inter;
+  color: $label-color;
+  // margin: -5px 0 6px 0;
+}
+.react-tel-input {
+  margin-top: 5px !important;
+  // margin-bottom: 10px !important;
+}
+.custom-phone-input-container .react-tel-input input {
+  width: 100%;
+  border: 1px solid #ccc;
+  padding: 8px;
+  padding-left: 50px;
+
+  // Hover styles for the input
+  &:hover {
+    border-color: $hover-color !important ;
+  }
+
+  // Focus styles for the input
+  &:focus {
+    border-color: $focus-color !important;
+  }
+}
+
+.css-1z10yd4-MuiFormControl-root-MuiTextField-root,
+.css-twdmtu {
+  margin-top: 5px !important;
+  margin-bottom: 10px !important;
+}
+
+.css-1gywuxd-MuiInputBase-root-MuiOutlinedInput-root {
+  border-radius: 6px !important;
+}
+
+.css-12yjm75-MuiInputBase-input-MuiOutlinedInput-input,
+.css-1y3zh1 {
+  font-size: $h6 !important;
+}
+
+.css-953pxc-MuiInputBase-root-MuiInput-root:hover:not(.Mui-disabled, .Mui-error):before {
+  border-bottom: 2px solid #1976d2 !important;
+}
+.css-jxtyyz {
+  color: $primary !important;
+  height: 20px !important;
+  width: 20px !important;
+}
+.css-1rrfrxi:hover:not(.Mui-disabled, .Mui-error)::before {
+  border-bottom: 2px solid $hover-color !important;
+}
+.css-1rrfrxi::after {
+  border-bottom: 2px solid $focus-color !important;
+}
+.phoneNo-error {
+  color: #d32f2f;
+  font-size: 12px;
+  margin-top: 3px;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-weight: 400;
+  /* font-size: 0.75rem; */
+  line-height: 1.66;
+  letter-spacing: 0.03333em;
+  text-align: left;
+  margin-top: 4px;
+  margin-right: 14px;
+  margin-bottom: 0;
+}

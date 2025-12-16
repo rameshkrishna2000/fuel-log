@@ -1,0 +1,147 @@
+@use '../../../../../app/styles/variables' as *;
+
+.agent-header-btn {
+  display: flex;
+  justify-content: end;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.vehicle-configuration {
+  .d-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .vehicle-heading {
+    font: $font-heading;
+    color: $light-black;
+    padding: 0 10px;
+  }
+}
+.view-routes {
+  color: $primary;
+  background-color: #dddeff;
+  border-radius: 15px;
+  padding: 5px 10px;
+  font-weight: bold;
+  text-align: center;
+  font-weight: 600 !important;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 10px !important;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.view-routes:hover {
+  background-color: darkblue;
+  color: white;
+}
+.driver-dialog {
+  .css-1t1j96h-MuiPaper-root-MuiDialog-paper {
+    border-radius: 12px !important;
+  }
+
+  .driver-view {
+    display: flex;
+    flex-direction: column;
+    min-width: 500px;
+    border-radius: 20px;
+    background-color: #f5f5f5;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    .driver-view-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      padding: 20px 20px 0 20px;
+    }
+    .driver-close {
+      background-color: #afafb1;
+      color: $white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      height: 35px;
+      width: 35px;
+      cursor: pointer;
+      margin-left: 10px;
+      &:hover {
+        background-color: $hover-color;
+      }
+      .driver-close-icon {
+        font-size: 20px;
+      }
+    }
+  }
+
+  .driver-details {
+    padding: 0 25px 20px 25px;
+    overflow-y: auto;
+    max-height: 80%;
+    .driver-details-values {
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+      width: 100% !important;
+      margin-left: 0 !important;
+      .driver-values {
+        font-weight: 700;
+        color: #555;
+        font-size: 14px;
+        &.head {
+          color: $primary !important;
+        }
+      }
+    }
+  }
+}
+// driver details
+.view-driver {
+  display: flex;
+  align-items: center;
+  background-color: #dddeff;
+  border-radius: 25px;
+  padding: 5px 10px;
+  font-weight: bold;
+  text-align: center;
+  font-weight: 600 !important;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: darkblue;
+  }
+  &:hover .view-driver-text {
+    color: $white;
+  }
+  &:hover .view-driver-icon {
+    color: $white;
+  }
+
+  .view-driver-icon {
+    font-size: 18px;
+    margin-right: 4px;
+    color: $primary;
+  }
+  .view-driver-text {
+    font-size: 12px !important;
+    color: $primary;
+    margin-top: 0 !important;
+  }
+}
+.no-driver-assigned {
+  font-weight: 600;
+  color: #777;
+}
+
+@media (max-width: 760px) {
+  .agent-header-btn {
+    position: static;
+    // justify-content: flex-start;
+  }
+}

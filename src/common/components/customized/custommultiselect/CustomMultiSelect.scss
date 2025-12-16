@@ -1,0 +1,273 @@
+@use '../../../../app/styles/variables' as *;
+@use '../../../../utils/styleMixin' as *;
+
+.custom-multiselect {
+  .css-chq866 .MuiOutlinedInput-root.MuiInputBase-sizeSmall .MuiAutocomplete-input {
+    font-size: $h6;
+    font-weight: 500;
+    color: $label-color;
+  }
+  .MuiAutocomplete-hasPopupIcon.MuiAutocomplete-hasClearIcon.css-jw1jwv-MuiAutocomplete-root
+    .MuiOutlinedInput-root,
+  .MuiAutocomplete-hasPopupIcon.MuiAutocomplete-hasClearIcon.css-1cncdmy
+    .MuiOutlinedInput-root {
+    padding-right: 65px !important;
+  }
+  .css-1si533m.Mui-error .MuiOutlinedInput-notchedOutline {
+    border-color: rgb(211, 47, 47) !important;
+  }
+
+  .css-yjucli .MuiOutlinedInput-root .MuiAutocomplete-input {
+    padding: 0 !important;
+  }
+
+  .css-chq866 .MuiOutlinedInput-root.MuiInputBase-sizeSmall {
+    background-color: $white;
+  }
+
+  .css-1si533m {
+    border-radius: 6px;
+  }
+
+  .MuiAutocomplete-hasPopupIcon.MuiAutocomplete-hasClearIcon.css-chq866
+    .MuiOutlinedInput-root,
+  .css-jw1jwv-MuiAutocomplete-root .MuiOutlinedInput-root {
+    padding: 0 !important;
+  }
+
+  .label {
+    font-family: $font-inter;
+    font-size: $h6;
+    font-weight: 500;
+    color: $label-color;
+  }
+
+  .css-k4qjio-MuiFormHelperText-root.Mui-error {
+    margin-left: 0px;
+  }
+
+  .css-953pxc-MuiInputBase-root-MuiInput-root:hover:not(
+      .Mui-disabled,
+      .Mui-error
+    ):before {
+    border-color: $primary !important;
+  }
+
+  .css-1y8r37a-MuiAutocomplete-root
+    .MuiInput-root.MuiInputBase-sizeSmall
+    .MuiInput-input {
+    font-family: $font-inter;
+    font-size: 15px;
+    color: $primary;
+    text-align: center;
+    border-color: $primary !important;
+    padding: 0 !important;
+  }
+  .css-1y8r37a-MuiAutocomplete-root
+    .MuiOutlinedInput-root.MuiInputBase-sizeSmall
+    .MuiAutocomplete-input {
+    padding: 0 !important;
+  }
+
+  .css-953pxc-MuiInputBase-root-MuiInput-root::before {
+    border-bottom: 2px solid $primary !important;
+  }
+
+  .css-953pxc-MuiInputBase-root-MuiInput-root::after {
+    border: none;
+  }
+
+  // for icon hiding in select
+  .dashboard-dropdown {
+    margin-top: 0;
+
+    .css-1z10yd4-MuiFormControl-root-MuiTextField-root {
+      margin: 0 !important;
+    }
+
+    .css-1xnbq41-MuiAutocomplete-root .MuiAutocomplete-inputRoot {
+      height: 35px !important;
+    }
+
+    .css-1d3z3hw-MuiOutlinedInput-notchedOutline {
+      border: 1px solid $default-color;
+      box-shadow: 0px 20px 60px 0px $card-window;
+    }
+
+    .css-1xnbq41-MuiAutocomplete-root
+      .MuiOutlinedInput-root.MuiInputBase-sizeSmall
+      .MuiAutocomplete-input {
+      padding: 0;
+    }
+  }
+
+  .custom-text-field {
+    margin: 0;
+    width: 100%;
+    border: 0px solid $default-color !important;
+    margin-top: 5px !important;
+    margin-bottom: 10px !important;
+    .css-igs3ac {
+      border: 1px solid $default-color !important;
+    }
+
+    // input box styles
+    .MuiOutlinedInput-root {
+      height: 35px !important;
+      padding: 0;
+
+      &:hover {
+        & fieldset {
+          border-color: $hover-color !important;
+        }
+      }
+
+      &:focus {
+        & fieldset {
+          border-color: $focus-color !important;
+        }
+
+        &.Mui-focused fieldset {
+          border-color: $focus-color !important;
+        }
+      }
+
+      &.Mui-focused {
+        & fieldset {
+          border-color: $focus-color !important;
+          border: 1px solid $focus-color !important;
+          box-shadow: 0 0 6px $box-shadow-color !important;
+        }
+      }
+
+      .adornment {
+        .css-1yqfv4i-MuiSvgIcon-root {
+          display: none;
+        }
+
+        &.warning {
+          .MuiOutlinedInput-root {
+            & fieldset {
+              border-color: $warning-color !important;
+            }
+          }
+        }
+
+        .MuiFormHelperText-root {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+}
+
+// .css-1s5lphu-MuiPopper-root-MuiAutocomplete-popper,
+// .css-1mtsuo7 {
+//   min-width: fit-content !important;
+// }
+
+// for icon hiding in select
+.dashboard-dropdown {
+  margin-top: 0;
+
+  .MuiInputBase-root {
+    background-color: $white;
+    color: $primary;
+  }
+
+  .css-1z10yd4-MuiFormControl-root-MuiTextField-root,
+  .css-twdmtu {
+    margin: 0 !important;
+  }
+
+  .css-1xnbq41-MuiAutocomplete-root .MuiAutocomplete-inputRoot {
+    height: 35px !important;
+    background-color: $white;
+    border-radius: 8px;
+  }
+
+  .css-1d3z3hw-MuiOutlinedInput-notchedOutline {
+    border: 1px solid $default-color;
+    box-shadow: 0px 20px 60px 0px $card-window;
+  }
+
+  .css-1xnbq41-MuiAutocomplete-root
+    .MuiOutlinedInput-root.MuiInputBase-sizeSmall
+    .MuiAutocomplete-input {
+    padding: 0;
+    color: $primary;
+    font-weight: 500;
+  }
+
+  .css-1xnbq41-MuiAutocomplete-root .MuiAutocomplete-inputRoot {
+    flex-wrap: nowrap;
+    background-color: $white;
+    font-size: 12px;
+    padding: 2.6px 0px 2.6px;
+    .css-ittuaa-MuiInputAdornment-root {
+      font-size: 17px;
+    }
+  }
+}
+
+// for options
+.css-gdh49b-MuiAutocomplete-listbox,
+.css-ue1yok {
+  padding: 8px !important;
+  .MuiAutocomplete-option {
+    font: $font-content;
+    font-weight: 500;
+    &:hover {
+      color: $primary;
+      width: 100%;
+      background-color: $button-background;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+  }
+}
+
+// for reports
+.reports-select {
+  .css-1z10yd4-MuiFormControl-root-MuiTextField-root {
+    // width: 200px;
+    width: 100%;
+    border-radius: 6px;
+    margin-top: 5px !important;
+    margin-bottom: 7px !important;
+  }
+
+  .css-twdmtu {
+    // width: 200px !important;
+    width: 100% !important;
+  }
+
+  .css-1xnbq41-MuiAutocomplete-root
+    .MuiOutlinedInput-root.MuiInputBase-sizeSmall
+    .MuiAutocomplete-input {
+    color: $dark-blue;
+    font: $font-inter;
+    font-weight: 400px;
+    font-size: 12px;
+  }
+
+  .css-k4qjio-MuiFormHelperText-root.Mui-error,
+  .css-hjvdj6 {
+    position: absolute !important;
+    margin-top: 38px !important;
+    margin-left: 0px !important;
+  }
+}
+
+.css-1xnbq41-MuiAutocomplete-root
+  .MuiOutlinedInput-root.MuiInputBase-sizeSmall
+  .MuiAutocomplete-input {
+  padding: 2.5px 4px 2.5px 0px;
+}
+
+.css-9l3uo3 {
+  // color: #26134b !important;
+  font-family: $font-inter !important;
+  font-weight: 500 !important;
+  font-size: 13px !important;
+}

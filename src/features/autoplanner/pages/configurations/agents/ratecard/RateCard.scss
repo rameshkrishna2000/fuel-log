@@ -1,0 +1,225 @@
+@use '../../../../../../../src/app/styles/variables' as *;
+
+.add-ratecard {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+.rateCard-component {
+  display: block;
+}
+.addratecard-close {
+  background-color: #afafb1;
+  color: $white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  height: 35px;
+  width: 35px;
+  cursor: pointer;
+  margin-left: 10px;
+  &:hover {
+    background-color: $hover-color;
+  }
+  .ratecard-close-icon {
+    font-size: 20px;
+  }
+}
+//add component
+.addratecard-container {
+  .css-t1jz3i {
+    height: 40vh !important;
+  }
+  // display: flex;
+  // justify-content: space-between;
+  overflow-y: hidden !important;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 10px 20px;
+  .loading-vehicle {
+    position: absolute;
+    z-index: 1000;
+    bottom: 39px;
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+  }
+  .addratecard-close {
+    background-color: #afafb1;
+    color: $white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    height: 35px;
+    width: 35px;
+    cursor: pointer;
+    margin-left: 10px;
+    &:hover {
+      background-color: $hover-color;
+    }
+    .ratecard-close-icon {
+      font-size: 20px;
+    }
+  }
+}
+
+.add-ons-parent {
+  border: 1.5px solid #16a34a;
+  border-radius: 10px;
+  padding: 4px;
+  margin: 4px;
+  position: relative;
+
+  .css-1pe4mpk-MuiButtonBase-root-MuiIconButton-root.Mui-disabled {
+    background: gray !important;
+    border-radius: 50%;
+  }
+
+  .icon-button {
+    position: absolute;
+    padding: 4px;
+    top: -10px;
+    right: -10px;
+    width: 26px;
+    height: 26px;
+    background: #667eea;
+    border: none;
+    border-radius: 50%;
+    font-size: 12px;
+
+    :hover {
+      background: #667eea !important;
+      border-radius: 50%;
+    }
+  }
+}
+
+.no-addOn-available {
+  font-size: 12px;
+  color: gray;
+  background-color: #16a34a0f;
+}
+// .addon-row input {
+//   padding: 10px 12px; /* vertically centered text */
+//   font-size: 14px;
+// }
+
+// .addon-row .MuiOutlinedInput-root {
+//   height: 44px;
+//   display: flex;
+//   align-items: center;
+// }
+
+.addon-row .MuiInputBase-input {
+  padding: 10px 12px;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.addon-row .MuiFormLabel-root {
+  font-size: 13px;
+  font-weight: 500;
+  color: #2c2c2c;
+}
+
+.addon-row .MuiInputAdornment-root {
+  margin-right: 8px;
+  margin-left: 4px;
+  display: flex;
+  align-items: center;
+}
+
+.ratecard {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  color: #333;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+  position: relative;
+  border-radius: 6px !important;
+  // transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+  }
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+    border-radius: 24px 24px 0 0;
+  }
+  .ratecard-content-container {
+    padding-bottom: 10px !important;
+  }
+  .ratecard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 10px 0px 10px;
+
+    .ratecard-title {
+      display: flex;
+      align-items: center;
+      width: 100%;
+
+      .ratecard-avatar {
+        color: #fff;
+        font-weight: bold;
+        margin-right: 10px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .ratecard-title-text {
+        width: 75%;
+        .ratecard-title {
+          width: 100%;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          cursor: pointer;
+          display: inline-block;
+          font-size: 22px !important;
+          font-weight: 600 !important;
+          color: #2d3748;
+          line-height: normal;
+        }
+      }
+    }
+  }
+  .ratecard-contents {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    background: rgba(102, 126, 234, 0.1);
+    border-radius: 12px;
+    padding: 10px;
+    margin: 6px 0;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 1px solid transparent;
+    &:hover {
+      background: rgba(102, 126, 234, 0.1);
+      border-color: rgba(102, 126, 234, 0.2);
+      transform: translateX(5px);
+    }
+
+    .content-overflow {
+      width: 170px;
+      font-family: 'Inter', sans-serif !important;
+      font-size: 13px !important;
+      font-weight: 500 !important;
+      color: #26134b;
+    }
+  }
+}

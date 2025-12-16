@@ -1,0 +1,62 @@
+@use '../../../app/styles/variables' as *;
+
+.custom-switchbox {
+  position: relative;
+  height: 40px;
+  width: 200px;
+  background-color: #e4e1e1;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  cursor: pointer;
+
+  // Sliding pill background
+  .slider {
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    background-color: $primary;
+    border-radius: 20px;
+    transition: transform 0.3s ease-in-out;
+    z-index: 1;
+  }
+
+  .slider.left {
+    transform: translateX(0%);
+  }
+
+  .slider.right {
+    transform: translateX(100%);
+  }
+
+  .tripsbox-inactive,
+  .tripsbox-active,
+  .ordersbox-inactive,
+  .ordersbox-active {
+    width: 100px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    border-radius: 20px;
+
+    .tripsbox-typo,
+    .ordersbox-typo {
+      font-weight: 700 !important;
+      transition: color 0.3s ease-in-out;
+    }
+  }
+
+  .tripsbox-active .tripsbox-typo,
+  .ordersbox-active .ordersbox-typo {
+    color: #fff;
+  }
+
+  .tripsbox-inactive .tripsbox-typo,
+  .ordersbox-inactive .ordersbox-typo {
+    color: #1c0c39;
+  }
+}

@@ -1,0 +1,13 @@
+@use '../../../app/styles/variables' as *;
+.customDialogList {
+  .css-tlc64q-MuiPaper-root-MuiDialog-paper {
+    width: auto !important;
+  }
+  .dialogTitle {
+    color: $accent;
+    font: $font-heading;
+    font-size: 16px !important;
+    margin-top: 10px;
+    font-weight: 600 !important;
+  }
+}

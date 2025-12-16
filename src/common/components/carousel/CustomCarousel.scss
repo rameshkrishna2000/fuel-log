@@ -1,0 +1,62 @@
+@use '../../../../src/app/styles/variables' as *;
+.carousel-box {
+  width: 60%;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  .carousel-card {
+    min-height: 228px;
+    width: 250px;
+    position: relative;
+    border-radius: 8px;
+    box-shadow: grey;
+    cursor: zoom-in;
+    transition: transform 0.2s;
+    &:hover,
+    &:focus {
+      transform: scale3d(1.006, 1.006, 1);
+      &::after {
+        opacity: 1;
+      }
+    }
+    .carousel-image:hover,
+    :active {
+      transform: scale(2);
+      transition: all 0.5s;
+    }
+    .carousel-image:not(:hover) {
+      transform: none;
+      transition: all 0.5s;
+    }
+  }
+
+  .uploaded-fileheader {
+    position: absolute;
+    width: 50%;
+    height: 20px;
+    background-color: #fff;
+    left: 0;
+    bottom: 9px;
+    border-radius: 0px 0px 0px 8px;
+
+    .uploaded-filename {
+      width: 200px;
+      font-size: 0.85rem;
+      color: #26134b;
+    }
+  }
+  .zoom-icon {
+    position: absolute;
+    background-color: white;
+    bottom: 9px;
+    height: 25px;
+    width: 25px;
+    right: 0;
+    border-radius: 4px;
+  }
+}
+.carousel .control-dots {
+  display: none;
+}

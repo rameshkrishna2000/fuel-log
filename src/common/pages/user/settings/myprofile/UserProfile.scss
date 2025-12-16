@@ -1,0 +1,56 @@
+@use '../../../../../app/styles/variables' as *;
+
+.userprofile-box {
+  .userprofile-container {
+    .profileIcon {
+      font-size: 20px;
+      margin: 15px 0;
+      color: $primary;
+      cursor: pointer;
+    }
+    .userprofile-title {
+      color: $heading;
+      font-size: 16px;
+      font-weight: 600 !important;
+      font-family: $font-inter;
+    }
+  }
+}
+
+.userprofile-dialog {
+  .profile-con,
+  .css-1ty026z {
+    padding: 0px !important;
+  }
+  .css-1t1j96h-MuiPaper-root-MuiDialog-paper,
+  .css-uhb5lp {
+    width: 400px !important;
+  }
+  .userprofile-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    .userprofile-header {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #26134b;
+    }
+    .profile-close {
+      cursor: pointer;
+    }
+  }
+  .confirmpassword {
+    .css-k4qjio-MuiFormHelperText-root.Mui-error,
+    .css-hjvdj6.Mui-error {
+      color: #d32f2f !important;
+      position: absolute !important;
+      top: 2.5rem;
+    }
+  }
+  .profile-btn-bottom {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1rem;
+    gap: 1rem;
+  }
+}

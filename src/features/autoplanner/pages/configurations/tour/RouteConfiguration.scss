@@ -1,0 +1,89 @@
+@use '../../../../../app/styles/variables' as *;
+
+.route-configuration {
+  .add-tour {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+  .css-1ruxp1v {
+    padding: 0 !important;
+  }
+  .route-configure-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .route-heading {
+    font: $font-heading;
+    color: $light-black;
+    padding: 0 10px;
+  }
+  .filter-bar-component {
+    display: flex;
+    .filter-icon {
+      margin-right: 20px;
+      height: fit-content;
+      margin-top: 20px;
+    }
+    .filter-bar {
+      display: flex;
+      align-items: center;
+    }
+    .filter-fields {
+      width: 200px;
+      margin: 0 10px;
+      .custom-select .label {
+        margin-top: 13px;
+        margin-bottom: 2px;
+      }
+      .custom-select .custom-text-field {
+        margin-top: 0 !important;
+      }
+      .custom-select .custom-text-field .MuiOutlinedInput-root {
+        height: 36px !important;
+      }
+    }
+  }
+}
+.clear {
+  color: $primary;
+  background-color: #dddeff;
+  border-radius: 15px;
+  padding: 5px 10px;
+  font-weight: bold;
+  text-align: center;
+  font-weight: 600 !important;
+
+  cursor: pointer;
+  display: inline-block;
+  font-size: 10px !important;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.clear:hover {
+  background-color: darkblue;
+  color: white;
+}
+
+@media (max-width: 500px) {
+  .css-m8ul8x {
+    padding: 10px 0 !important;
+  }
+  .css-13xfq8m-MuiTabPanel-root {
+    padding: 10px !important;
+  }
+}
+@media (max-width: 760px) {
+  .route-search {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+  }
+  .add-tour {
+    position: static !important;
+    display: flex;
+    justify-content: end;
+  }
+}

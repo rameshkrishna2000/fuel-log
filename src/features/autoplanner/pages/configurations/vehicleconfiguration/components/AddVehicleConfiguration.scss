@@ -1,0 +1,25 @@
+@use '../../../../../../app/styles/variables' as *;
+
+.vehicle-configure {
+  .seating-percentage {
+    text-align: center;
+    padding: 10px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+  }
+  .slider-label {
+    font-family: $font-inter !important;
+    font-size: $h6 !important;
+    font-weight: 500 !important;
+    color: $label-color;
+    margin-top: 8px;
+  }
+  .slider {
+    color: $primary;
+    width: 90%;
+    margin-left: 5%;
+  }
+  .css-1jp9wq4 {
+    margin-top: 15px !important;
+  }
+}

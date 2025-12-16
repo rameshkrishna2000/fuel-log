@@ -1,0 +1,28 @@
+@use '../../../../../app/styles/variables' as *;
+
+// .regular-tourmode {
+//   position: absolute;
+//   right: 20px;
+//   top: 20px;
+// }
+.regular-tourmode-button {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  align-items: center;
+}
+
+@media (max-width: 760px) {
+  .regular-tourmode-button {
+    position: static !important;
+    justify-content: end;
+  }
+}
+
+.regular-datagrid {
+  max-height: 80vh;
+  overflow: auto;
+  scrollbar-width: none;
+}

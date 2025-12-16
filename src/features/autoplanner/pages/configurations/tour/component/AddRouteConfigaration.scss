@@ -1,0 +1,91 @@
+@use '../../../../../../app/styles/variables' as *;
+
+.d-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.add-route-dialog {
+  .add-route-dialog-content {
+    .add-route-header {
+      .add-route-tittle {
+        font-size: 17px !important;
+        font-weight: 600 !important;
+        margin-top: 10px;
+      }
+      .css-a5rdam-MuiGrid-root > .MuiGrid-item {
+        padding-top: 15px !important;
+      }
+    }
+  }
+  .pickup-windows {
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    margin-top: 5px;
+    padding: 10px;
+    .pickup-title {
+      font: $font-heading !important;
+      // margin: 0;
+      margin: 0 0 5px 0px;
+
+      font-size: 13px !important;
+    }
+  }
+}
+
+.css-13xrqc3-MuiButtonBase-root-MuiButton-root-MuiLoadingButton-root {
+  background-color: green !important;
+}
+
+.css-1umm00c {
+  margin-top: 16px !important;
+  padding: 10px 24px 24px !important;
+}
+
+// .css-1wxstni-MuiSvgIcon-root {
+//   margin-top: 20px !important;
+// }
+
+.css-1wniyei-MuiTypography-root {
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  margin-bottom: 0px !important;
+  margin-top: -15px !important;
+}
+
+.delete-aliasis {
+  position: absolute;
+  left: 5;
+  bottom: 1;
+  // margin-top: 29px !important;
+  color: red !important;
+}
+
+.css-1mrc30z-MuiGrid-root > .MuiGrid-item {
+  padding-top: 0 !important;
+}
+.css-m8ul8x {
+  padding: 0 !important;
+}
+
+.roundText {
+  font-weight: 600 !important;
+  font-size: 14px !important;
+}
+
+.css-1qm1lh {
+  margin-bottom: 0 !important;
+}
+.css-1yuhvjn {
+  margin-top: 10px !important;
+}
+
+.css-3vlblt {
+  font: $font-heading !important;
+  margin: 0 !important;
+  font-size: 13px !important;
+}
+.css-86hn05 {
+  margin-top: 0px !important;
+}

@@ -1,0 +1,67 @@
+@use './../../../../app/styles/variables' as *;
+
+.reports-toolbar {
+  right: 10px !important;
+  .MuiButtonGroup-grouped {
+    font: $font-content2;
+    font-size: $h5;
+    color: $primary;
+    background-color: $primary;
+    text-transform: none;
+    height: 36px;
+    width: 180px;
+    border-radius: 4px;
+  }
+
+  // .group-item:hover {
+  //   background-color: $light-bg;
+  //   border: 0px !important;
+  // }
+  // .group-item:active {
+  //   background-color: $light-bg;
+  //   border: 0px !important;
+  // }
+
+  .down-arrow {
+    color: $primary;
+  }
+  .css-1k23hlb-MuiButtonBase-root-MuiButton-root {
+    height: 36px !important;
+    top: 2px !important;
+  }
+  .css-13iz54z .MuiButtonGroup-grouped {
+    height: 36px !important;
+  }
+}
+
+.custom-button-label {
+  width: 230px;
+  color: $heading;
+}
+
+.down-arrow {
+  color: $group-down-arrow;
+}
+
+.group-container {
+  background-color: $primary;
+  font-size: $h7 !important;
+  font-family: $font-inter;
+  text-transform: none !important;
+
+  .group-item {
+    border: 0px !important;
+    text-transform: capitalize !important;
+    color: $white;
+    font-weight: 600 !important;
+    .group-item:hover {
+      background-color: $primary;
+      border: 0px !important;
+    }
+
+    .group-item:active {
+      background-color: $primary;
+      border: 0px !important;
+    }
+  }
+}

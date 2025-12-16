@@ -1,0 +1,66 @@
+@use '../../../app/styles/variables' as *;
+
+// custom icon button styles
+.icon-button {
+  .icon {
+    color: $primary;
+  }
+
+  .update {
+    color: $orange;
+  }
+
+  .deactive {
+    color: $gray;
+  }
+
+  .remove {
+    color: $red;
+  }
+  .active {
+    color: $green;
+    width: 20;
+    height: 20;
+  }
+
+  .blue-bg {
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    color: $white;
+    border-radius: 8px;
+    background-color: $primary;
+  }
+
+  .grey-bg {
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    color: $white;
+    border-radius: 8px;
+    background-color: $accent;
+  }
+
+  .white-bg {
+    width: 29px;
+    height: 29px;
+    padding: 4px;
+    color: $accent;
+    border-radius: 8px;
+    border-color: $icon-border;
+    border: 2px solid $icon-border;
+    background-color: $white;
+  }
+
+  .big-size {
+    height: 35px;
+    width: 35px;
+    padding: 7px;
+  }
+
+  .big-size {
+    height: 35px;
+    width: 35px;
+    padding: 7px;
+  }
+}

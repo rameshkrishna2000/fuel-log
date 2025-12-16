@@ -1,0 +1,44 @@
+@use '../../../../../../app/styles/variables' as *;
+
+.new-main-pickup-dialog {
+  .css-1t1j96h-MuiPaper-root-MuiDialog-paper {
+    border-radius: 12px;
+  }
+  .main-pickup-dialog {
+    padding: 20px;
+    min-width: 500px;
+
+    .main-pickup-head {
+      align-items: center;
+
+      .main-pickup-title {
+        font-size: 18px;
+        font-weight: 500;
+        font: $font-heading;
+        margin: 0;
+      }
+      .main-pickup-close {
+        background-color: #afafb1;
+        color: $white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        height: 35px;
+        width: 35px;
+        cursor: pointer;
+        margin-left: 10px;
+        &:hover {
+          background-color: $hover-color;
+        }
+        .main-pickup-close-icon {
+          font-size: 20px;
+        }
+      }
+    }
+    .new-pickup-save {
+      display: flex;
+      justify-content: end;
+    }
+  }
+}

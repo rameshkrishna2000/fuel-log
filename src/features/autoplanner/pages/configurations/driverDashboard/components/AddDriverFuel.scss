@@ -1,0 +1,38 @@
+.driver-fuel-container {
+  overflow: scroll;
+  height: 90vh;
+  padding: 10px;
+  scrollbar-width: none;
+  .driver-grid-one {
+    padding: 5px;
+    border: 1px solid #d3d3d3;
+    border-radius: 10px 10px 10px 10px;
+  }
+  .driver-grid-two {
+    padding: 5px;
+    border: 1px solid #d3d3d3;
+    border-radius: 10px 10px 10px 10px;
+  }
+  .driver-grid-head {
+    font-weight: bold !important;
+    font-size: 16px !important;
+  }
+  .driver-grid-head-c {
+    font-weight: bold !important;
+    font-size: 16px !important;
+    text-align: center;
+  }
+  .driver-vehicle-details {
+    margin-top: 10px;
+  }
+  .driver-content-c {
+    text-align: center;
+  }
+  .driver-receipt {
+    margin-bottom: 10px;
+  }
+  .css-k4qjio-MuiFormHelperText-root.Mui-error {
+    position: absolute !important;
+    margin-top: 37px !important;
+  }
+}

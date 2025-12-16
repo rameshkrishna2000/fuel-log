@@ -1,0 +1,40 @@
+@use '../../../app/styles/variables' as *;
+
+.toast-stack {
+  width: 300px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #f0f0f0;
+  padding: 12px;
+  flex-direction: row !important;
+
+  .logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .toast-content {
+    margin-left: 15px;
+
+    .title-toast {
+      font-family: $font-inter;
+      font-size: $h5;
+      font-weight: 'bold';
+      padding-bottom: 10px;
+    }
+  }
+  .noti-close-button {
+    cursor: pointer;
+    display: flex;
+    position: absolute;
+    right: 5px;
+    top: 0;
+    font-size: 18px;
+
+    border-radius: 4px;
+    &:hover {
+      color: #888;
+    }
+  }
+}

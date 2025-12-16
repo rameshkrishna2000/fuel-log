@@ -1,0 +1,294 @@
+@use '../../../../../app/styles/variables' as *;
+
+.profileDialog {
+  .css-d4rx3c-MuiDialogContent-root {
+    overflow: hidden;
+  }
+  .css-1lsjgho-MuiDialogContent-root {
+    overflow: auto;
+  }
+  .MuiDialog-paper {
+    border-radius: 12px;
+    box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.15);
+    max-width: none !important;
+    width: 100%;
+    margin: 0 auto;
+    min-height: 90vh;
+    overflow-y: hidden;
+  }
+  .closeicon {
+    background-color: black;
+    padding: 5px;
+    max-height: 30px;
+    border-radius: 5px;
+
+    &:focus-visible {
+      outline: 1.5px solid #808080;
+      outline-offset: 3px;
+      border-radius: 6px;
+    }
+  }
+
+  .profileHead {
+    color: #3a3e52;
+    font-family: 'Inria Sans';
+    font-size: $h3;
+    font-weight: 700;
+  }
+  .profileData {
+    font-family: $font-inter;
+    font-size: 16px;
+    color: $light-black;
+    font-weight: 600;
+    cursor: context-menu;
+  }
+  .customicon {
+    color: #ffffff;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+  }
+  .setting {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1f2937;
+  }
+
+  .rootProfile {
+    border-right: 1px solid #e5e7eb;
+    padding: 16px;
+    min-height: 74vh !important;
+    overflow: hidden !important;
+    overflow-y: scroll !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .navbarProfile {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    .componentsIcons {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      .nonActive,
+      .active {
+        position: relative;
+        cursor: pointer;
+        padding: 12px 16px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: #555;
+
+        .icon {
+          color: #555;
+        }
+      }
+
+      .active {
+        color: $primary;
+        font-weight: 600;
+        border-left: 4px solid $primary;
+        padding-left: 12px;
+
+        .icon {
+          color: $primary;
+        }
+      }
+    }
+  }
+
+  .mobileWrapper {
+    display: flex;
+    // flex-direction: column;
+    // height: 100%;
+
+    .mobileContent {
+      flex: 1;
+      padding: 16px;
+      margin-bottom: 60px;
+    }
+
+    .mobileBottomNav {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 60px;
+      padding: 8px 0;
+      background: #fff;
+      border-top: 1px solid #e5e7eb;
+      box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.05);
+
+      .iconXS,
+      .activeIconXS,
+      .log-out-buttonXS {
+        font-size: 24px;
+        cursor: pointer;
+        transition: all 1s ease-in-out;
+      }
+
+      .activeIconXS {
+        color: $primary;
+      }
+
+      .log-out-buttonXS {
+        color: $warning-color;
+      }
+    }
+  }
+
+  .bottomBar {
+    margin-top: auto;
+    padding-top: 12px;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .log-out-button {
+      font-weight: 600;
+      border-radius: 8px;
+      color: $primary;
+      width: 100%;
+    }
+  }
+
+  .MuiDialogContent-root {
+    background: #fff;
+    padding: 0;
+    overflow-x: hidden !important;
+  }
+
+  .form-card {
+    background: #f9fafb;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.05);
+
+    .MuiTextField-root {
+      margin-bottom: 16px;
+
+      .MuiOutlinedInput-root {
+        border-radius: 8px;
+      }
+    }
+  }
+
+  .MuiButton-root {
+    border-radius: 8px;
+    font-weight: 600;
+    text-transform: none;
+  }
+
+  .MuiButton-contained {
+    background: $primary;
+
+    &:hover {
+      background: $primary;
+    }
+  }
+  .profile-sidebar {
+    display: none;
+    padding: 12px;
+    background-color: #fff;
+    border-radius: 8px;
+    height: 100%;
+    max-height: 100vh;
+    overflow-y: auto;
+    margin: 0;
+    border: none;
+  }
+
+  .profile-sidebar .rootProfile {
+    padding-right: 15px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin: 0;
+  }
+
+  .navbarProfile {
+    flex-grow: 1;
+    margin-bottom: 16px;
+  }
+
+  .badge {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 8px 12px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    cursor: pointer;
+  }
+
+  .badge:hover {
+    background-color: #f4f4f4;
+  }
+
+  .badge.active {
+    background-color: #e3f2fd;
+  }
+
+  .badge-text {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    margin-left: 8px;
+  }
+
+  .icon {
+    font-size: 20px;
+    color: #333;
+  }
+
+  .badge.active .icon {
+    color: #1976d2;
+  }
+
+  .logout-container {
+    margin-top: 12px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .log-out-button {
+    width: 90%;
+    padding: 10px;
+    background-color: var(--primary-color, #1976d2);
+    color: white;
+    border-radius: 8px;
+    font-weight: 600;
+    text-align: center;
+    border: none;
+  }
+
+  // .log-out-button:hover {
+  //   background-color: var(--primary-color-dark, #005fcc);
+  // }
+
+  .log-out-button:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+  }
+  .css-1sazv7p-MuiStack-root > :not(style) ~ :not(style) {
+    margin-top: 0px !important;
+  }
+  .css-1ov46kg > :not(style) ~ :not(style) {
+    margin-top: 0px !important;
+  }
+
+  @media (min-width: 600px) {
+    .profile-sidebar {
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,49 @@
+@use '../../../../app/styles/variables' as *;
+@use '../../../../utils/styleMixin' as *;
+
+.google-search {
+  position: relative !important;
+  .google-search-label {
+    font-family: $font-inter;
+    font-size: $h6;
+    font-weight: 500;
+    color: $label-color;
+  }
+
+  .google-search-autocomplete {
+    margin: 5px 0 10px !important;
+    @include googleSearchBox;
+  }
+
+  .google-search-autocomplete-error {
+    @include googleSearchBox;
+    border: 1px solid #d32f2f;
+  }
+
+  .warning {
+    margin-top: -3px;
+    color: #d32f2f !important;
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.03333em;
+    // margin-bottom: 10px;
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  }
+
+  // for google search place holder
+  .google-search-autocomplete::-webkit-input-placeholder {
+    color: #ccc;
+  }
+
+  .google-search-autocomplete:-moz-placeholder {
+    color: #ccc;
+  }
+
+  .google-search-autocomplete::-moz-placeholder {
+    color: #ccc;
+  }
+
+  .google-search-autocomplete:-ms-input-placeholder {
+    color: #ccc;
+  }
+}

@@ -1,0 +1,197 @@
+@use '../../../../app/styles/variables' as *;
+
+.custom-grid-toolbar-container1 {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 0px !important;
+}
+
+.custom-stack {
+  margin: 4px 0 0 4px;
+}
+.css-1to7aaw-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected,
+.css-1omp2b7.Mui-selected {
+  background-color: $primary !important;
+}
+.custom-typography1 {
+  font-size: 16px;
+  color: #26134b;
+}
+
+.css-qgp5r9-MuiPickersLayout-root {
+  display: flex !important;
+}
+
+.row-selection {
+  .MuiDataGrid-columnHeaderCheckbox .MuiCheckbox-root {
+    display: none !important;
+  }
+  .css-de9k3v-MuiDataGrid-selectedRowCount {
+    visibility: hidden !important;
+  }
+}
+
+.css-1m4a7xm-MuiDataGrid-root {
+  font-size: 0.75rem !important;
+}
+
+.css-1m4a7xm-MuiDataGrid-root .MuiDataGrid-row:hover,
+.css-1m4a7xm-MuiDataGrid-root .MuiDataGrid-row.Mui-hovered,
+.css-1o67cty-MuiDataGrid-root .MuiDataGrid-row:hover,
+.css-1o67cty-MuiDataGrid-root .MuiDataGrid-row.Mui-hovered {
+  background-color: #95a2fe2b !important;
+  cursor: pointer !important;
+}
+
+.custom-stack1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.custom-stack2 {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-box2 {
+  overflow: hidden;
+  width: 100% !important;
+
+  .css-az8st9-MuiDataGrid-root .MuiDataGrid-cellContent {
+    font-size: 12px;
+  }
+
+  .quick-searchbar {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    .css-nen11g-MuiStack-root {
+      padding: 4px !important;
+      padding-bottom: 0px !important;
+    }
+  }
+
+  .quick-space {
+    justify-content: space-between;
+    .css-ahj2mt-MuiTypography-root {
+      font-weight: 600 !important;
+      font-size: 1rem !important;
+    }
+  }
+
+  .super-app-theme--cell {
+    background-color: #ff5b5b;
+    font-weight: 700;
+  }
+  .super-app-theme--header {
+    background-color: #7bf3a4;
+  }
+  .super-app.lightblue {
+    background-color: #ccccff;
+    font-weight: 600;
+  }
+  .super-app.orange {
+    background-color: #fbc778;
+    color: #1a3e72;
+    font-weight: 600;
+  }
+  .super-app.grey {
+    background-color: #999999;
+    color: #1a3e72;
+    font-weight: 600;
+  }
+
+  .MuiDataGrid-columnHeaders {
+    background-color: #fff;
+    color: $dark-blue;
+    text-align: right;
+    font-size: 12px;
+    font-weight: 700 !important;
+    min-height: 44px !important;
+    max-height: 44px !important;
+  }
+
+  .css-baly4n .MuiDataGrid-row:not(.MuiDataGrid-row--dynamicHeight) > .MuiDataGrid-cell {
+    font-size: 12px !important;
+  }
+
+  .MuiDataGrid-columnHeaderTitle {
+    font-weight: 700 !important;
+  }
+
+  .MuiDataGrid-columnHeaderTitleContainer {
+    justify-content: left;
+  }
+
+  .css-ptkaw2-MuiDataGrid-root .MuiDataGrid-row {
+    cursor: pointer;
+    transition: all 0.2s ease;
+    &:hover .MuiDataGrid-cell {
+      color: $primary;
+      background-color: $button-background !important;
+    }
+  }
+  .css-ptkaw2-MuiDataGrid-root .MuiDataGrid-cell:focus {
+    outline: none !important;
+  }
+
+  .css-az8st9-MuiDataGrid-root .MuiDataGrid-cell:focus-within {
+    outline: none !important;
+  }
+
+  .MuiDataGrid-root .MuiDataGrid-cell:focus {
+    outline: none !important;
+  }
+  .css-ptkaw2-MuiDataGrid-root .MuiDataGrid-cell:focus-within {
+    outline: none;
+  }
+  .MuiDataGrid-cell {
+    text-align: left !important;
+    // background-color: #fff !important;
+  }
+
+  .MuiDataGrid-root {
+    border: none;
+  }
+
+  .MuiDataGrid-sortIcon {
+    color: $dark-blue !important;
+  }
+}
+
+.custom-data-grid {
+  .css-204u17-MuiDataGrid-main {
+    margin: 4px 4px 4px 4px;
+    // padding-top: 10px;
+  }
+  .css-3be3ve-MuiFormControl-root-MuiTextField-root-MuiDataGrid-toolbarQuickFilter,
+  .css-68pk0f {
+    width: 15% !important;
+  }
+  .css-1eed5fa-MuiInputBase-root-MuiInput-root,
+  .css-1k33q06 {
+    color: $focus-color;
+  }
+  .css-c63i49-MuiInputBase-input-MuiInput-input,
+  .css-68pk0f input {
+    color: #59758a !important;
+    font-size: $h5 !important;
+  }
+  .css-1eed5fa-MuiInputBase-root-MuiInput-root:hover:not(
+      .Mui-disabled,
+      .Mui-error
+    ):before,
+  .css-jcincl:hover:not(.Mui-disabled, .Mui-error)::before {
+    border-bottom: 2px solid $hover-color !important;
+  }
+  .css-jcincl::after {
+    border-bottom: 2px solid $focus-color !important;
+  }
+}

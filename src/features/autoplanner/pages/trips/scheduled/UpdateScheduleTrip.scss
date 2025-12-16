@@ -1,0 +1,91 @@
+@use '../../../../../app/styles/variables' as *;
+
+.css-m9glnp-MuiPaper-root-MuiDialog-paper {
+  border-radius: 8px !important;
+}
+
+.d-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.add-booking-title {
+  color: $accent;
+  font: $font-heading !important;
+  font-size: 18px !important;
+  margin: 20px 0 0 0 !important;
+  font-weight: 600 !important;
+}
+.add-trip-component {
+  .add-trip-dialog {
+    .css-1mpvhy3-MuiDialogContent-root {
+      padding: 10px 0 10px 10px !important;
+    }
+
+    .add-trip-grid-item {
+      .add-trip-header {
+        position: sticky;
+        top: 0;
+        display: flex;
+        justify-content: space-between;
+        background-color: $white;
+        z-index: 10;
+        padding-bottom: 10px;
+      }
+
+      @media (max-width: 469px) {
+        .child-count-field {
+          margin-top: -20px !important;
+          width: 100% !important;
+        }
+        .adult-count-field {
+          width: 100% !important;
+        }
+      }
+
+      .close-icon-index {
+        z-index: 11;
+      }
+
+      .add-trip-form {
+        padding-top: 20px;
+      }
+    }
+  }
+}
+.transfer-trip {
+  display: flex;
+  align-items: center;
+  .transfer-trip-label {
+    margin: 0;
+    color: $accent;
+    font: $font-heading !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+  }
+  .css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root.Mui-checked,
+  .css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root.MuiCheckbox-indeterminate {
+    color: $primary !important;
+  }
+}
+
+@media (max-width: 720px) {
+  .add-booking-title {
+    margin: 20px 0px 0px 16px !important;
+  }
+}
+.css-fmdz4h-MuiTypography-root,
+.css-fmdz4h-MuiTypography-root {
+  color: #d32f2f;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 0.75rem !important;
+  line-height: 1.66 !important;
+  letter-spacing: 0.03333em !important;
+  text-align: left;
+  margin-top: 4px !important;
+  margin-right: 14px !important;
+  margin-bottom: 0 !important;
+}

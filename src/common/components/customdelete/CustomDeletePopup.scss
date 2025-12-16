@@ -1,0 +1,21 @@
+.delete-container {
+  .delete-content {
+    text-align: center;
+    padding: 5%;
+    min-width: 350px;
+    .delete-btn {
+      flex-direction: row;
+      justify-content: center;
+      padding-top: 5%;
+      .delete-submit {
+        margin-right: 12px;
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .delete-content {
+    min-width: 0px !important;
+  }
+}

@@ -1,0 +1,99 @@
+@use '../../../app/styles/variables' as *;
+
+.card {
+  padding: 10px;
+  border: 1px solid $shadow;
+  cursor: pointer;
+
+  .geofence {
+    height: 200px;
+    overflow-y: scroll;
+  }
+
+  .location {
+    height: 100px;
+  }
+
+  .cardHeader {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .officeIcon {
+      font-size: 17px;
+    }
+
+    .icons {
+      .icon {
+        font-size: 17px;
+        margin-left: 10px;
+        color: $black;
+        opacity: 0.9;
+      }
+    }
+  }
+
+  .cardHead {
+    color: $heading;
+    font-size: 12px;
+    font-family: $font-inter;
+
+    .geofence-name {
+      font-size: 16px;
+      font-weight: 600;
+      text-transform: capitalize;
+    }
+  }
+
+  .cardContent {
+    font: $font-content;
+    color: $gray;
+  }
+
+  .locationHead {
+    color: $light-gray;
+    font: $font-content2;
+  }
+
+  .vehicleLocation {
+    color: $medium-gray;
+    font-size: 13px;
+    font-family: $font-inter;
+  }
+
+  .vehicleNumbers {
+    color: $medium-gray;
+    font-size: 13px;
+    font-family: $font-inter;
+    width: 150px;
+  }
+
+  .tooltip {
+    visibility: hidden;
+  }
+
+  .vehicleNumbers:hover + .tooltip {
+    overflow: visible;
+  }
+
+  &:hover .icon {
+    display: inline-block !important;
+  }
+
+  &:hover .dashboard {
+    display: none !important;
+  }
+}
+
+.popupBox {
+  .css-1t1j96h-MuiPaper-root-MuiDialog-paper {
+    min-width: 350px;
+  }
+
+  .popupTitle {
+    color: $heading;
+    font-size: 14px !important;
+    font-weight: 500;
+    font-family: $font-inter;
+  }
+}
