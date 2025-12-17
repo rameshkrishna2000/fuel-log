@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 const InfiniteScroll: any = (WrappedComponent: React.FC<any>) => {
   const EnhancedComponent = () => {
@@ -8,7 +8,7 @@ const InfiniteScroll: any = (WrappedComponent: React.FC<any>) => {
     const [lastPage, setLastPage] = useState<boolean>(false);
 
     //function to handle infinite scroll
-    const handleScroll = (data: any) => {
+    const handleScroll = useCallback((data: any) => {
       const { scrollTop, scrollHeight, clientHeight } = data;
       if (
         Math.floor(scrollTop + clientHeight) === scrollHeight ||
@@ -16,8 +16,7 @@ const InfiniteScroll: any = (WrappedComponent: React.FC<any>) => {
       ) {
         setCurrentPage(currentPage + 1);
       }
-    };
-
+    }, []);
     //function to reset the page
     const handleReset = () => {
       setCurrentPage(1);

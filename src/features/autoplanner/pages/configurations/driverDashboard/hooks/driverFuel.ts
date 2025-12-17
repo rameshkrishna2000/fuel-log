@@ -1,7 +1,10 @@
 import { Dialog, DialogProps, styled } from '@mui/material';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { debounce } from '../../../../../../utils/commonFunctions';
-import { getAllDriverFuel } from '../../../../../../common/redux/reducer/commonSlices/driverFuelSlice';
+import {
+  clearDriverFuelData,
+  getAllDriverFuel
+} from '../../../../../../common/redux/reducer/commonSlices/driverFuelSlice';
 
 export const useMemoDialog = ({ files }: any) => {
   const BlurryDialog = styled(Dialog)<DialogProps>(({ theme }) => ({
@@ -80,32 +83,39 @@ export const useHandleSearch = ({
   const handleSearchChange = useCallback(
     debounce(async (event: any) => {
       setIsScroll(false);
-      clearState();
-      await dispatch(getAllDriverFuel({ pageNo: 1, pageSize: 12, search: event }));
       setSearchValue(event);
+      clearState();
+      dispatch(clearDriverFuelData());
+      await dispatch(getAllDriverFuel({ pageNo: 1, pageSize: 8, search: event }));
     }),
     []
   );
   return { handleSearchChange };
 };
 
+export const useHandleInfinitePage = ({ setIsScroll, dispatch, searchValue }: any) => {
+  const handleInfinitePagination = useCallback(
+    async (pageNo: number) => {
+      setIsScroll(true);
+      await dispatch(
+        getAllDriverFuel({ pageNo: pageNo, pageSize: 8, search: searchValue })
+      );
+    },
+    [searchValue]
+  );
+  return { handleInfinitePagination };
+};
+
 export const useDriverFuelEffects = ({
   dispatch,
-  setIsScroll,
   setApi,
   data,
   count,
-  searchValue
+  handleInfinitePagination
 }: any) => {
   useEffect(() => {
-    dispatch(getAllDriverFuel({ pageNo: 1, pageSize: 12 }));
-  }, []);
-
-  const handleInfinitePagination = useCallback(async (pageNo: number) => {
-    setIsScroll(true);
-    await dispatch(
-      getAllDriverFuel({ pageNo: pageNo, pageSize: 12, search: searchValue })
-    );
+    dispatch(clearDriverFuelData());
+    dispatch(getAllDriverFuel({ pageNo: 1, pageSize: 8 }));
   }, []);
 
   useEffect(() => {

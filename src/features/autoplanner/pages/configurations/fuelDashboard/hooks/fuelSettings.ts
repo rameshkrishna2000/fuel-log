@@ -597,7 +597,6 @@ export const useHandleEditCancel = ({
 
 export const useHandleProcessRow = ({ tempNewRow, setRowModesModel }: any) => {
   const handleProcessRowUpdateError = (error: Error) => {
-    console.error('Validation error:', error.message);
 
     if (tempNewRow) {
       setRowModesModel({

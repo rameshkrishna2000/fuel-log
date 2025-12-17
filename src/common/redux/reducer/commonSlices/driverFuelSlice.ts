@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice, current } from '@reduxjs/toolkit';
 import axiosInstance from '../../../../app/config/axiosInstance';
 import { updateToast } from './toastSlice';
 import URLs from '../../../../utils/appURLs';
@@ -207,7 +207,11 @@ export const getAllDriverFuel = createAsyncThunk<any, any>(
 const getAllDriverFuelSlice = createSlice({
   name: 'getAllDriverFuel',
   initialState: initialState,
-  reducers: {},
+  reducers: {
+    clearDriverFuelData: state => {
+      state.data = null;
+    }
+  },
   extraReducers: builder => {
     builder.addCase(getAllDriverFuel.pending, state => {
       state.isLoading = true;
@@ -215,21 +219,27 @@ const getAllDriverFuelSlice = createSlice({
     builder.addCase(getAllDriverFuel.fulfilled, (state, action) => {
       const { responses, count } = action?.payload;
       state.isLoading = false;
-      state.data = responses?.map((item: any, index: number) => ({
-        ...item,
-        sNo: index + 1,
-        vehicleNumber: (item?.vehicleNumber).toUpperCase(),
-        paymentMethodName: capitalizeFirstLetter(item?.paymentMethodName),
-        fuelType: capitalizeFirstLetter(item?.fuelType),
-        fuelStation: capitalizeFirstLetter(item?.fuelStation),
-        notes: capitalizeFirstLetter(item?.notes)
-      }));
-      state.error = null;
       state.count = count;
+      const newData: any = current(state)?.data ? current(state as any)?.data : [];
+      state.data = [
+        ...newData,
+        ...(responses?.map((item: any, index: number) => ({
+          ...item,
+          sNo: newData.length + index + 1,
+          vehicleNumber: (item?.vehicleNumber).toUpperCase(),
+          paymentMethodName: capitalizeFirstLetter(item?.paymentMethodName),
+          fuelType: capitalizeFirstLetter(item?.fuelType),
+          fuelStation: capitalizeFirstLetter(item?.fuelStation),
+          notes: capitalizeFirstLetter(item?.notes)
+        })) || [])
+      ];
+      state.error = null;
     });
     builder.addCase(getAllDriverFuel.rejected, (state, action) => {
       state.error = action.error.message || 'Something went wrong';
       state.isLoading = false;
+      state.data = [];
+      state.count = 0;
     });
   }
 });
@@ -1353,3 +1363,4 @@ export const addFuelExcelReducer = addFuelExcelSlice.reducer;
 export const getTypeDropdownReducer = getTypeDropdownSlice.reducer;
 export const getStationDropdownReducer = getStationDropdownSlice.reducer;
 export const getPaymentDropdownReducer = getPaymentDropdownSlice.reducer;
+export const { clearDriverFuelData } = getAllDriverFuelSlice.actions;

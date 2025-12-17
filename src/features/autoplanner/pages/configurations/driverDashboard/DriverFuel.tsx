@@ -23,6 +23,7 @@ import {
   useDriverFuelStates,
   useHandleAddFuel,
   useHandleImage,
+  useHandleInfinitePage,
   useHandleSearch,
   useHandleUpdate,
   useMemoDialog
@@ -55,7 +56,18 @@ const DriverFuel = ({ onScroll, setApi, clearState }: any) => {
     dispatch,
     setSearchValue
   });
-  useDriverFuelEffects({ dispatch, setIsScroll, setApi, data, count, searchValue });
+  const { handleInfinitePagination } = useHandleInfinitePage({
+    setIsScroll,
+    dispatch,
+    searchValue
+  });
+  useDriverFuelEffects({
+    dispatch,
+    setApi,
+    data,
+    count,
+    handleInfinitePagination
+  });
 
   return (
     <Box className='fuel-container'>
@@ -91,12 +103,14 @@ const DriverFuel = ({ onScroll, setApi, clearState }: any) => {
           setIsScroll(true);
           const { scrollTop, scrollHeight, clientHeight } = inputRef.current;
           const data = { scrollTop, scrollHeight, clientHeight };
-          onScroll(data);
+          if (!isLoading) {
+            onScroll(data);
+          }
         }}
-        sx={{ height: '70vh', overflow: 'scroll', scrollbarWidth: 'none' }}
+        sx={{ height: '75vh', overflow: 'scroll', scrollbarWidth: 'none' }}
         ref={inputRef}
       >
-        {isLoading ? (
+        {isLoading && !isScroll ? (
           <Grid item xs={12}>
             <Box className='loading-container'>
               <CircularProgress size={40} className='loading-spinner' />

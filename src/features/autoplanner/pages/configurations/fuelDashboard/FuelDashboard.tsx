@@ -268,26 +268,26 @@ const FuelDashboard = () => {
           {!isXs && (
             <Typography className='fuel-entries'>All Entries ({count})</Typography>
           )}
-          <Box sx={{ display: 'flex', gap: '20px', justifyContent: 'flex-end' }}>
-            <Box sx={{ width: 200 }}>
-              <CustomTextField
-                control={control}
-                name='search'
-                placeholder='Search...'
-                id='search'
-                variant={'standard'}
-                icon={<SearchOutlinedIcon color='primary' />}
-                onChangeCallback={e => {
-                  handleSearchChange(e);
-                }}
-              />
-            </Box>
-            {data?.length > 0 && (
+          {data?.length > 0 && (
+            <Box sx={{ display: 'flex', gap: '20px', justifyContent: 'flex-end' }}>
+              <Box sx={{ width: 200 }}>
+                <CustomTextField
+                  control={control}
+                  name='search'
+                  placeholder='Search...'
+                  id='search'
+                  variant={'standard'}
+                  icon={<SearchOutlinedIcon color='primary' />}
+                  onChangeCallback={e => {
+                    handleSearchChange(e);
+                  }}
+                />
+              </Box>
               <Box sx={{ marginTop: '5px' }}>
                 <CustomToolbar reportDownload={reportDownload} label='Download' />
               </Box>
-            )}
-          </Box>
+            </Box>
+          )}
           <CustomDataGrid
             rows={data ?? []}
             columns={columns}

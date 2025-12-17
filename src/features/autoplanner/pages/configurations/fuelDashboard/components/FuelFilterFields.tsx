@@ -49,15 +49,6 @@ export const useFuelFilterColumns = ({
       minWidth: 100
     },
     {
-      field: 'cost',
-      headerName: 'Fuel Cost',
-      flex: 1,
-      minWidth: 100,
-      renderCell: (value: any) => {
-        return value?.row?.cost ? value?.row?.cost : 'NA';
-      }
-    },
-    {
       field: 'adblueVolume',
       headerName: 'AdBlue Volume',
       flex: 1,
@@ -71,6 +62,15 @@ export const useFuelFilterColumns = ({
       headerName: 'Station',
       flex: 1,
       minWidth: 120
+    },
+    {
+      field: 'cost',
+      headerName: 'Cost',
+      flex: 1,
+      minWidth: 100,
+      renderCell: (value: any) => {
+        return value?.row?.cost ? value?.row?.cost : 'NA';
+      }
     },
     {
       field: 'location',
