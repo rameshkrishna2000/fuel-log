@@ -234,6 +234,7 @@ const FuelSettings = () => {
     fuelStationCount,
     paymentCount
   });
+  
   useFuelSettingsEffect({ dispatch });
 
   return (
