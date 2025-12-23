@@ -66,7 +66,10 @@ const RegularMode = () => {
         <CustomButton
           className='saveChanges'
           category='Add Regular'
-          onClick={() => setIsOpen(true)}
+          onClick={() => {
+            setFilteredRow(null);
+            setIsOpen(true);
+          }}
         />
       </Box>
       <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
@@ -91,6 +94,7 @@ const RegularMode = () => {
           rows={rows ?? []}
           columns={columns}
           rowCount={count}
+          sortingMode='server'
           loading={isLoading}
           onPaginationModelChange={handlePagination}
           pageNo={pageNo}

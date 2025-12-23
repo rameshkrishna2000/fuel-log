@@ -151,7 +151,7 @@ const getRegularTourSlice = createSlice({
       .addCase(getRegularTour.pending, (state, action) => {
         state.isLoading = true;
         state.data = null;
-        // state.count = 0;
+        state.count = 0;
       })
       .addCase(getRegularTour.fulfilled, (state, action) => {
         state.isLoading = false;

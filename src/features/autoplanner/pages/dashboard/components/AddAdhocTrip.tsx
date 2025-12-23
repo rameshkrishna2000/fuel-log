@@ -131,6 +131,10 @@ const AddAdhocTrip = ({
 
   const driverName = useAppSelector(state => state.externalvalidation?.data);
 
+  const externalVehicleDriverLoading = useAppSelector(
+    state => state?.externalvalidation?.isLoading
+  );
+
   let roletype = profileData?.role;
 
   const configuredRoute = tourNames?.map((value: any) => ({
@@ -1312,6 +1316,7 @@ const AddAdhocTrip = ({
                                 {...field}
                                 setValue={setValue}
                                 country='sg'
+                                loading={externalVehicleDriverLoading}
                                 style='share'
                                 label='Driver Contact Number'
                                 disableCountry={true}
@@ -1418,6 +1423,7 @@ const AddAdhocTrip = ({
                               <PhoneNoTextField
                                 {...field}
                                 setValue={setValue}
+                                loading={externalVehicleDriverLoading}
                                 country='sg'
                                 style='share'
                                 label='Driver Contact Number'

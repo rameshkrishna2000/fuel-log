@@ -508,34 +508,6 @@ export const convertEpochToDateTime = (epoch: number, timezone: string): string 
   return formattedDateUpperCase;
 };
 
-export const convertDriverEpochToDateTime = (epoch: number, timezone: string): string => {
-  const date = new Date(epoch * 1000);
-
-  // Create options object for toLocaleString
-  const options: Intl.DateTimeFormatOptions = {
-    timeZone: timezone,
-    year: 'numeric',
-    month: 'short', // changed from '2-digit'
-    day: '2-digit',
-    hour: '2-digit',
-    minute: '2-digit',
-    hour12: true
-  };
-
-  // Format the date
-  const formattedDate = date.toLocaleString('en-IN', options).replace(',', '');
-
-  // Split into parts → [day, month, year, time]
-  const parts = formattedDate.split(' ');
-
-  // Rebuild expected format: DD Mon YYYY . hh:mm am
-  const expectedFormat = `${parts[0]} ${parts[1]} ${parts[2]} . ${
-    parts[3]
-  } ${parts[4].toLowerCase()}`;
-
-  return expectedFormat;
-};
-
 //capitalize first letter
 export function capitalizeFirstLetter(string: string) {
   return string
@@ -924,11 +896,6 @@ export const isValidField = (fieldName: any, value: any): boolean => {
     case 'contactnumber': {
       const phoneRegex = /^\+?[0-9]{1,4}[- ]?[0-9]{7,15}$/;
       return phoneRegex.test(value);
-    }
-
-    case 'vehicleNumber': {
-      const vehicleRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z0-9]{4,10}$/;
-      return vehicleRegex.test(value);
     }
 
     default:

@@ -128,7 +128,9 @@ export const useCommonFunctions = ({
   restToggle,
   setCallApi,
   clearErrors,
-  setVehicleValue
+  setVehicleValue,
+  validationErrors,
+  trigger
 }: any) => {
   const dispatch = useAppDispatch();
   const createAbort = useAbort();
@@ -326,6 +328,10 @@ export const useCommonFunctions = ({
 
     [dispatch, scheduleDate]
   );
+
+  useEffect(() => {
+    if (validationErrors) trigger('driverNumber');
+  }, [validationErrors]);
 
   useEffect(() => {
     dispatch(

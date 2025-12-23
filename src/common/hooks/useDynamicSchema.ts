@@ -208,11 +208,7 @@ const fieldsValidationExtend = (customFields: CustomFieldsTypes[]) => {
       }
 
       if (rest.typeError) {
-        validations.push({
-          type: 'typeError',
-          params: [rest.typeError],
-          isNotRequired: rest.notRequired
-        });
+        validations.push({ type: 'typeError', params: [rest.typeError] });
       }
 
       if (rest.test) {
@@ -245,34 +241,6 @@ const fieldsValidationExtend = (customFields: CustomFieldsTypes[]) => {
       };
     }
 
-    if (type === 'mixed') {
-      const validations: any[] = [];
-
-      if (!rest.notRequired) {
-        validations.push({ type: 'required', params: [rest.required] });
-      } else {
-        validations.push({ type: 'notRequired', params: [] });
-      }
-
-      if (Array.isArray(rest.testCases)) {
-        rest.testCases?.forEach((test: any) => {
-          validations.push({
-            type: 'test',
-            params: [test.testMessage],
-            testFunc: test.testCase,
-            testName: test.testName,
-            validationType: type
-          });
-        });
-      }
-
-      return {
-        ...rest,
-        validationType: type,
-        validations
-      };
-    }
-
     return null;
   });
 };
@@ -297,14 +265,7 @@ const useDynamicYupFields: any = (schema: any, config?: any) => {
     validator = validator.default(defaultValue);
   }
   validations?.forEach((validation: any) => {
-    const {
-      params,
-      type,
-      testName,
-      testFunc,
-      default: defaultValue,
-      isNotRequired
-    }: any = validation;
+    const { params, type, testName, testFunc, default: defaultValue }: any = validation;
     if (type === 'test') {
       validator = validator?.test(testName, ...params, testFunc);
     } else if (type === 'required' || type === 'notRequired') {
@@ -318,22 +279,7 @@ const useDynamicYupFields: any = (schema: any, config?: any) => {
     } else if (type === 'nullable') {
       validator = validator.nullable();
     } else if (type === 'typeError') {
-      if (isNotRequired) {
-        validator = validator
-          .transform((value: any, originalValue: any) => {
-            if (
-              originalValue === '' ||
-              originalValue === null ||
-              originalValue === undefined
-            ) {
-              return undefined;
-            }
-            return value;
-          })
-          .typeError(...params);
-      } else {
-        validator = validator.typeError(...params);
-      }
+      validator = validator.typeError(...params);
     } else if (type === 'trim') {
       validator = validator.trim();
     }

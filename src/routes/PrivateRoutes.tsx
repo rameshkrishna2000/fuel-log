@@ -26,8 +26,6 @@ import Users from '../features/autoplanner/pages/trips/Users';
 import OperationTeam from '../features/autoplanner/pages/trips/OperationTeam';
 import LoginRedirect from '../common/components/loginredirect/LoginRedirect';
 import Reports from '../common/pages/user/reports/Reports';
-import FuelDashboard from '../features/autoplanner/pages/configurations/fuelDashboard/FuelDashboard';
-import FuelSettings from '../features/autoplanner/pages/configurations/fuelDashboard/components/FuelSettings';
 
 const Help = lazy(() => import('../common/pages/user/settings/help/Help'));
 // const Analytics = lazy(() => import('../pages/user/analytics/Analytics'));
@@ -85,9 +83,6 @@ function PrivateRoutes() {
             <Route path='company' element={<Agent />} />
             <Route path='roles' element={<Roles />} />
           </Route>
-          <Route path='/fuel-dashboard' element={<FuelDashboard />} />
-          <Route path='fuel-settings' element={<FuelSettings />} />
-
           <Route path='/configuration' element={<Configuration />}>
             <Route path='driver' element={<Driver />} />
 

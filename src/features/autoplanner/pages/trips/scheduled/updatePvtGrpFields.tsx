@@ -32,6 +32,7 @@ const UpdatePvtGrpFields = ({
   setSourceAddress
 }: any) => {
   const driverName = useAppSelector(state => state.externalvalidation.data);
+  const driverNumberLoading = useAppSelector(state => state.externalvalidation.isLoading);
   return (
     <Box>
       <CustomSelect
@@ -196,6 +197,7 @@ const UpdatePvtGrpFields = ({
                   setValue={setValue}
                   country={'sg'}
                   disableCountry={true}
+                  loading={driverNumberLoading}
                   style='share'
                   label='Contact Number'
                   error={errors?.driverNumber?.message ? true : false}

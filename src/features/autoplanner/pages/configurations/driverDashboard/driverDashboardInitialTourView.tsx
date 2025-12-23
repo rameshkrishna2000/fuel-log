@@ -1,7 +1,6 @@
 import React from 'react';
 import { Box } from '@mui/material';
 import { Icon } from '@iconify/react';
-import { useLocation, useNavigate } from 'react-router-dom';
 
 interface DriverDashboardTourViewProps {
   handleManualRefresh: () => void;
@@ -16,18 +15,6 @@ const DriverDashboardTourView: React.FC<DriverDashboardTourViewProps> = ({
   refreshLoader,
   setIsLogout
 }) => {
-  const navigate = useNavigate();
-  const location = useLocation();
-  const handleFuelNavigate = () => {
-    if (
-      location?.pathname == '/driver-fuel' ||
-      location?.pathname == '/add-driver-fuel'
-    ) {
-      navigate('/driver-today-trips');
-    } else {
-      navigate('/driver-fuel');
-    }
-  };
   return (
     <Box
       sx={{
@@ -38,36 +25,6 @@ const DriverDashboardTourView: React.FC<DriverDashboardTourViewProps> = ({
       }}
     >
       {/* Refresh Button */}
-      {location?.pathname == '/driver-today-trips' && (
-        <Box
-          sx={{
-            background: 'rgba(255,255,255,0.2)',
-            borderRadius: '0.5rem',
-            p: 1,
-            cursor: 'pointer',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            marginRight: '10px'
-          }}
-          tabIndex={0}
-          role='button'
-          onKeyDown={e => {
-            if (e.key === 'Enter' || e.key === ' ') {
-              handleManualRefresh();
-            }
-          }}
-          onClick={handleManualRefresh}
-        >
-          {isLoading && refreshLoader ? (
-            <Icon icon='line-md:loading-twotone-loop' width='30' height='30' />
-          ) : (
-            <Icon icon='bx:refresh' width='30' height='30' />
-          )}
-        </Box>
-      )}
-
-      {/* Fuel Button */}
       <Box
         sx={{
           background: 'rgba(255,255,255,0.2)',
@@ -83,21 +40,16 @@ const DriverDashboardTourView: React.FC<DriverDashboardTourViewProps> = ({
         role='button'
         onKeyDown={e => {
           if (e.key === 'Enter' || e.key === ' ') {
-            handleFuelNavigate();
+            handleManualRefresh();
           }
         }}
-        onClick={handleFuelNavigate}
+        onClick={handleManualRefresh}
       >
-        <Icon
-          icon={
-            location?.pathname == '/driver-fuel' ||
-            location?.pathname == '/add-driver-fuel'
-              ? 'bx:trip'
-              : 'lucide:fuel'
-          }
-          width='30'
-          height='30'
-        />
+        {isLoading && refreshLoader ? (
+          <Icon icon='line-md:loading-twotone-loop' width='30' height='30' />
+        ) : (
+          <Icon icon='bx:refresh' width='30' height='30' />
+        )}
       </Box>
 
       {/* Logout Button */}
@@ -111,9 +63,7 @@ const DriverDashboardTourView: React.FC<DriverDashboardTourViewProps> = ({
           alignItems: 'center',
           justifyContent: 'center'
         }}
-        onClick={() => {
-          setIsLogout(true);
-        }}
+        onClick={() => setIsLogout(true)}
         tabIndex={0}
         role='button'
         onKeyDown={e => {

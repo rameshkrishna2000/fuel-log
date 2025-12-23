@@ -97,7 +97,6 @@ interface validationDriver {
   contactPhone: any;
   licenseNumber: any;
   userName: any;
-  vehicleNumber: any;
 }
 
 const driverValidationState: validationDriver = {
@@ -120,11 +119,6 @@ const driverValidationState: validationDriver = {
     status: true
   },
   licenseNumber: {
-    fieldName: '',
-    error: '',
-    status: true
-  },
-  vehicleNumber: {
     fieldName: '',
     error: '',
     status: true
@@ -244,9 +238,6 @@ const driverValidationSlice = createSlice({
     clearMailError: state => {
       state.data = null;
     },
-    clearVehicleValidation: state => {
-      state.vehicleNumber = null;
-    },
     setValidationErrors: (state, action) => {
       if (action.payload.fieldName === 'contactEmail') {
         state.contactEmail = action.payload;
@@ -258,8 +249,6 @@ const driverValidationSlice = createSlice({
         state.contactPhone = action.payload;
       if (action.payload.fieldName === 'licenseNumber')
         state.licenseNumber = action.payload;
-      if (action.payload.fieldName === 'vehicleNumber')
-        state.vehicleNumber = action.payload;
     }
   },
   extraReducers: builder => {
@@ -801,5 +790,4 @@ export const assignVehicleReducer = assignVehicleSlice.reducer;
 
 export const driverValdationDetaisSlice = driverValidationSlice.reducer;
 
-export const { clearMailError, clearVehicleValidation, setValidationErrors } =
-  driverValidationSlice.actions;
+export const { clearMailError, setValidationErrors } = driverValidationSlice.actions;

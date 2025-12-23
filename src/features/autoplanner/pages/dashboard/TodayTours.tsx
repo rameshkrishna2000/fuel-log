@@ -98,6 +98,10 @@ const TodayTours = () => {
   const Agents = useAppSelector(state => state.autoPlannerAgent.data || []);
   const driverName = useAppSelector(state => state.externalvalidation.data);
 
+  const externalvehicleLoading = useAppSelector(
+    state => state.externalvalidation.isLoading
+  );
+
   const {
     invalidRows,
     setInvalidRows,
@@ -473,7 +477,9 @@ const TodayTours = () => {
     restToggle,
     setCallApi,
     clearErrors,
-    setVehicleValue
+    setVehicleValue,
+    validationErrors,
+    trigger
   });
 
   const { handlePaginationAdhocReq, adhocReqColumns } = useAdhocFunction({
@@ -1587,6 +1593,7 @@ const TodayTours = () => {
                             setValue={setVehicleValue}
                             country='sg'
                             disableCountry={true}
+                            loading={externalvehicleLoading}
                             style='share'
                             label='Contact Number'
                             error={Boolean(vehicleErrors?.driverNumber?.message)}

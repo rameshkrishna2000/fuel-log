@@ -35,9 +35,9 @@ const AddAgentFields = ({
       <CustomTextField
         control={control}
         name='contactperson'
-        placeholder={APagent ? 'Name' : 'Contact Person Name'}
+        placeholder={'Contact Person Name'}
         id='contactperson'
-        label={APagent ? 'Name' : 'Contact Person Name'}
+        label={'Contact Person Name'}
         maxlength={50}
         disabled={isAddingAgent ? false : true}
         defaultValue={selected?.displayName || ''}

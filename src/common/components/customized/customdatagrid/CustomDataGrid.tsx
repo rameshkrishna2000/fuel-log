@@ -3,36 +3,13 @@ import {
   GridFeatureMode,
   GridInputRowSelectionModel,
   GridPagination,
-  GridToolbarQuickFilter,
-  GridRowModesModel,
-  GridRowModes,
-  GridActionsCellItem,
-  GridEventListener,
-  GridRowId,
-  GridRowModel,
-  GridRowEditStopReasons
+  GridToolbarQuickFilter
 } from '@mui/x-data-grid';
-import {
-  Box,
-  Stack,
-  TablePaginationProps,
-  Typography,
-  IconButton,
-  Tooltip
-} from '@mui/material';
+import { Box, Stack, TablePaginationProps, Typography } from '@mui/material';
 import MuiPagination from '@mui/material/Pagination';
 import { useEffect, useRef, useState } from 'react';
 import './CustomDataGrid.scss';
 import MenuIcon from '@mui/icons-material/Menu';
-import {
-  DeleteOutline,
-  Edit,
-  CheckCircle,
-  Block,
-  Save,
-  Cancel
-} from '@mui/icons-material';
-
 interface CustomDataGridProps {
   readonly rows: any;
   readonly columns: any;
@@ -63,20 +40,6 @@ interface CustomDataGridProps {
   sortingOrder?: any;
   toolbar?: any;
   pageSizeOptions?: any;
-  // Inline editing props
-  enableInlineEditing?: boolean;
-  onEditingRowSave?: (newRow: GridRowModel, oldRow: GridRowModel) => Promise<any> | any;
-  onEditingRowCancel?: () => void;
-  onEditingRowStart?: (id: GridRowId, row: any) => void;
-  handledeactive?: (row: any) => void;
-  handleDelete?: (row: any) => void;
-  processRowUpdate?: (
-    newRow: GridRowModel,
-    oldRow: GridRowModel
-  ) => Promise<GridRowModel> | GridRowModel;
-  onProcessRowUpdateError?: (error: Error) => void;
-  rowModesModel?: GridRowModesModel;
-  onRowModesModelChange?: (newModel: GridRowModesModel) => void;
 }
 
 // component for no rows
@@ -112,18 +75,7 @@ function CustomDataGrid({
   hideFooterPagination = false,
   marginTop,
   geofenceTableHeight,
-  tabsValue,
-  // Inline editing props
-  enableInlineEditing = false,
-  onEditingRowSave,
-  onEditingRowCancel,
-  onEditingRowStart,
-  handledeactive,
-  handleDelete,
-  processRowUpdate,
-  onProcessRowUpdateError,
-  rowModesModel = {},
-  onRowModesModelChange
+  tabsValue
 }: CustomDataGridProps): JSX.Element {
   const [pageCount, setPageCount] = useState<number>();
   const tableContainerRef = useRef<HTMLDivElement>(null);
@@ -154,197 +106,6 @@ function CustomDataGrid({
   useEffect(() => {
     calculatePageCount();
   }, [pageSize, rowCount]);
-
-  // Inline editing handlers
-  const handleEditClick = (id: GridRowId, row: any) => () => {
-    if (onEditingRowStart) {
-      onEditingRowStart(id, row);
-    }
-    if (onRowModesModelChange) {
-      onRowModesModelChange({ ...rowModesModel, [id]: { mode: GridRowModes.Edit } });
-    }
-  };
-
-  const handleSaveClick = (id: GridRowId) => () => {
-    if (onRowModesModelChange) {
-      onRowModesModelChange({ ...rowModesModel, [id]: { mode: GridRowModes.View } });
-    }
-  };
-
-  const handleCancelClick = (id: GridRowId) => () => {
-    if (onRowModesModelChange) {
-      onRowModesModelChange({
-        ...rowModesModel,
-        [id]: { mode: GridRowModes.View, ignoreModifications: true }
-      });
-    }
-    if (onEditingRowCancel) {
-      onEditingRowCancel();
-    }
-  };
-
-  const handleRowEditStart: GridEventListener<'rowEditStart'> = (params, event) => {
-    event.defaultMuiPrevented = true;
-  };
-
-  const handleRowEditStop: GridEventListener<'rowEditStop'> = (params, event) => {
-    if (params.reason === GridRowEditStopReasons.rowFocusOut) {
-      event.defaultMuiPrevented = true;
-    }
-  };
-
-  const handleProcessRowUpdate = async (newRow: GridRowModel, oldRow: GridRowModel) => {
-    try {
-      let updatedRow = newRow;
-
-      if (processRowUpdate) {
-        updatedRow = await processRowUpdate(newRow, oldRow);
-      } else if (onEditingRowSave) {
-        const result = await onEditingRowSave(newRow, oldRow);
-        updatedRow = result || newRow;
-      }
-
-      return updatedRow;
-    } catch (error) {
-      if (onProcessRowUpdateError) {
-        onProcessRowUpdateError(error as Error);
-      }
-      throw error;
-    }
-  };
-
-  const handleRowModesModelChange = (newRowModesModel: GridRowModesModel) => {
-    if (onRowModesModelChange) {
-      onRowModesModelChange(newRowModesModel);
-    }
-  };
-
-  // Add actions column if inline editing is enabled
-  const columnsWithActions = enableInlineEditing
-    ? [
-        ...columns,
-        {
-          field: 'actions',
-          type: 'actions',
-          headerName: 'Actions',
-          width: 150,
-          cellClassName: 'actions',
-          getActions: ({ id, row }: any) => {
-            const isInEditMode = rowModesModel[id]?.mode === GridRowModes.Edit;
-            const isNewRow = row.isNew === true;
-
-            const isAnyRowInEditMode = Object.values(rowModesModel).some(
-              (mode: any) => mode?.mode === GridRowModes.Edit
-            );
-
-            if (isInEditMode) {
-              return [
-                <GridActionsCellItem
-                  icon={
-                    <Tooltip title='Save'>
-                      <Save sx={{ color: '#4779f4' }} />
-                    </Tooltip>
-                  }
-                  label='Save'
-                  sx={{ color: 'primary.main' }}
-                  onClick={handleSaveClick(id)}
-                />,
-                <GridActionsCellItem
-                  icon={
-                    <Tooltip title='Cancel'>
-                      <Cancel sx={{ color: 'rgb(248, 11, 11)' }} />
-                    </Tooltip>
-                  }
-                  label='Cancel'
-                  onClick={handleCancelClick(id)}
-                  color='inherit'
-                />
-              ];
-            }
-
-            if (isNewRow) {
-              return [];
-            }
-
-            const shouldDisableActions = isAnyRowInEditMode && !isInEditMode;
-
-            return [
-              // ...(handledeactive
-              //   ? [
-              //       <GridActionsCellItem
-              //         icon={
-              //           row.isActive ? (
-              //             <Tooltip title={shouldDisableActions ? '' : 'Deactivate'}>
-              //               <Block
-              //                 sx={{
-              //                   color:
-              //                     shouldDisableActions || !row.isActive
-              //                       ? 'gray'
-              //                       : 'rgb(255, 69, 0)'
-              //                 }}
-              //               />
-              //             </Tooltip>
-              //           ) : (
-              //             <Tooltip title={shouldDisableActions ? '' : 'Activate'}>
-              //               <CheckCircle
-              //                 sx={{
-              //                   color: shouldDisableActions ? 'gray' : 'rgb(34, 197, 94)'
-              //                 }}
-              //               />
-              //             </Tooltip>
-              //           )
-              //         }
-              //         label={row.isActive ? 'Deactivate' : 'Activate'}
-              //         onClick={() => handledeactive(row)}
-              //         disabled={shouldDisableActions}
-              //       />
-              //     ]
-              //   : []),
-              <GridActionsCellItem
-                icon={
-                  <Tooltip title={shouldDisableActions || !row.isActive ? '' : 'Update'}>
-                    <Edit
-                      sx={{
-                        color:
-                          shouldDisableActions || row.isActive === false
-                            ? 'gray'
-                            : '#4779f4'
-                      }}
-                    />
-                  </Tooltip>
-                }
-                label='Update'
-                onClick={handleEditClick(id, row)}
-                disabled={row.isActive === false || shouldDisableActions}
-              />
-              // ...(handleDelete
-              //   ? [
-              //       <GridActionsCellItem
-              //         icon={
-              //           <Tooltip
-              //             title={shouldDisableActions || !row.isActive ? '' : 'Delete'}
-              //           >
-              //             <DeleteOutline
-              //               sx={{
-              //                 color:
-              //                   shouldDisableActions || row.isActive === false
-              //                     ? 'gray'
-              //                     : 'rgb(248, 11, 11)'
-              //               }}
-              //             />
-              //           </Tooltip>
-              //         }
-              //         label='Delete'
-              //         onClick={() => handleDelete(row)}
-              //         disabled={row.isActive === false || shouldDisableActions}
-              //       />
-              //     ]
-              //   : [])
-            ];
-          }
-        }
-      ]
-    : columns;
 
   function Pagination({
     page,
@@ -468,13 +229,12 @@ function CustomDataGrid({
         </style>
       )}
       <DataGrid
-        key={rowCount}
         ref={tableContainerRef}
-        // rowHeight={35}
+        rowHeight={35}
         className={`${disableSelectAll && 'row-selection'}`}
         rows={rows}
         hideFooterPagination={hideFooterPagination}
-        columns={columnsWithActions}
+        columns={columns}
         rowCount={rowCount ? rowCount : undefined}
         disableColumnSelector={true}
         onRowSelectionModelChange={newSelectionModel =>
@@ -501,21 +261,9 @@ function CustomDataGrid({
         paginationModel={paginationModel}
         onSortModelChange={onSortModelChange}
         paginationMode={paginationMode}
-        getRowHeight={params => {
-          const isNew = params?.model?.isNew === true;
-          const isEditing = rowModesModel[params.id]?.mode === 'edit';
-          return isNew || isEditing ? 70 : 35;
-        }}
+        getRowHeight={() => rowHeight}
         pageSizeOptions={handePageSize(pageSizeOptions)}
         onPaginationModelChange={onPaginationModelChange}
-        // Inline editing props
-        editMode={enableInlineEditing ? 'row' : undefined}
-        rowModesModel={rowModesModel}
-        onRowModesModelChange={handleRowModesModelChange}
-        onRowEditStart={handleRowEditStart}
-        onRowEditStop={handleRowEditStop}
-        processRowUpdate={handleProcessRowUpdate}
-        onProcessRowUpdateError={onProcessRowUpdateError}
         slots={{
           moreActionsIcon: MenuIcon,
           noRowsOverlay: NoRowsOverlay,

@@ -42,32 +42,6 @@ import {
   updateRoleReducer
 } from './commonSlices/roleSlice';
 import { reportDialog } from './commonSlices/reportSlice';
-import {
-  addDriverFuelReducer,
-  addFuelExcelReducer,
-  addFuelStationReducer,
-  addFuelTypeReducer,
-  addPaymentMethodReducer,
-  deleteDriverFuelReducer,
-  deleteFuelStationReducer,
-  deleteFuelTypeReducer,
-  deletePaymentMethodReducer,
-  getAllDriverFuel,
-  getAllDriverFuelDashboardReducer,
-  getAllDriverFuelReducer,
-  getFuelStationReducer,
-  getFuelTypeReducer,
-  getPaymentDropdownReducer,
-  getPaymentMethodReducer,
-  getStationDropdownReducer,
-  getTypeDropdownReducer,
-  getVehicleDriverReducer,
-  updateDriverFuelReducer,
-  updateFuelStationReducer,
-  updateFuelTypeReducer,
-  updatePaymentMethodReducer,
-  vehicleNumberValidReducer
-} from './commonSlices/driverFuelSlice';
 export const commonReducer = {
   theme: themeReducer,
   auth: loginSlice,
@@ -105,28 +79,5 @@ export const commonReducer = {
   deleteRole: deleteRoleReducer,
   rolesUserId: rolesDropdownReducer,
   operaterAdmin: operatorAdminReducer,
-  reportDialog,
-  addDriverFuel: addDriverFuelReducer,
-  getFuelType: getFuelTypeReducer,
-  getPaymentMethod: getPaymentMethodReducer,
-  getAllDriverFuel: getAllDriverFuelReducer,
-  deleteDriverFuel: deleteDriverFuelReducer,
-  updateDriverFuel: updateDriverFuelReducer,
-  vehicleNumberValid: vehicleNumberValidReducer,
-  getAllDriverFuelDashboard: getAllDriverFuelDashboardReducer,
-  getVehicleDriver: getVehicleDriverReducer,
-  getFuelStation: getFuelStationReducer,
-  addFuelType: addFuelTypeReducer,
-  addFuelStation: addFuelStationReducer,
-  addPaymentMethod: addPaymentMethodReducer,
-  updateFuelType: updateFuelTypeReducer,
-  updateFuelStation: updateFuelStationReducer,
-  updatePaymentMethod: updatePaymentMethodReducer,
-  deleteFuelType: deleteFuelTypeReducer,
-  deleteFuelStation: deleteFuelStationReducer,
-  deletePaymentMethod: deletePaymentMethodReducer,
-  addFuelExcel: addFuelExcelReducer,
-  getTypeDropdown: getTypeDropdownReducer,
-  getStationDropdown: getStationDropdownReducer,
-  getPaymentDropdown: getPaymentDropdownReducer
+  reportDialog
 };

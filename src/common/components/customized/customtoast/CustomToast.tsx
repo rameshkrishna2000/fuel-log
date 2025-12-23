@@ -23,7 +23,7 @@ const AlertBox = () => {
 
   return (
     <Snackbar
-      sx={{ zIndex: 4000 }}
+      sx={{ zIndex: 7000 }}
       open={noToast == String('false') && severity === 'error' ? false : show}
       autoHideDuration={5000}
       onClose={handleClose}

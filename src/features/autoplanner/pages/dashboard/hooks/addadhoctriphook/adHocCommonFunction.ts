@@ -55,7 +55,7 @@ export const useAdHocCommonFunctions = ({
       // setValue('agentname', data?.userId);
       setValue('agentname', Agents[0]?.id);
     }
-  }, [data]);
+  }, [data, Agents]);
 
   return {
     epochStartOfTodaySG,

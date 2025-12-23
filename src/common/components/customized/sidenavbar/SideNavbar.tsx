@@ -3,7 +3,7 @@ import { Badge, Box, IconButton, Tooltip, Zoom } from '@mui/material';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useAppSelector } from '../../../../app/redux/hooks';
 import { Icon } from '@iconify/react';
-import yaantrac from '../../../../app/assets/images/logo.png';
+import APLogo from '../../../../app/assets/images/autoplanner.jpg';
 import MyProfile from '../../../pages/user/settings/myprofile/MyProfile';
 import './SideNavbar.scss';
 import ShareLocationIcon from '@mui/icons-material/ShareLocation';
@@ -73,8 +73,6 @@ function SideNavbar(): JSX.Element {
       navigate('/deliveryorders');
     } else if (badgeNumber === 20) {
       navigate('/deliveryTrackingDashboard');
-    } else if (badgeNumber === 21) {
-      navigate('/fuel-dashboard');
     } else {
       navigate('/dispatch-management');
     }
@@ -146,7 +144,7 @@ function SideNavbar(): JSX.Element {
           handleBadgeClick(1);
         }}
       >
-        <Box component='img' src={yaantrac} />
+        <Box component='img' src={APLogo} />
       </Box>
       <Box className='navbar d-flex-c'>
         <Box className='componentsIcons d-flex-c'>
@@ -392,32 +390,6 @@ function SideNavbar(): JSX.Element {
           ) : (
             ''
           )}
-          <Tooltip
-            leaveDelay={100}
-            title={'Fuel Dashbooard'}
-            placement='right'
-            TransitionProps={{ timeout: 300 }}
-            TransitionComponent={Zoom}
-            arrow
-          >
-            <Badge
-              className={
-                selectedBadge === 21 || pathname === '/fuel-dashboard'
-                  ? 'active'
-                  : 'nonActive'
-              }
-              onClick={() => handleBadgeClick(21)}
-            >
-              <Icon
-                className={
-                  selectedBadge === 21 || pathname === '/fuel-dashboard'
-                    ? 'activeIcon icon'
-                    : 'icon'
-                }
-                icon='lucide:fuel'
-              />
-            </Badge>
-          </Tooltip>
         </Box>
         <Box sx={{ flexGrow: 0, textAlign: 'center' }}>
           <Tooltip

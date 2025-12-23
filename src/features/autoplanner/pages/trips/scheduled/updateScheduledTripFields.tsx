@@ -29,6 +29,7 @@ const UpdateScheduledTripFields = ({
   maxPickTime
 }: any) => {
   const driverName = useAppSelector(state => state.externalvalidation.data);
+  const driverNumberLoading = useAppSelector(state => state.externalvalidation.isLoading);
   return (
     <Box>
       <Box>
@@ -118,6 +119,7 @@ const UpdateScheduledTripFields = ({
                       country={'sg'}
                       style='share'
                       label='Contact Number'
+                      loading={driverNumberLoading}
                       error={Boolean(errors?.driverNumber?.message)}
                       helperText={errors.driverNumber?.message}
                       onChange={(e: any) => {

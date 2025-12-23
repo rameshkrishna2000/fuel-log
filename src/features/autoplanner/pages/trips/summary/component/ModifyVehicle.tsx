@@ -18,6 +18,7 @@ interface Props {
   setTotalSummary: any;
   customTourRows: any;
   loading: boolean;
+  submitTour: Function;
 }
 const ModifyVehicle = ({
   open,
@@ -27,10 +28,13 @@ const ModifyVehicle = ({
   totalSummary,
   setTotalSummary,
   customTourRows,
-  setProceed
+  setProceed,
+  submitTour
 }: Props) => {
   const [rows, setRows] = useState([]);
   const [values, setValues] = useState<{ [key: string]: string }>({});
+
+  const [isSave, setIsSave] = useState(true);
 
   const schema = yup.object().shape({
     vehicle: yup.string().notRequired()
@@ -53,7 +57,7 @@ const ModifyVehicle = ({
   };
 
   const handleChange = (value: any, row: any) => {
-    if (totalSummary !== null) {
+    if (totalSummary !== null && value?.id) {
       const updatedData = {
         ...totalSummary,
         customTourInfos: totalSummary.customTourInfos.map((transfer: any) => {
@@ -80,6 +84,16 @@ const ModifyVehicle = ({
           return transfer;
         })
       };
+
+      const isSave =
+        JSON.stringify(
+          totalSummary?.customTourInfos
+            ?.filter((vehicle: any) => vehicle.isPopUpNeeded)
+            ?.map((item: any) => item?.vehicleNumber)
+        ) === JSON.stringify(Object.values({ ...values, [row?.journey_id]: value.id }));
+
+      setIsSave(isSave);
+
       setValues(prev => ({ ...prev, [row.journey_id]: value.id }));
       setTotalSummary(updatedData);
     }
@@ -185,7 +199,17 @@ const ModifyVehicle = ({
 
   useEffect(() => {
     const customTour = customTourRows.filter((items: any) => items.isPopUpNeeded === 1);
+
     setRows(customTour);
+    let currentAssignement = {};
+
+    customTour?.forEach((assignment: any) => {
+      currentAssignement = {
+        ...currentAssignement,
+        [assignment.journey_id]: assignment.vehicleNumber?.split(' ')[0].toLowerCase()
+      };
+    });
+    setValues(currentAssignement);
     if (customTour?.length === 0 && !loading) setOpen(false);
     else if (customTour?.length > 0 && !loading) setOpen(true);
   }, [customTourRows, loading]);
@@ -227,15 +251,20 @@ const ModifyVehicle = ({
           </Box>
           <Box className='modify-vehicle-conform-btn'>
             <Typography paragraph className='modify-vehicle-description'>
-              Please confirm your vehicle selection from the dropdown, or click Save to
-              proceed with the current assignment
+              {isSave
+                ? 'There may be some bookings still unassigned,if you proceed, you will need to assign them manually in the Excel file. '
+                : 'Please confirm your vehicle selection from the dropdown, and click Reschedule to proceed with the current assignment'}
             </Typography>
             <CustomButton
-              category={'Save'}
-              className='saveChanges'
+              category={isSave ? 'Save' : 'Reschedule'}
+              className={isSave ? 'saveChanges' : 'cancel'}
               onClick={() => {
                 setOpen(false);
-                setProceed(true);
+                if (isSave) {
+                  submitTour(true);
+                } else {
+                  setProceed(true);
+                }
               }}
             />
           </Box>

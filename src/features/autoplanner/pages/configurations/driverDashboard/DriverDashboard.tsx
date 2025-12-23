@@ -25,6 +25,7 @@ export default function DriverTripManager() {
   const profile = useAppSelector(state => state.myProfile);
   const { isLoading: logoutLoader } = useAppSelector(state => state.logout);
 
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   const isPVTorGRP = (tourName: string) => {
@@ -150,74 +151,163 @@ export default function DriverTripManager() {
 
   const { shouldDisableStartButton } = useTripUtils();
 
-  // useDashboardEffects({
-  //   data,
-  //   selectedTrip,
-  //   setSelectedTrip,
-  //   setTrips,
-  //   driverProfile,
-  //   setDriverProfile,
-  //   profile,
-  //   dispatch,
-  //   setIsLoading,
-  //   setHotelCount,
-  //   setHotelPicked,
-  //   hotelPicked,
-  //   setIsDisable,
-  //   setIsDisableID
-  // });
+  useDashboardEffects({
+    data,
+    selectedTrip,
+    setSelectedTrip,
+    setTrips,
+    driverProfile,
+    setDriverProfile,
+    profile,
+    dispatch,
+    setIsLoading,
+    setHotelCount,
+    setHotelPicked,
+    hotelPicked,
+    setIsDisable,
+    setIsDisableID
+  });
 
   return (
     <Box
       sx={{
-        flex: 1,
-        overflow: 'auto',
-        paddingBottom: hasUnsavedChanges ? '100px' : '20px'
+        minHeight: '100vh',
+        backgroundColor: '#f5f7fa',
+        fontFamily: 'system-ui, -apple-system, sans-serif',
+        display: 'flex',
+        flexDirection: 'column',
+        overflow: 'visible',
+        height: '100vh'
       }}
     >
-      {currentView === 'tours' && (
-        <DriverDashboardTourDetails
-          handleStatus={handleStatus}
-          shouldDisableStartButton={shouldDisableStartButton}
-          trips={trips}
-          loadingTrips={loadingTrips}
-          handleTripStatus={handleTripStatus}
-          setSelectedTrip={setSelectedTrip}
-          handleTripCompleted={handleTripCompleted}
-          isSkippingTrip={isSkippingTrip}
-          handleSkipButtonClick={handleSkipButtonClick}
-          setCurrentView={setCurrentView}
-          isPVTorGRP={isPVTorGRP}
-          fadeIn={fadeIn}
-          isLoading={isLoading}
-          driverProfile={driverProfile}
-        />
-      )}
+      <Box
+        sx={{
+          background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+          color: 'white',
+          padding: { xs: '0.5rem', sm: '1rem' },
+          boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
+          position: 'sticky',
+          top: 0,
+          zIndex: 100
+        }}
+      >
+        <Box
+          sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}
+        >
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+            {showBackButton() && (
+              <Box
+                sx={{
+                  cursor: 'pointer',
+                  backgroundColor: 'rgba(255,255,255,0.2)',
+                  borderRadius: '0.5rem',
+                  p: 1,
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 1,
+                  '&:hover': {
+                    backgroundColor: 'rgba(255,255,255,0.3)'
+                  }
+                }}
+                onClick={handleBackNavigation}
+                tabIndex={0}
+                role='button'
+                onKeyDown={(event: any) => {
+                  if (event.key === 'Enter' || event.key === ' ') {
+                    handleBackNavigation();
+                  }
+                }}
+              >
+                <Icon icon='bx:arrow-back' width='24' height='24' />
+              </Box>
+            )}
+            <Box>
+              <Typography
+                sx={{
+                  fontSize: { xs: '1.0rem', sm: '1.0rem' },
+                  fontWeight: 'bold',
+                  mb: 0.5,
+                  display: 'flex',
+                  alignItems: 'center'
+                }}
+              >
+                {getHeaderTitle() === 'Driver Dashboard' && (
+                  <Icon icon='healthicons:truck-driver' width='24' height='24' />
+                )}
+                {getHeaderTitle()}
+              </Typography>
+              <Typography sx={{ fontSize: '0.9rem', opacity: 0.9 }}>
+                {driverProfile
+                  ? capitalizeFirstLetter(driverProfile.displayName)
+                  : 'Loading...'}{' '}
+                {driverProfile.mappedVehicle
+                  ? `• ${driverProfile.mappedVehicle.toUpperCase()}`
+                  : ''}
+              </Typography>
+            </Box>
+          </Box>
+          {currentView === 'tours' && (
+            <DriverDashboardTourView
+              handleManualRefresh={handleManualRefresh}
+              isLoading={isLoading}
+              refreshLoader={refreshLoader}
+              setIsLogout={setIsLogout}
+            />
+          )}
+        </Box>
+      </Box>
 
-      {currentView === 'hotels' && selectedTrip && (
-        <DriverDashboardHotelView
-          selectedTrip={selectedTrip}
-          hotelPicked={hotelPicked}
-          hotelCount={hotelCount}
-          setSelectedHotel={setSelectedHotel}
-          setCurrentView={setCurrentView}
-          getArrivedCount={getArrivedCount}
-        />
-      )}
+      <Box
+        sx={{
+          flex: 1,
+          overflow: 'auto',
+          paddingBottom: hasUnsavedChanges ? '100px' : '20px'
+        }}
+      >
+        {currentView === 'tours' && (
+          <DriverDashboardTourDetails
+            handleStatus={handleStatus}
+            shouldDisableStartButton={shouldDisableStartButton}
+            trips={trips}
+            loadingTrips={loadingTrips}
+            handleTripStatus={handleTripStatus}
+            setSelectedTrip={setSelectedTrip}
+            handleTripCompleted={handleTripCompleted}
+            isSkippingTrip={isSkippingTrip}
+            handleSkipButtonClick={handleSkipButtonClick}
+            setCurrentView={setCurrentView}
+            isPVTorGRP={isPVTorGRP}
+            fadeIn={fadeIn}
+            isLoading={isLoading}
+            driverProfile={driverProfile}
+          />
+        )}
 
-      {currentView === 'guests' && (selectedTrip || selectedHotel) && (
-        <DriverDashboardGuestView
-          searchQuery={searchQuery}
-          setSearchQuery={setSearchQuery}
-          selectedTrip={selectedTrip}
-          selectedHotel={selectedHotel}
-          getArrivedCount={getArrivedCount}
-          filteredGuests={filteredGuests}
-          handleOpenCallOption={handleOpenCallOption}
-          handlePassengerArrival={handlePassengerArrival}
-          disable={disable}
-        />
-      )}
+        {currentView === 'hotels' && selectedTrip && (
+          <DriverDashboardHotelView
+            selectedTrip={selectedTrip}
+            hotelPicked={hotelPicked}
+            hotelCount={hotelCount}
+            setSelectedHotel={setSelectedHotel}
+            setCurrentView={setCurrentView}
+            getArrivedCount={getArrivedCount}
+          />
+        )}
+
+        {currentView === 'guests' && (selectedTrip || selectedHotel) && (
+          <DriverDashboardGuestView
+            searchQuery={searchQuery}
+            setSearchQuery={setSearchQuery}
+            selectedTrip={selectedTrip}
+            selectedHotel={selectedHotel}
+            getArrivedCount={getArrivedCount}
+            filteredGuests={filteredGuests}
+            handleOpenCallOption={handleOpenCallOption}
+            handlePassengerArrival={handlePassengerArrival}
+            disable={disable}
+          />
+        )}
+      </Box>
 
       {hasUnsavedChanges && (
         <Box

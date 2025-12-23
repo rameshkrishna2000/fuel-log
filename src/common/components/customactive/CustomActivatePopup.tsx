@@ -27,9 +27,7 @@ const CustomActivatePopup = ({
     >
       <Box className='activate-content'>
         <Typography>
-          {filteredRow?.isActive === 0 || filteredRow?.isActive === false
-            ? constants.Activate
-            : constants.Deactivate}
+          {filteredRow?.isActive === 0 ? constants.Activate : constants.Deactivate}
         </Typography>
 
         <Stack className='activate-btn'>

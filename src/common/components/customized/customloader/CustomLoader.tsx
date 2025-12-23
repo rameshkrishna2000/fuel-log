@@ -1,5 +1,5 @@
 import { Box } from '@mui/material';
-import YTLogo from '../../../../app/assets/images/YaantracLogo.png';
+import APLogo from '../../../../app/assets/images/autoplanner.jpg';
 import './CustomLoader.scss';
 import { useAppSelector } from '../../../../app/redux/hooks';
 
@@ -10,7 +10,7 @@ const Loader = () => {
       <img
         className={theme === 'yaantrac' ? 'yaantrac' : ''}
         alt='loader'
-        src={YTLogo}
+        src={APLogo}
         height='50px'
         width='50px'
       />

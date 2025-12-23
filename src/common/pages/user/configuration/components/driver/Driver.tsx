@@ -51,6 +51,8 @@ import ConfirmationPopup from '../../../../../components/confirmationpopup/Confi
 
 function Driver() {
   const { data, isLoading, type } = useAppSelector(state => state?.driver);
+
+  console.log(data, 'DATAS');
   const [open, setOpen] = useState<boolean>(false);
   const [isDialog, setIsDialog] = useState('');
   const [selected, setSelected] = useState(true);
@@ -176,14 +178,15 @@ function Driver() {
     [pageSize, payload]
   );
 
-  const handleSortModelChange = (model: any) => {
+  const handleSortModelChange = useCallback((model: any) => {
+    console.log(model, 'MODELS');
     const payloads = {
       ...payload,
       sortBy: model[0]?.sort,
       sortByField: model[0]?.field
     };
     setPayload(payloads);
-  };
+  }, []);
 
   const handleDeleteDriver = async () => {
     await dispatch(
@@ -631,7 +634,10 @@ function Driver() {
   }, [payload]);
 
   useEffect(() => {
-    if (data?.driverProfileInfoList !== null && data?.driverProfileInfoList !== undefined)
+    if (
+      data?.driverProfileInfoList !== null &&
+      data?.driverProfileInfoList !== undefined
+    ) {
       setRows(
         data?.driverProfileInfoList?.map((row: DriverType, index: number) => ({
           ...row,
@@ -639,6 +645,7 @@ function Driver() {
           createdAT: epochToDateFormat(row?.createdAT)
         }))
       );
+    }
   }, [data]);
 
   return (
@@ -691,7 +698,7 @@ function Driver() {
         </Box>
         {!view && (
           <CustomDataGrid
-            rowCount={data?.count ?? 0}
+            rowCount={data?.count ?? null}
             type='logistics'
             loading={isLoading && type === 'drivers'}
             rows={rows}

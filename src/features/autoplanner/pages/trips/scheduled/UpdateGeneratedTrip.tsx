@@ -120,6 +120,7 @@ const UpdateGeneratedTrip = ({
   const addData = useAppSelector(state => state.AutoPlannerAddTrip);
   const updateData = useAppSelector(state => state.AutoPlannerUpdateTrip);
   const driverName = useAppSelector(state => state.externalvalidation.data);
+  const driverNumberLoading = useAppSelector(state => state.externalvalidation.isLoading);
   const { data: dropDownData, isLoading: dropdownLoading } = useAppSelector(
     state => state.getStandardVehicles
   );
@@ -698,6 +699,7 @@ const UpdateGeneratedTrip = ({
                       setValue={setValue}
                       isOptional={true}
                       style='share'
+                      loading={driverNumberLoading}
                       label='Contact Number'
                       error={Boolean(errors?.phone?.message)}
                       helperText={errors.phone?.message}
@@ -851,6 +853,7 @@ const UpdateGeneratedTrip = ({
                               disableCountry={true}
                               style='share'
                               label='Contact Number'
+                              loading={driverNumberLoading}
                               error={errors?.driverNumber?.message ? true : false}
                               helperText={errors?.driverNumber?.message}
                               onChange={(e: any) => {

@@ -253,6 +253,7 @@ export function EditableTable({
                                     borderRadius: '50%'
                                   }}
                                   onClick={() => {
+                                    clearErrors('modes');
                                     setIsOpenDialog(true);
                                     setIsAddOnIndex({
                                       rowId: row?.index,

@@ -18,7 +18,6 @@ const firebaseConfig = {
   appId: firebase.VITE_APP_FIREBASE_APPID,
   measurementId: firebase.VITE_APP_FIREBASE_MEASUREMENTID
 };
-
 // Initialize Firebase
 const app: FirebaseApp = initializeApp(firebaseConfig);
 

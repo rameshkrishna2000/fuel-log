@@ -885,6 +885,9 @@
       &.head {
         color: $primary !important;
       }
+      &.body {
+        font-size: 13px;
+      }
     }
     .view-details {
       color: $primary;

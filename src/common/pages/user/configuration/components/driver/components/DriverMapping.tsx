@@ -1731,7 +1731,7 @@ function DriverMapping({
     };
 
     const role =
-      APadmin || APoperator
+      APadmin || APoperator || category === 'OPERATION_USER'
         ? 'ROLE_AUTOPLANNERDRIVER'
         : deliveryRole
         ? 'ROLE_DT_DRIVER'
@@ -2716,7 +2716,8 @@ function DriverMapping({
                               {...field}
                               country={isAutoplanner ? 'sg' : ''}
                               setValue={setValue}
-                              // disableCountry={isAutoplanner ? true : false}
+                              loading={validationFields.contactPhone.status}
+                              disableCountry={isAutoplanner ? true : false}
                               style='share'
                               label='Contact Number'
                               onChange={(e: any) => {

@@ -22,8 +22,6 @@ import {
 } from '@mui/material';
 import CustomDataGrid from '../../../../../common/components/customized/customdatagrid/CustomDataGrid';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import CloseIcon from '@mui/icons-material/Close';
-import LocationOffIcon from '@mui/icons-material/LocationOff';
 import CustomButton from '../../../../../common/components/buttons/CustomButton';
 import { Icon } from '@iconify/react';
 import * as yup from 'yup';
@@ -49,13 +47,11 @@ import {
   updateDriverAssign
 } from '../../../redux/reducer/autoPlannerSlices/tourSummary';
 import nodata from '../../../../../app/assets/images/nodata.png.png';
-import noLocationFound from '../../../../../app/assets/images/location-not-found.png.webp';
 import {
   capitalizeFirstLetter,
   convertTo12HourFormat,
   debounce,
-  epochToDateFormatSg,
-  isValidField
+  epochToDateFormatSg
 } from '../../../../../utils/commonFunctions';
 import CustomSelect from '../../../../../common/components/customized/customselect/CustomSelect';
 import { useNavigate } from 'react-router-dom';
@@ -140,6 +136,7 @@ const TourSummary = ({ summaryDate, view, setView, timeZone }: Props) => {
   const [viewVehicles, setViewVehicles] = useState<boolean>(false);
   const [downloadLabel, setDownloadLabel] = useState<string>('');
   const [nextMode, setNextMode] = useState<string>('');
+
   const [addExternal, setAddExternal] = useState<boolean>(false);
   const [isCarousel, setIsCarousel] = useState<boolean>(true);
   const [showmsg, setShowmsg] = useState<boolean>(true);
@@ -182,7 +179,6 @@ const TourSummary = ({ summaryDate, view, setView, timeZone }: Props) => {
   const [openModifyVehicle, setOpenModifyVehicle] = useState<boolean>(false);
   const [currentMessage, setCurrentMessage] = useState('Loading...');
   const [viewDriverDetails, setViewDriverDetails] = useState<boolean>(false);
-  const [isdataMismatch, setIsdataMismatch] = useState<boolean>(false);
 
   const [passangerCount, setPassangerCount] = useState({
     totalTourPassengers: 0,
@@ -203,6 +199,7 @@ const TourSummary = ({ summaryDate, view, setView, timeZone }: Props) => {
 
   const initialTourSummary = useAppSelector((state: any) => state.initialTourSummary);
   const tourSummaryProcced = useAppSelector((state: any) => state.tourSummaryProcced);
+
   const tourSummaryProccedResult = useAppSelector(
     (state: any) => state.tourSummaryProccedResult
   );
@@ -223,10 +220,6 @@ const TourSummary = ({ summaryDate, view, setView, timeZone }: Props) => {
     state => state.tourSummaryProccedResult?.data?.data?.feedBackResponse ?? []
   );
 
-  const vehicleNumbers = vehilceRows.map((item: any) => item.vehicleNumber.toLowerCase());
-
-  const driverContactNumber = vehilceRows.map((item: any) => item.contactNumber);
-
   const contactError = useAppSelector(state => state.ContactNumberValidation);
 
   const {
@@ -234,6 +227,7 @@ const TourSummary = ({ summaryDate, view, setView, timeZone }: Props) => {
     data: asyncSuccessData,
     error
   } = useAppSelector(state => state.asyncSuccess);
+
   const { connection, data: result } = useAppSelector(state => state.websocket);
 
   const messages = ['Loading...', 'Please wait', "Don't go back", 'Almost done'];
@@ -254,10 +248,7 @@ const TourSummary = ({ summaryDate, view, setView, timeZone }: Props) => {
       )
       .test('has-number', 'Must include at least one number', value =>
         /[0-9]/.test(value || '')
-      )
-      .test('unique-vehicle', 'External vehicle already exists', value => {
-        return !vehicleNumbers.includes(value.toLowerCase() || '');
-      }),
+      ),
 
     capacity: yup
       .number()
@@ -277,16 +268,7 @@ const TourSummary = ({ summaryDate, view, setView, timeZone }: Props) => {
       .string()
       .trim()
       .required('Enter contact number')
-      .test('basic-contact', 'Invalid contact number', value => {
-        if (!value) return true;
-        const phoneRegex = /^\+?[0-9]{1,4}[- ]?[0-9]{7,15}$/;
-        return phoneRegex.test(value);
-      })
-      .test(
-        'unique number',
-        'Contact number already exist',
-        value => !driverContactNumber.includes(value || '')
-      )
+      .min(8, 'Enter valid contact number')
       .test('is-number', 'Enter contact number', function (value: any) {
         return value;
       })
@@ -314,11 +296,7 @@ const TourSummary = ({ summaryDate, view, setView, timeZone }: Props) => {
       .string()
       .trim()
       .required('Enter contact number')
-      .test('basic-contact', 'Invalid contact number', value => {
-        if (!value) return true;
-        const phoneRegex = /^\+?[0-9]{1,4}[- ]?[0-9]{7,15}$/;
-        return phoneRegex.test(value);
-      })
+      .min(8, 'Enter valid contact number')
       .test('is-number', 'Enter contact number', function (value: any) {
         return value;
       })
@@ -652,7 +630,6 @@ const TourSummary = ({ summaryDate, view, setView, timeZone }: Props) => {
                   ...item,
                   isAssign: false
                 }));
-
                 setVehilceRows(driverRows);
               }}
             />
@@ -1223,7 +1200,7 @@ const TourSummary = ({ summaryDate, view, setView, timeZone }: Props) => {
           ...selectedData
             .filter(comp =>
               totalSummary
-                ? !totalSummary?.vehicleInputs?.some(
+                ? !totalSummary?.vehicleInputs.some(
                     (vle: any) => vle.driverID === comp.driverID
                   )
                 : []
@@ -1463,7 +1440,7 @@ const TourSummary = ({ summaryDate, view, setView, timeZone }: Props) => {
       }
     };
     processResult();
-  }, [result, tourSummaryProcced]);
+  }, [result, tourSummaryProcced.data]);
 
   useEffect(() => {
     const processAsyncResult = async () => {
@@ -1639,6 +1616,11 @@ const TourSummary = ({ summaryDate, view, setView, timeZone }: Props) => {
           };
         }
       );
+
+      if (customTourRows?.some((item: any) => item.isPopUpNeeded)) {
+        setOpenModifyVehicle(true);
+      }
+
       setCustomTourRows(customTourRows);
     }
     if (initialTourSummary?.data?.data?.vehicleUtilityInfoList === null) {
@@ -1648,7 +1630,7 @@ const TourSummary = ({ summaryDate, view, setView, timeZone }: Props) => {
       initialTourSummary?.data?.data !== null &&
       initialTourSummary?.data?.data?.vehicleInputs !== undefined
     ) {
-      const vehicleDetails = initialTourSummary?.data?.data?.vehicleInputs?.map(
+      const vehicleDetails = initialTourSummary?.data?.data?.vehicleInputs.map(
         (items: any, index: any) => ({
           ...items,
           sno: index + 1,
@@ -1666,7 +1648,7 @@ const TourSummary = ({ summaryDate, view, setView, timeZone }: Props) => {
         });
         setVehilceRows(sortedVehicles);
       }
-      const allVehicleData = initialTourSummary?.data?.data?.vehicleInputs?.map(
+      const allVehicleData = initialTourSummary?.data?.data?.vehicleInputs.map(
         (items: any, index: any) => ({
           ...items,
           sno: index + 1,
@@ -1675,15 +1657,15 @@ const TourSummary = ({ summaryDate, view, setView, timeZone }: Props) => {
       );
       setAllVehicles(allVehicleData);
       const isSelected = initialTourSummary?.data?.data?.vehicleInputs
-        ?.filter((value: any) => value.isChosen === 1)
-        ?.map((value: any) => value.vehicleNumber.toLowerCase());
+        .filter((value: any) => value.isChosen === 1)
+        .map((value: any) => value.vehicleNumber.toLowerCase());
       if (!initialTourSummary?.isLoading) setSelectedRows(isSelected);
     }
     if (
       initialTourSummary?.data?.data !== null &&
       initialTourSummary?.data?.data?.guideInfos !== undefined
     ) {
-      const guideInfo = initialTourSummary?.data?.data?.guideInfos?.map(
+      const guideInfo = initialTourSummary?.data?.data?.guideInfos.map(
         (items: any, index: any) => ({
           ...items,
           id: index + 1
@@ -1696,7 +1678,7 @@ const TourSummary = ({ summaryDate, view, setView, timeZone }: Props) => {
       initialTourSummary?.data?.data?.vehicleUtilityInfoList !== undefined &&
       initialTourSummary?.data?.data?.vehicleUtilityInfoList !== null
     ) {
-      const tourInfoRows = initialTourSummary?.data?.data?.vehicleUtilityInfoList?.map(
+      const tourInfoRows = initialTourSummary?.data?.data.vehicleUtilityInfoList?.map(
         (items: any, index: number) => {
           return {
             ...items,
@@ -1784,6 +1766,11 @@ const TourSummary = ({ summaryDate, view, setView, timeZone }: Props) => {
           };
         }
       );
+
+      if (customTourRows?.some((item: any) => item?.isPopUpNeeded)) {
+        setOpenModifyVehicle(true);
+      }
+
       setCustomTourRows(customTourRows);
     }
     if (tourSummaryProccedResult?.data?.data?.vehicleUtilityInfoList === null) {
@@ -1810,7 +1797,7 @@ const TourSummary = ({ summaryDate, view, setView, timeZone }: Props) => {
       tourSummaryProccedResult?.data?.data !== null &&
       tourSummaryProccedResult?.data?.data?.vehicleInputs !== undefined
     ) {
-      const vehicleDetails = tourSummaryProccedResult?.data?.data?.vehicleInputs?.map(
+      const vehicleDetails = tourSummaryProccedResult?.data?.data?.vehicleInputs.map(
         (items: any, index: any) => ({
           ...items,
           sno: index + 1,
@@ -1828,7 +1815,7 @@ const TourSummary = ({ summaryDate, view, setView, timeZone }: Props) => {
         });
         setVehilceRows(sortedVehicles);
       }
-      const allVehicleData = tourSummaryProccedResult?.data?.data?.vehicleInputs?.map(
+      const allVehicleData = tourSummaryProccedResult?.data?.data?.vehicleInputs.map(
         (items: any, index: any) => ({
           ...items,
           sno: index + 1,
@@ -1874,7 +1861,7 @@ const TourSummary = ({ summaryDate, view, setView, timeZone }: Props) => {
       );
       setGuideRows(guideInfo);
     }
-  }, [tourSummaryProccedResult]);
+  }, [tourSummaryProccedResult.data]);
 
   useEffect(() => {
     if (tourSummaryPlanFrozen.isLoading) {
@@ -1937,12 +1924,6 @@ const TourSummary = ({ summaryDate, view, setView, timeZone }: Props) => {
       guideTrigger('guideNo');
     }
   }, [validationErrors]);
-
-  useEffect(() => {
-    if (initialTourSummary?.data?.data?.feedBackResponse?.length > 0) {
-      setIsdataMismatch(true);
-    }
-  }, [initialTourSummary]);
 
   useEffect(() => {
     const handleBackButton = (event: PopStateEvent) => {
@@ -2196,137 +2177,14 @@ const TourSummary = ({ summaryDate, view, setView, timeZone }: Props) => {
                   if (connection) connection.close();
                 }}
               />
-              {/* <Box className='no-report-img'>
+              <Box className='no-report-img'>
                 <Box
                   component={'img'}
                   src={nodata}
                   alt='No Report Found'
                   className='no-report-found'
                 />
-              </Box> */}
-
-              <Box className='no-report-img'>
-                <Box
-                  sx={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    gap: 2
-                  }}
-                >
-                  <LocationOffIcon
-                    sx={{
-                      fontSize: 120,
-                      color: '#9e9e9e'
-                    }}
-                  />
-                  <Typography
-                    variant='h6'
-                    sx={{
-                      color: '#757575',
-                      fontWeight: 600,
-                      letterSpacing: '0.5px'
-                    }}
-                  >
-                    INVALID LOCATION FOUND
-                  </Typography>
-                </Box>
               </Box>
-
-              {initialTourSummary?.data?.data?.feedBackResponse?.length > 0 && (
-                <Dialog open={isdataMismatch} maxWidth='sm' fullWidth>
-                  <Box sx={{ p: 3, position: 'relative' }}>
-                    <IconButton
-                      onClick={() => {
-                        setIsdataMismatch(false);
-                      }}
-                      sx={{
-                        position: 'absolute',
-                        right: 8,
-                        top: 8,
-                        color: 'grey.500',
-                        '&:hover': {
-                          bgcolor: 'grey.100'
-                        }
-                      }}
-                    >
-                      <CloseIcon />
-                    </IconButton>
-                    <Box sx={{ mb: 3 }}>
-                      <Box
-                        sx={{
-                          fontSize: 20,
-                          fontWeight: 600,
-                          color: 'error.main',
-                          mb: 0.5
-                        }}
-                      >
-                        Route Validation Required
-                      </Box>
-                      <Box sx={{ fontSize: 14, color: 'text.secondary' }}>
-                        Unable to generate pathways for the following locations
-                      </Box>
-                    </Box>
-
-                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, mb: 3 }}>
-                      {initialTourSummary?.data?.data?.feedBackResponse?.map(
-                        (item: any, index: any) => (
-                          <Box
-                            key={index}
-                            sx={{
-                              p: 2,
-                              borderRadius: 2,
-                              bgcolor: 'grey.50',
-                              border: '1px solid',
-                              borderColor: 'grey.200',
-                              transition: 'all 0.2s',
-                              '&:hover': {
-                                borderColor: 'primary.main',
-                                boxShadow: 1
-                              }
-                            }}
-                          >
-                            <Box
-                              sx={{
-                                fontSize: 15,
-                                fontWeight: 600,
-                                color: 'text.primary',
-                                mb: 1
-                              }}
-                            >
-                              {item.title || 'No pathway. Please validate the locations'}
-                            </Box>
-                            <Box
-                              sx={{
-                                fontSize: 13,
-                                color: 'text.secondary',
-                                lineHeight: 1.5
-                              }}
-                            >
-                              {item.reason || 'No valid route found'}
-                            </Box>
-                          </Box>
-                        )
-                      )}
-                    </Box>
-
-                    <Box
-                      sx={{
-                        p: 2,
-                        borderRadius: 1.5,
-                        bgcolor: 'info.lighter',
-                        border: '1px solid',
-                        borderColor: 'info.light'
-                      }}
-                    >
-                      <Box sx={{ fontSize: 13, color: 'info.dark', lineHeight: 1.6 }}>
-                        💡 Please verify the location names and coordinates, then try
-                        again.
-                      </Box>
-                    </Box>
-                  </Box>
-                </Dialog>
-              )}
             </>
           ) : steps?.length > mode ? (
             <>
@@ -3139,8 +2997,7 @@ const TourSummary = ({ summaryDate, view, setView, timeZone }: Props) => {
                             onChange={(e: any) => {
                               if (e) {
                                 const emptySpace = /^.+\s.+$/g;
-                                const isValid = isValidField('contactnumber', e);
-                                if (e && !emptySpace.test(e) && isValid) {
+                                if (e && !emptySpace.test(e)) {
                                   handleValidate(e);
                                 }
                               }
@@ -3642,15 +3499,13 @@ const TourSummary = ({ summaryDate, view, setView, timeZone }: Props) => {
                           {...field}
                           setValue={guideSetValue}
                           style='share'
-                          country='sg'
                           label='Contact Number'
                           error={Boolean(guideError?.guideNo?.message)}
                           helperText={guideError?.guideNo?.message}
                           onChange={(e: any) => {
                             if (e) {
                               const emptySpace = /^.+\s.+$/g;
-                              const isValid = isValidField('contactnumber', e);
-                              if (e && !emptySpace.test(e) && isValid) {
+                              if (e && !emptySpace.test(e)) {
                                 handleValidate(e);
                               }
                             }
@@ -3740,18 +3595,22 @@ const TourSummary = ({ summaryDate, view, setView, timeZone }: Props) => {
                   })}
                 </Box>
               </Dialog>
-              <ModifyVehicle
-                open={openModifyVehicle}
-                setOpen={setOpenModifyVehicle}
-                loader={
-                  initialTourSummary?.isLoading || tourSummaryProccedResult?.isLoading
-                }
-                totalSummary={totalSummary}
-                setTotalSummary={setTotalSummary}
-                customTourRows={customTourRows}
-                loading={tourSummaryProccedResult.isLoading}
-                setProceed={setProceed}
-              />
+
+              {openModifyVehicle && !planed?.includes(steps[mode]) && (
+                <ModifyVehicle
+                  open={openModifyVehicle}
+                  setOpen={setOpenModifyVehicle}
+                  loader={
+                    initialTourSummary?.isLoading || tourSummaryProccedResult?.isLoading
+                  }
+                  totalSummary={totalSummary}
+                  setTotalSummary={setTotalSummary}
+                  customTourRows={customTourRows}
+                  loading={tourSummaryProccedResult.isLoading}
+                  setProceed={setProceed}
+                  submitTour={handleSubmitTour}
+                />
+              )}
             </>
           ) : (
             ''

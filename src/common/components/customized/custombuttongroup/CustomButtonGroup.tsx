@@ -53,16 +53,6 @@ function CustomButtonGroup({
     <>
       <ButtonGroup
         className='group-container'
-        sx={{
-          width: '100px',
-          height: label === 'download' ? '36px' : '30px',
-          '& .MuiButton-root': {
-            height: label === 'download' ? '36px' : '30px'
-          },
-          '& .MuiButton-root:hover': {
-            height: label === 'download' ? '36px' : '30px'
-          }
-        }}
         variant='outlined'
         ref={anchorRef}
         aria-label='split button'
@@ -77,7 +67,7 @@ function CustomButtonGroup({
           className='group-item'
         >
           <LoadingButton loading={load} className='group-item custom-button-label'>
-            {label}
+            {label?.toLowerCase()}
           </LoadingButton>
         </Button>
       </ButtonGroup>

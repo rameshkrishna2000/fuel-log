@@ -9,17 +9,14 @@ import {
   getAutoplannerPDFExcel,
   Payload
 } from '../../../redux/reducer/commonSlices/reportSlice';
-import { Label } from '@mui/icons-material';
 
 interface DocPayLoad {
-  readonly docPayload?: {
+  readonly docPayload: {
     reportType: string;
     pdfURL?: string;
     excelURL?: string;
     payload: Payload;
   };
-  readonly reportDownload?: (docType: string) => Promise<void>;
-  readonly label?: string;
 }
 
 const options = [
@@ -35,36 +32,25 @@ const options = [
   }
 ];
 
-function CustomToolbar({
-  docPayload,
-  reportDownload: propsReportDownload,
-  label
-}: DocPayLoad): React.JSX.Element {
-  let reportType = docPayload?.reportType || '';
-  let payload = docPayload?.payload;
+function CustomToolbar({ docPayload }: DocPayLoad): React.JSX.Element {
+  let { reportType, payload } = docPayload;
   const { pdfURL } = useAppSelector((state: any) => state?.pdfURL ?? '');
   const { excelURL } = useAppSelector((state: any) => state?.excelURL ?? '');
   const { data: url } = useAppSelector((state: any) => state.autoPDFExcel);
-  const { data: fuelUrl } = useAppSelector((state: any) => state.addFuelExcel);
   const [load, setLoad] = useState<boolean>(false);
   const [report, setReport] = useState('');
   const [format, setFormat] = useState('');
   const dispatch = useAppDispatch();
 
-  // Default function for downloading the report as PDF & Excel:
-  const defaultReportDownload = async (docType: string) => {
+  // Function for downloading the report as PDF & Excel:
+  const reportDownload = async (docType: string) => {
     setFormat(docType);
     setLoad(true);
     setReport(reportType);
 
-    await dispatch(
-      getAutoplannerPDFExcel({ ...payload, foramat: docType.toLowerCase() })
-    );
+    await dispatch(getAutoplannerPDFExcel({ ...payload, format: docType.toLowerCase() }));
     setLoad(false);
   };
-
-  // Use props reportDownload if available, otherwise use default
-  const reportDownload = propsReportDownload || defaultReportDownload;
 
   useEffect(() => {
     if (pdfURL && report === reportType) {
@@ -83,13 +69,6 @@ function CustomToolbar({
       downloadPdfExcel(url, format);
     }
   }, [url, format]);
-
-  useEffect(() => {
-    if (fuelUrl) {
-      downloadPdfExcel(fuelUrl, format);
-    }
-  }, [fuelUrl, format]);
-
   //function to download pdf and excel
   const downloadPdfExcel = async (pdfURL: string, docType: string) => {
     try {
@@ -106,7 +85,9 @@ function CustomToolbar({
 
       // Clean up the Object URL after the download:
       URL.revokeObjectURL(url);
-    } catch (error) {}
+    } catch (error) {
+      console.log(error, 'eroor');
+    }
   };
 
   return (
@@ -114,7 +95,7 @@ function CustomToolbar({
       options={options}
       handleClick={reportDownload}
       load={load}
-      label={label ? label : 'download'}
+      label='download'
     />
   );
 }

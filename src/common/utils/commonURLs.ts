@@ -60,32 +60,5 @@ export const commonURLS = {
   UPDATE_ROLE: 'user/role/update?',
   DELETE_ROLE: `user/role/delete?`,
   ROLES_DROPDOWN: `user/role/get/roles`,
-  OPERATOR_ADMIN: 'user/management/operator-admin',
-
-  // driver fuel
-  ADD_UPDATE_DRIVER_FUEL: 'v1/autoplanner/fuel-entry',
-  GET_FUEL_TYPE: 'v1/autoplanner/fuel-type',
-  GET_PAYMENT_METHOD: 'v1/autoplanner/payment',
-  GET_ALL_DRIVER_FUEL: 'v1/autoplanner/fuel-entry?',
-  DELETE_DRIVER_FUEL: 'v1/autoplanner/fuel-entry?',
-  VEHICLE_NUMBER_VALID: 'v1/autoplanner/fuel-entry/validate/vehicle?',
-  GET_DRIVER_FUEL_DASHBOARD: 'v1/autoplanner/dashboard',
-  GET_VEHICLE_DRIVER: 'v1/autoplanner/dashboard',
-  ADD_FUEL_TYPE: 'v1/autoplanner/fuel-type',
-  ADD_FUEL_STATION: 'v1/fuel-station',
-  ADD_PAYMENT_METHOD: 'v1/autoplanner/payment',
-  GET_FUEL_STATION: 'v1/fuel-station',
-  UPDATE_FUEL_TYPE: 'v1/autoplanner/fuel-type',
-  UPDATE_FUEL_STATION: 'v1/fuel-station',
-  UPDATE_PAYMENT_METHOD: 'v1/autoplanner/payment',
-  DELETE_FUEL_TYPE: 'v1/autoplanner/fuel-type?',
-  DELETE_FUEL_STATION: 'v1/fuel-station?',
-  DELETE_PAYMENT_METHOD: 'v1/autoplanner/payment?',
-  DEACTIVATE_FUEL_TYPE: 'v1/autoplanner/fuel-type/status?',
-  DEACTIVATE_FUEL_STATION: 'v1/fuel-station/status?',
-  DEACTIVATE_PAYMENT_METHOD: 'v1/autoplanner/payment/status?',
-  FUEL_EXCEL: 'v1/autoplanner/dashboard/fuel-entry/report',
-  GET_TYPE_DROPDOWN: 'v1/autoplanner/fuel-type/dropdowns',
-  GET_STATION_DROPDOWN: 'v1/fuel-station/dropdowns',
-  GET_PAYMENT_DROPDOWN: 'v1/autoplanner/payment/dropdowns'
+  OPERATOR_ADMIN: 'user/management/operator-admin'
 };

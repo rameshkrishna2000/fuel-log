@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Box, Stack, Typography } from '@mui/material';
 import { Toaster, toast } from 'react-hot-toast';
 import { requestPermission, onMessageListener } from '../../../firebase';
-import YTLogo from '../../../app/assets/images/YaantracLogo.png';
+import APLogo from '../../../app/assets/images/autoplanner.jpg';
 import { useAppSelector } from '../../../app/redux/hooks';
 import './Notification.scss';
 import CloseIcon from '@mui/icons-material/Close';
@@ -42,7 +42,7 @@ function Notification(): JSX.Element {
                   <Box sx={{ display: 'flex', direction: 'row', alignItems: 'center' }}>
                     <Box className={'logo-container'}>
                       <img
-                        src={YTLogo}
+                        src={APLogo}
                         alt='logo'
                         style={{ width: '35px', height: '35px' }}
                       />

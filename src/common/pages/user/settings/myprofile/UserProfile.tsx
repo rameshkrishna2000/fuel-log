@@ -277,7 +277,7 @@ const UserProfile = () => {
         )}
 
         {isOpen && (
-          <Dialog className='userprofile-dialog' open={isOpen}>
+          <Dialog className='userprofile-dialog' sx={{ zIndex: 6000 }} open={isOpen}>
             <DialogContent className='profile-con'>
               <Box component='form' onSubmit={handleSubmit(onSubmit)}>
                 <Box className='userprofile-content'>

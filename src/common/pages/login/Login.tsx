@@ -21,7 +21,7 @@ import CustomTextField from '../../components/customized/customtextfield/CustomT
 import CustomButton from '../../components/buttons/CustomButton';
 import Tracking from '../../../app/assets/images/landing/tracking.jpg';
 import Tracker from '../../../app/assets/images/landing/tracker.jpg';
-import YTLogo from '../../../app/assets/images/YaantracLogo.png';
+import APLogo from '../../../app/assets/images/autoplanner.jpg';
 import Drive from '../../../app/assets/images/landing/drive.png';
 import { useNavigate } from 'react-router-dom';
 import { Carousel } from 'react-responsive-carousel';
@@ -250,7 +250,7 @@ function Login() {
           <li></li>
         </ul>
         <Box className='login-box'>
-          <Box className='app-logo' component='img' src={YTLogo} />
+          <Box className='app-logo' component='img' src={APLogo} />
 
           <h2 className='login-header'>{constant.Login}</h2>
 

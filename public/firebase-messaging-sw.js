@@ -2,13 +2,13 @@ importScripts('https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js')
 importScripts('https://www.gstatic.com/firebasejs/9.0.0/firebase-messaging-compat.js');
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyDpRRGzAaShaPoukLPVbSeGTbU1YgLYRr4',
-  authDomain: 'autoplanner-4c4d4.firebaseapp.com',
-  projectId: 'autoplanner-4c4d4',
-  storageBucket: 'autoplanner-4c4d4.firebasestorage.app',
-  messagingSenderId: '337182678714',
-  appId: '1:337182678714:web:b2bc3fe7a44478a66dac83',
-  measurementId: 'G-DBBSNHWRBS'
+  apiKey: 'AIzaSyCwHc3wzOTOrwzwin0ZqHxx8apy_qd--j0',
+  authDomain: 'autoplanner-172bc.firebaseapp.com',
+  projectId: 'autoplanner-172bc',
+  storageBucket: 'autoplanner-172bc.firebasestorage.app',
+  messagingSenderId: '632127467776',
+  appId: '1:632127467776:web:d676d298787e52886603e5',
+  measurementId: 'G-JN2E06TBRY'
 };
 
 // Initialize Firebase

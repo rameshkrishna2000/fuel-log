@@ -68,6 +68,7 @@ interface ImportTrip {
   file: File | null;
   invalidRows: any;
   isReUpload: any;
+  skipDuplicate?: number;
 }
 
 // Define the structure of the data returned by the API
@@ -534,8 +535,18 @@ export const autoPlannerImportTripsAction = createAsyncThunk<ReturnedType, Impor
         formData.append('file', data.file);
       }
 
+      const params = new URLSearchParams({
+        isReUpload: String(data.isReUpload),
+        skippingRows: String(data.invalidRows)
+      });
+
+      // only append skipDuplicate if true or 1
+      if (data.skipDuplicate === 1) {
+        params.append('skipDuplicate', String(data.skipDuplicate));
+      }
+
       const response = await axiosInstance.post(
-        `${URLs.IMPORT_AUTO_PLANNER_TRIPS}?isReUpload=${data.isReUpload}&skippingRows=${data.invalidRows}`,
+        `${URLs.IMPORT_AUTO_PLANNER_TRIPS}?${params.toString()}`,
         formData,
         {
           headers: {
@@ -543,16 +554,18 @@ export const autoPlannerImportTripsAction = createAsyncThunk<ReturnedType, Impor
           }
         }
       );
+
       return response?.data?.data;
     } catch (error: any) {
-      if (error?.response?.data?.message)
+      if (error?.response?.data?.message) {
         thunkApi.dispatch(
           updateToast({
             show: true,
-            message: error?.response?.data?.message,
+            message: error.response.data.message,
             severity: 'error'
           })
         );
+      }
       return thunkApi.rejectWithValue(error);
     }
   }

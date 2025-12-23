@@ -68,7 +68,7 @@ const AddRegularMode: React.FC<AddRegularProps> = ({
 
   const urls = [
     { url: addRegularTour, payload: null },
-    { url: getRegularTour, payload: { pageNo: 1, pageSize: 20 } },
+    { url: getRegularTour, payload: { pageNo: 1, pageSize: 10 } },
     { url: updateRegularTour, payload: null }
   ];
   const { data: driverList } = useAppSelector(state => state.regularDrivers);
