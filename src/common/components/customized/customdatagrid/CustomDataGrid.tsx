@@ -269,37 +269,37 @@ function CustomDataGrid({
             const shouldDisableActions = isAnyRowInEditMode && !isInEditMode;
 
             return [
-              ...(handledeactive
-                ? [
-                    <GridActionsCellItem
-                      icon={
-                        row.isActive ? (
-                          <Tooltip title={shouldDisableActions ? '' : 'Deactivate'}>
-                            <Block
-                              sx={{
-                                color:
-                                  shouldDisableActions || !row.isActive
-                                    ? 'gray'
-                                    : 'rgb(255, 69, 0)'
-                              }}
-                            />
-                          </Tooltip>
-                        ) : (
-                          <Tooltip title={shouldDisableActions ? '' : 'Activate'}>
-                            <CheckCircle
-                              sx={{
-                                color: shouldDisableActions ? 'gray' : 'rgb(34, 197, 94)'
-                              }}
-                            />
-                          </Tooltip>
-                        )
-                      }
-                      label={row.isActive ? 'Deactivate' : 'Activate'}
-                      onClick={() => handledeactive(row)}
-                      disabled={shouldDisableActions}
-                    />
-                  ]
-                : []),
+              // ...(handledeactive
+              //   ? [
+              //       <GridActionsCellItem
+              //         icon={
+              //           row.isActive ? (
+              //             <Tooltip title={shouldDisableActions ? '' : 'Deactivate'}>
+              //               <Block
+              //                 sx={{
+              //                   color:
+              //                     shouldDisableActions || !row.isActive
+              //                       ? 'gray'
+              //                       : 'rgb(255, 69, 0)'
+              //                 }}
+              //               />
+              //             </Tooltip>
+              //           ) : (
+              //             <Tooltip title={shouldDisableActions ? '' : 'Activate'}>
+              //               <CheckCircle
+              //                 sx={{
+              //                   color: shouldDisableActions ? 'gray' : 'rgb(34, 197, 94)'
+              //                 }}
+              //               />
+              //             </Tooltip>
+              //           )
+              //         }
+              //         label={row.isActive ? 'Deactivate' : 'Activate'}
+              //         onClick={() => handledeactive(row)}
+              //         disabled={shouldDisableActions}
+              //       />
+              //     ]
+              //   : []),
               <GridActionsCellItem
                 icon={
                   <Tooltip title={shouldDisableActions || !row.isActive ? '' : 'Update'}>
@@ -316,30 +316,30 @@ function CustomDataGrid({
                 label='Update'
                 onClick={handleEditClick(id, row)}
                 disabled={row.isActive === false || shouldDisableActions}
-              />,
-              ...(handleDelete
-                ? [
-                    <GridActionsCellItem
-                      icon={
-                        <Tooltip
-                          title={shouldDisableActions || !row.isActive ? '' : 'Delete'}
-                        >
-                          <DeleteOutline
-                            sx={{
-                              color:
-                                shouldDisableActions || row.isActive === false
-                                  ? 'gray'
-                                  : 'rgb(248, 11, 11)'
-                            }}
-                          />
-                        </Tooltip>
-                      }
-                      label='Delete'
-                      onClick={() => handleDelete(row)}
-                      disabled={row.isActive === false || shouldDisableActions}
-                    />
-                  ]
-                : [])
+              />
+              // ...(handleDelete
+              //   ? [
+              //       <GridActionsCellItem
+              //         icon={
+              //           <Tooltip
+              //             title={shouldDisableActions || !row.isActive ? '' : 'Delete'}
+              //           >
+              //             <DeleteOutline
+              //               sx={{
+              //                 color:
+              //                   shouldDisableActions || row.isActive === false
+              //                     ? 'gray'
+              //                     : 'rgb(248, 11, 11)'
+              //               }}
+              //             />
+              //           </Tooltip>
+              //         }
+              //         label='Delete'
+              //         onClick={() => handleDelete(row)}
+              //         disabled={row.isActive === false || shouldDisableActions}
+              //       />
+              //     ]
+              //   : [])
             ];
           }
         }
@@ -486,7 +486,7 @@ function CustomDataGrid({
         disableDensitySelector={true}
         disableColumnMenu
         disableRowSelectionOnClick={disableRowOnClickToSelect}
-        // onRowDoubleClick={handleRowClick}
+        onRowDoubleClick={handleRowClick}
         rowSelectionModel={selection}
         getRowClassName={getRowClassName}
         sortingOrder={sortingOrder}
