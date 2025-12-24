@@ -96,6 +96,8 @@ function Reports() {
 
   // const signal = createAbort().abortCall.signal;
 
+  const { timezone } = useAppSelector(state => state.myProfile.data);
+
   //custom hook to get report data
   const {
     selectedReportType,
@@ -113,7 +115,8 @@ function Reports() {
     setToDateDisabled,
     setPageNo,
     setPageSize,
-    setPayloads
+    setPayloads,
+    timezone
   });
 
   const { rows, columns, isLoading, count } = useAppSelector(
@@ -366,34 +369,30 @@ function Reports() {
       </Grid>
       {/*  {difference && <CustomToolbar docPayload={docPayload} />} */}
       <Box sx={{ position: 'relative' }}>
-        {role !== 'ROLE_OPERATOR' && role !== 'ROLE_AUTOPLANNER_ADMIN' ? (
-          <Box className='title'>
-            {rows.length > 0 && (
-              <Typography className='heading report-title'>
-                {selectedReportType &&
-                  `${selectedReportType
-                    ?.replace(/([A-Z][a-z])/g, ' $1')
-                    .replace(/(\d)/g, ' $1')} ${constant.Reports}`}{' '}
-                <Typography className='reports-date'>
-                  {startDate !== '' || endDate !== '' ? (
-                    <span>
-                      <strong className='start-end'>{constant.Reportgeneration}</strong>
-                      {startDate} - {endDate}{' '}
-                      {vehicleNo && (
-                        <strong className='vehicle-no'>{constant.VehicleDetails}</strong>
-                      )}
-                      {vehicleNo}
-                    </span>
-                  ) : (
-                    ''
-                  )}
-                </Typography>
+        <Box className='title'>
+          {rows.length > 0 && (
+            <Typography className='heading report-title'>
+              {selectedReportType &&
+                `${selectedReportType
+                  ?.replace(/([A-Z][a-z])/g, ' $1')
+                  .replace(/(\d)/g, ' $1')} ${constant.Reports}`}{' '}
+              <Typography className='reports-date'>
+                {startDate !== '' || endDate !== '' ? (
+                  <span>
+                    <strong className='start-end'>{constant.Reportgeneration}</strong>
+                    {startDate} - {endDate}{' '}
+                    {vehicleNo && (
+                      <strong className='vehicle-no'>{constant.VehicleDetails}</strong>
+                    )}
+                    {vehicleNo}
+                  </span>
+                ) : (
+                  ''
+                )}
               </Typography>
-            )}
-          </Box>
-        ) : (
-          ''
-        )}
+            </Typography>
+          )}
+        </Box>
         {selectedReportType === 'ExternalVehicle' && rows.length > 0 && (
           <CustomBreadcrumbs
             itemOne={'External Vehicles'}

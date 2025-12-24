@@ -283,7 +283,8 @@ const useReportSubmit = ({
   setToDateDisabled,
   setPageNo,
   setPageSize,
-  setPayloads
+  setPayloads,
+  timezone
 }: any) => {
   const [vehicleNo, setVehicleNo] = useState<string | undefined>('');
   const [vehicle, setVehicle] = useState<string | null>('');
@@ -343,9 +344,9 @@ const useReportSubmit = ({
 
     setPayloads(payload);
     getData(payload);
-    let startTime = data.startDate !== null ? formatDate(data.startDate) : '';
+    let startTime = data.startDate !== null ? formatDate(data.startDate, timezone) : '';
     setStartDate(startTime);
-    let endTime = data.endDate !== null ? formatDate(data.endDate) : '';
+    let endTime = data.endDate !== null ? formatDate(data.endDate, timezone) : '';
     setEndDate(endTime);
     let vehicleNumber =
       data.vehicle === 'selectAll' ? 'All Vehicles' : data.vehicle?.toUpperCase();

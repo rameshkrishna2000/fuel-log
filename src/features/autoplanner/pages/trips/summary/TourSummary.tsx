@@ -3064,6 +3064,13 @@ const TourSummary = ({ summaryDate, view, setView, timeZone }: Props) => {
                     invisible: true
                   }}
                   onClose={() => setSugDialog(false)}
+                  maxWidth={false}
+                  PaperProps={{
+                    sx: {
+                      width: isSm ? '100%' : '600px',
+                      maxWidth: isSm ? '100%' : '600px'
+                    }
+                  }}
                 >
                   <Box
                     className='feedback-container'
@@ -3091,6 +3098,7 @@ const TourSummary = ({ summaryDate, view, setView, timeZone }: Props) => {
                             onClick={handleSugExpandClick}
                           >
                             <Icon
+                              onClick={handleExpandClick}
                               icon={
                                 expanded
                                   ? 'icon-park-outline:down'
@@ -3308,7 +3316,7 @@ const TourSummary = ({ summaryDate, view, setView, timeZone }: Props) => {
               >
                 <Box
                   className='transfer-view'
-                  sx={{ width: isMd ? '100% !important' : '800px !important' }}
+                  sx={{ width: isMd ? '100% !important' : 'auto !important' }}
                 >
                   <Typography
                     variant='h6'
@@ -3392,7 +3400,7 @@ const TourSummary = ({ summaryDate, view, setView, timeZone }: Props) => {
               >
                 <Box
                   className='transfer-view'
-                  sx={{ width: isMd ? '100% !important' : '800px !important' }}
+                  sx={{ width: isMd ? '100% !important' : 'auto !important' }}
                 >
                   <Typography
                     variant='h6'

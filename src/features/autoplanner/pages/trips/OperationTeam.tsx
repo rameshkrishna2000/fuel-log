@@ -155,8 +155,6 @@ const App = ({ onScroll, setApi, clearState }: any) => {
     page,
     setIsDialog
   });
-
-
   const { handleFilterChange, handleInfinitePagination } = useFilterPaginationhook({
     setIsScroll,
     setFilter,
@@ -793,7 +791,7 @@ const App = ({ onScroll, setApi, clearState }: any) => {
                   height:
                     agentDetailsCount > 20 && !APsuperAdmin
                       ? '60vh'
-                      : APsuperAdmin
+                      : APsuperAdmin || ApOperator
                       ? '60vh'
                       : '85vh',
                   overflowY: 'auto'

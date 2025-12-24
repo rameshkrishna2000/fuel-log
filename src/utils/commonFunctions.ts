@@ -524,18 +524,43 @@ export const findAddress = async (lat: any, lng: any) => {
 };
 
 //function to convert datestring to DD/MM/YYYY HH:MM AM/PM format
-export const formatDate = (dateString: any) => {
+export const formatDate = (dateString: any, timezone?: string) => {
   // Parse the input date string
   const date = new Date(dateString);
 
-  // Extract date components
-  const day = String(date.getDate()).padStart(2, '0');
-  const month = String(date.getMonth() + 1).padStart(2, '0'); // Month is zero-based
-  const year = String(date.getFullYear());
+  let day: string, month: string, year: string, hours: number, minutes: number;
 
-  // Extract time components
-  const hours = date.getHours();
-  const minutes = date.getMinutes();
+  if (timezone) {
+    // Format with timezone
+    const options: Intl.DateTimeFormatOptions = {
+      timeZone: timezone,
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false
+    };
+
+    const formatter = new Intl.DateTimeFormat('en-GB', options);
+    const parts = formatter.formatToParts(date);
+
+    day = parts.find(part => part.type === 'day')?.value || '01';
+    month = parts.find(part => part.type === 'month')?.value || '01';
+    year = parts.find(part => part.type === 'year')?.value || '1970';
+    hours = parseInt(parts.find(part => part.type === 'hour')?.value || '0');
+    minutes = parseInt(parts.find(part => part.type === 'minute')?.value || '0');
+  } else {
+    // Extract date components (default behavior)
+    day = String(date.getDate()).padStart(2, '0');
+    month = String(date.getMonth() + 1).padStart(2, '0'); // Month is zero-based
+    year = String(date.getFullYear());
+
+    // Extract time components
+    hours = date.getHours();
+    minutes = date.getMinutes();
+  }
+
   const ampm = hours >= 12 ? 'PM' : 'AM';
   const formattedHours = hours % 12 === 0 ? 12 : hours % 12; // Convert to 12-hour format
   const formattedMinutes = String(minutes).padStart(2, '0');
